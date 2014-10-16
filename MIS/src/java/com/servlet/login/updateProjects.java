@@ -22,13 +22,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mr.Mic
  */
-public class addComittyMember extends HttpServlet {
-    private String staffID;
-    private String comityID;
-    private String year;
-    private String possision;
-    private String para1;
+public class updateProjects extends HttpServlet {
+    private String ProjectID;
+    private String para;
     private ResultSet res;
+    private String ProjectName;
+    private String Projectreport;
+    private String ProjectPPT;
+    private String Discription;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,10 +49,10 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet updateProjects</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet updateProjects at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -85,34 +86,45 @@ public class addComittyMember extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
          try {
-            ProsedeurControls pc = new ProsedeurControls();
-            PrintWriter pr = response.getWriter();
-
-            staffID = request.getParameter("staffID");
-            comityID = request.getParameter("comityID");
-            year = request.getParameter("year");
-            possision = request.getParameter("possision");
+            ProjectID = request.getParameter("ProjectID");
             
-            para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
-            res = pc.callProc("selectInvolveCommity", para1);
-
-            if (res.next()) {
-
-                request.setAttribute("massage", "It is exsisting behavior");
+            ProsedeurControls pc = new ProsedeurControls();
+            para ="('"+ ProjectID+"')";
+            
+            res = pc.callProc("SelectProject",para );
+            
+            if(res.next()){
+                
+                    ProjectID = res.getString(1);
+                    ProjectName = res.getString(2);
+                    Projectreport = res.getString(3);
+                    ProjectPPT = res.getString(4);
+                    Discription = res.getString(4);
+                    
+                
+                
+                request.setAttribute("ProjectID", ProjectID);
+                request.setAttribute("ProjectName", ProjectName);
+                request.setAttribute("Projectreport", Projectreport);
+                request.setAttribute("ProjectPPT", ProjectPPT);
+                request.setAttribute("Discription", ProjectPPT);
+                RequestDispatcher rd = request.getRequestDispatcher("updateProject1.jsp");
+                rd.forward(request, response);
+                
+                
+                
+            }else{
+                
+                request.setAttribute("massage", "no exam with that exam ID");
                 RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
                 rd.forward(request, response);
-
-            } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
-                rd.forward(request, response);
             }
-            // processRequest(request, response);
+            
+            //processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdateExam.class.getName()).log(Level.SEVERE, null, ex);
         }
         
        // processRequest(request, response);

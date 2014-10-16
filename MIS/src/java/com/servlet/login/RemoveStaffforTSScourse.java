@@ -22,11 +22,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mr.Mic
  */
-public class addComittyMember extends HttpServlet {
-    private String staffID;
-    private String comityID;
-    private String year;
-    private String possision;
+public class RemoveStaffforTSScourse extends HttpServlet {
+    private String StaffID;
+    private String CourseID;
+    private String Year;
     private String para1;
     private ResultSet res;
 
@@ -48,10 +47,10 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet RemoveStaffforTSScourse</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RemoveStaffforTSScourse at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -89,33 +88,32 @@ public class addComittyMember extends HttpServlet {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
 
-            staffID = request.getParameter("staffID");
-            comityID = request.getParameter("comityID");
-            year = request.getParameter("year");
-            possision = request.getParameter("possision");
+             StaffID = request.getParameter("StaffID");
+            CourseID = request.getParameter("CourseID");
+            Year = request.getParameter("Year");
             
-            para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
-            res = pc.callProc("selectInvolveCommity", para1);
+            para1 = "('" + StaffID + "','" + CourseID + "','" + Year + "')";
+            res = pc.callProc("selectConduct", para1);
 
             if (res.next()) {
+
+                pc.callProc("deleteConduct", para1);
+                request.setAttribute("massage", "Behavior is added");
+                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                rd.forward(request, response);
+
+            } else {
 
                 request.setAttribute("massage", "It is exsisting behavior");
                 RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
                 rd.forward(request, response);
 
-            } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
-                rd.forward(request, response);
             }
             // processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       // processRequest(request, response);
+        //processRequest(request, response);
     }
 
     /**

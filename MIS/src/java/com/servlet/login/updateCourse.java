@@ -22,13 +22,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mr.Mic
  */
-public class addComittyMember extends HttpServlet {
-    private String staffID;
-    private String comityID;
-    private String year;
-    private String possision;
-    private String para1;
+public class updateCourse extends HttpServlet {
+    private String courseID;
+    private String para;
     private ResultSet res;
+    private String CourseName;
+    private String Discription;
+    private String Sylabus;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,10 +48,10 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet updateCourse</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet updateCourse at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -85,35 +85,43 @@ public class addComittyMember extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try {
-            ProsedeurControls pc = new ProsedeurControls();
-            PrintWriter pr = response.getWriter();
-
-            staffID = request.getParameter("staffID");
-            comityID = request.getParameter("comityID");
-            year = request.getParameter("year");
-            possision = request.getParameter("possision");
+        try {
+            courseID = request.getParameter("courseID");
             
-            para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
-            res = pc.callProc("selectInvolveCommity", para1);
-
-            if (res.next()) {
-
-                request.setAttribute("massage", "It is exsisting behavior");
+            ProsedeurControls pc = new ProsedeurControls();
+            para ="('"+ courseID+"')";
+            
+            res = pc.callProc("selectCourse",para );
+            
+            if(res.next()){
+                
+                    courseID = res.getString(1);
+                    CourseName = res.getString(2);
+                    Discription = res.getString(3);
+                    Sylabus = res.getString(4);
+                
+                
+                request.setAttribute("courseID", courseID);
+                request.setAttribute("CourseName", CourseName);
+                request.setAttribute("Discription", Discription);
+                request.setAttribute("Sylabus", Sylabus);
+                RequestDispatcher rd = request.getRequestDispatcher("updateCourse.jsp");
+                rd.forward(request, response);
+                
+                
+                
+            }else{
+                
+                request.setAttribute("massage", "no exam with that exam ID");
                 RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
                 rd.forward(request, response);
-
-            } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
-                rd.forward(request, response);
             }
-            // processRequest(request, response);
+            
+            //processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UpdateExam.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
        // processRequest(request, response);
     }

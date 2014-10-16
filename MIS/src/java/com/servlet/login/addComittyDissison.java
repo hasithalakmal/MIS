@@ -22,11 +22,12 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mr.Mic
  */
-public class addComittyMember extends HttpServlet {
-    private String staffID;
+public class addComittyDissison extends HttpServlet {
+    private String DisisonID;
     private String comityID;
     private String year;
-    private String possision;
+    private String Subject;
+    private String Discription;
     private String para1;
     private ResultSet res;
 
@@ -48,10 +49,10 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet addComittyDissison</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet addComittyDissison at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -85,17 +86,18 @@ public class addComittyMember extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try {
+        try {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
 
-            staffID = request.getParameter("staffID");
+            DisisonID = request.getParameter("DisisonID");
             comityID = request.getParameter("comityID");
             year = request.getParameter("year");
-            possision = request.getParameter("possision");
+            Subject = request.getParameter("Subject");
+            Discription = request.getParameter("Discription");
             
-            para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
-            res = pc.callProc("selectInvolveCommity", para1);
+            para1 = "('" + DisisonID +"')";
+            res = pc.callProc("selectComityDissisions", para1);
 
             if (res.next()) {
 
@@ -104,8 +106,8 @@ public class addComittyMember extends HttpServlet {
                 rd.forward(request, response);
 
             } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
+                para1 = "('" + DisisonID + "','" + comityID + "','"+year+"','"+Subject +"','"+Discription+ "')";
+                pc.callProc("insertComityDissison", para1);
                 request.setAttribute("massage", "Behavior is added");
                 RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
                 rd.forward(request, response);
@@ -115,7 +117,7 @@ public class addComittyMember extends HttpServlet {
             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-       // processRequest(request, response);
+        //processRequest(request, response);
     }
 
     /**

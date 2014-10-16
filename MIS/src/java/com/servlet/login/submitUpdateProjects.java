@@ -9,9 +9,6 @@ import com.MIS.lib.ProsedeurControls;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,12 +19,14 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mr.Mic
  */
-public class addComittyMember extends HttpServlet {
-    private String staffID;
-    private String comityID;
-    private String year;
-    private String possision;
-    private String para1;
+public class submitUpdateProjects extends HttpServlet {
+
+    private String ProjectID;
+    private String ProjectName;
+    private String Projectreport;
+    private String ProjectPPT;
+    private String Discription;
+    private String para;
     private ResultSet res;
 
     /**
@@ -48,10 +47,10 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet submitUpdateProjects</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet submitUpdateProjects at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -85,37 +84,21 @@ public class addComittyMember extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try {
-            ProsedeurControls pc = new ProsedeurControls();
-            PrintWriter pr = response.getWriter();
+        ProjectID = request.getParameter("ProjectID");
+        ProjectName = (String) request.getAttribute("ProjectName");
+        Projectreport = request.getParameter("Projectreport");
+        ProjectPPT = request.getParameter("ProjectPPT");
+        Discription = request.getParameter("Discription");
 
-            staffID = request.getParameter("staffID");
-            comityID = request.getParameter("comityID");
-            year = request.getParameter("year");
-            possision = request.getParameter("possision");
-            
-            para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
-            res = pc.callProc("selectInvolveCommity", para1);
+        ProsedeurControls pc = new ProsedeurControls();
+        para = "('" + ProjectID + "','" + ProjectName + "','" + Projectreport + "','" + ProjectPPT + "','" + Discription + "')";
+        res = pc.callProc("updateProject", para);
 
-            if (res.next()) {
+        request.setAttribute("massage", "exam is updated");
+        RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+        rd.forward(request, response);
 
-                request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
-                rd.forward(request, response);
-
-            } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
-                rd.forward(request, response);
-            }
-            // processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-       // processRequest(request, response);
+        // processRequest(request, response);
     }
 
     /**

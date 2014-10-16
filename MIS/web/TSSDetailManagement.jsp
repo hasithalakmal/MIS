@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ebiHome
-    Created on : Aug 31, 2014, 6:28:53 AM
+    Document   : TSSDetailManagement
+    Created on : Oct 11, 2014, 6:39:49 AM
     Author     : Mr.Mic
 --%>
 
@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ebi Page</title>
-         <style>
+        <title>JSP Page</title>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -121,9 +121,9 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-    <body>
-         <%
+        </head>
+        <body>
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -169,32 +169,41 @@
 
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                        <li><a href="#">||Exam Management||</a>
+                        <li><a href="#">||Course Management||</a>
                             <ul>
-                                <li><a href="addCourse.jsp">Add Exam</a></li>
-                               <li><a href="deleteExam.jsp">Remove Exam</a></li>
-                                <li><a href="updateExam0.jsp">update Exam</a></li>
-                                <li><a href="addExamResult.jsp">Add Results</a></li>
-                                <li><a href="DeleteExamResults.jsp">Remove Results</a></li>
-                                <li><a href="updateExamResults0.jsp">update Results</a></li>
-                                
+                                <li><a href="addCourse.jsp">Add Course</a></li>
+                                <li><a href="removeCourse.jsp">Remove Course</a></li>
+                                <li><a href="updatecourse0.jsp">update course</a></li>
+                                <li><a href="studentAddToCourse.jsp">Add student to course</a></li>
+                                <li><a href="studentRemoveFromCourse.jsp">Remove student from course</a></li>
+                                <li><a href="studentUpdateInCourse0.jsp">update student in course</a></li>
+                                <li><a href="staffAddToCourse.jsp">Add staff to course</a></li>
+                                <li><a href="staffRemoveFromCourse.jsp">Remove staff from course</a></li>
+                                <li><a href="staffUpdateInCourse.jsp">update staff in course</a></li>
 
                             </ul>
                         </li>
 
 
-                        
+                        <li><a href="#">||Project Management||</a>
+                            <ul>
+                                <li><a href="addTSSProject.jsp">Add Project</a></li>
+                                <li><a href="removeTSSProject.jsp">Remove Project</a></li>
+                                <li><a href="updateTSSProject.jsp">update Project</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">||User Management||</a>
                             <ul>
-                                <li><a href="RegistationTss.jsp">Select User</a></li>                    
-                                
+                                <li><a href="RegistationTss.jsp">Add Thurunusaviya Student</a></li>                    
+                                <li><a href="#">Add Thurunusaviya Staff</a></li>
+                                <li><a href="RegistationTsi.jsp">Add Thurunusaviya Incharge</a></li>
                             </ul>
                         </li>
                         <li><a href="#">||Reports||</a>
                             <ul>
                                 <li><a href="#">Student Reports</a></li>
-                                <li><a href="#">Result Reports</a></li>
-                                <li><a href="#">Exam Reports</a></li>
+                                <li><a href="#">Staff Reports</a></li>
+                                <li><a href="#">Course Reports</a></li>
 
                             </ul>
                         </li>
@@ -237,6 +246,8 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
+
+
 
     </body>
 </html>

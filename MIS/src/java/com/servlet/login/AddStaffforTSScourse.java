@@ -22,14 +22,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mr.Mic
  */
-public class addComittyMember extends HttpServlet {
-    private String staffID;
-    private String comityID;
-    private String year;
-    private String possision;
+public class AddStaffforTSScourse extends HttpServlet {
+    private String StaffID;
+    private String CourseID;
+    private String Year;
+    private String attendance;
+    private String Possision;
+ String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20;
     private String para1;
     private ResultSet res;
-
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,10 +49,10 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet AddStaffforTSScourse</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddStaffforTSScourse at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -85,37 +86,62 @@ public class addComittyMember extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try {
+        try {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
 
-            staffID = request.getParameter("staffID");
-            comityID = request.getParameter("comityID");
-            year = request.getParameter("year");
-            possision = request.getParameter("possision");
+            StaffID = request.getParameter("StaffID");
+            CourseID = request.getParameter("CourseID");
+            Year = request.getParameter("Year");
+            attendance = request.getParameter("attendance");
+            Possision = request.getParameter("Possision");
+                       
             
-            para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
-            res = pc.callProc("selectInvolveCommity", para1);
+            p1 = request.getParameter("q1");
+            p2 = request.getParameter("q2");
+            p3 = request.getParameter("q3");
+            p4 = request.getParameter("q4");
+            p5 = request.getParameter("q5");
+            p6 = request.getParameter("q6");
+            p7 = request.getParameter("q7");
+            p8 = request.getParameter("q8");
+            p9 = request.getParameter("q9");
+            p10 = request.getParameter("q10");
+            p11 = request.getParameter("q11");
+            p12 = request.getParameter("q12");
+            p13 = request.getParameter("q13");
+            p14 = request.getParameter("q14");
+            p15 = request.getParameter("q15");
+            p16 = request.getParameter("q16");
+            p17 = request.getParameter("q17");
+            p18 = request.getParameter("q18");
+            p19 = request.getParameter("q19");
+            p20 = request.getParameter("q20");
 
-            if (res.next()) {
+          
 
-                request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
-                rd.forward(request, response);
+             para1 = "('" + StaffID +"','"+CourseID+"','"+Year+ "')";
+             res = pc.callProc("selectConduct", para1);
 
-            } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
-                rd.forward(request, response);
-            }
-            // processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
-        }
+             if (res.next()) {
+
+             request.setAttribute("massage", "It is exsisting behavior");
+             RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+             rd.forward(request, response);
+
+             } else {
+             para1 = "('" + StaffID +"','"+CourseID+"','"+Year+"','"+attendance +"','"+Possision+"','"+ p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "','" + p19 + "','" + p20 +"')";
+             pc.callProc("insertConduct", para1);
+             request.setAttribute("massage", "Behavior is added");
+             RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+             rd.forward(request, response);
+             }
+             // processRequest(request, response);
+             } catch (SQLException ex) {
+             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
+             }
         
-       // processRequest(request, response);
+      //  processRequest(request, response);
     }
 
     /**

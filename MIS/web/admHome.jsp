@@ -61,6 +61,9 @@
 
         <br><br>
         <a href="CommityDetailManagement.jsp">Commity Detail Management</a>
+        
+        <br><br>
+        <a href="TSSDetailManagement.jsp">TSS Detail Management</a>
 
         <br><br>
         <a href="logoutPage.jsp">logoutPage</a>

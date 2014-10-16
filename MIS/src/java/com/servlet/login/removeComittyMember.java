@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Mr.Mic
  */
-public class addComittyMember extends HttpServlet {
+public class removeComittyMember extends HttpServlet {
     private String staffID;
     private String comityID;
     private String year;
@@ -48,10 +48,10 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet removeComittyMember</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet removeComittyMember at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         } finally {
@@ -85,29 +85,31 @@ public class addComittyMember extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try {
+        
+        try {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
 
             staffID = request.getParameter("staffID");
             comityID = request.getParameter("comityID");
             year = request.getParameter("year");
-            possision = request.getParameter("possision");
+           
             
             para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
             res = pc.callProc("selectInvolveCommity", para1);
 
             if (res.next()) {
 
-                request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                 pc.callProc("deleteInvolveCommity", para1);
+                request.setAttribute("massage", "Behavior is added");
+                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
                 rd.forward(request, response);
 
             } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+               
+               
+                request.setAttribute("massage", "It is exsisting behavior");
+                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
                 rd.forward(request, response);
             }
             // processRequest(request, response);

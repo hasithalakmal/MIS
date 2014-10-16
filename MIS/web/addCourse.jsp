@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ebiHome
-    Created on : Aug 31, 2014, 6:28:53 AM
+    Document   : addCourse
+    Created on : Oct 11, 2014, 6:49:33 AM
     Author     : Mr.Mic
 --%>
 
@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ebi Page</title>
-         <style>
+        <title>JSP Page</title>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -80,9 +80,9 @@
                 font: 62.5%/1.2 Arial, Helvetica, sans-serif;
                 background-color: #eee; }
             #wrap {
-                font-size: 1.1em;
-                width: 1000px;
-                padding: 0px;
+                font-size: 1.3em;
+                width: 500px;
+                padding: 20px;
                 margin: 0 0; 
                 background-color: #d4dadc;
                 position: relative; }
@@ -104,13 +104,12 @@
             #navbar li ul {
                 display: none; 
                 width: 10em; /* Width to help Opera out */
-                background-color: #69f;
-            }
+                background-color: #69f;}
             #navbar li:hover ul, #navbar li.hover ul {
                 display: block;
                 position: absolute;
                 margin: 0;
-                padding: 0; 
+                padding: 0;
                 opacity: 0.8}
             #navbar li:hover li, #navbar li.hover li {
                 float: none; }
@@ -120,10 +119,10 @@
                 color: #000; }
             #navbar li li a:hover {
                 background-color: #8db3ff; }
-            </style>
-    </head>
-    <body>
-         <%
+        </style>
+        </head>
+        <body>
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -144,7 +143,7 @@
                         </td>
                         <td align="right">
 
-                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
+                            <h3>  <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
                         </td>
                     </tr>
                 </table>
@@ -156,9 +155,6 @@
                     <li><a href="history.html">History</a></li>
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
                     <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
-
                 </ul>
             </div>
 
@@ -169,70 +165,79 @@
 
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                        <li><a href="#">||Exam Management||</a>
+                        <li><a href="#">Courses</a>
                             <ul>
-                                <li><a href="addCourse.jsp">Add Exam</a></li>
-                               <li><a href="deleteExam.jsp">Remove Exam</a></li>
-                                <li><a href="updateExam0.jsp">update Exam</a></li>
-                                <li><a href="addExamResult.jsp">Add Results</a></li>
-                                <li><a href="DeleteExamResults.jsp">Remove Results</a></li>
-                                <li><a href="updateExamResults0.jsp">update Results</a></li>
-                                
-
+                                <li><a href="addCourse.jsp">Add Course</a></li>
+                                <li><a href="removeCourse.jsp">Remove Course</a></li>
+                                <li><a href="updatecourse0.jsp">update course</a></li>
                             </ul>
                         </li>
-
-
-                        
-                        <li><a href="#">||User Management||</a>
+                        <li><a href="#">TS student Mgt</a>
                             <ul>
-                                <li><a href="RegistationTss.jsp">Select User</a></li>                    
-                                
+                                <li><a href="studentAddToCourse.jsp">Add student</a></li>
+                                <li><a href="studentRemoveFromCourse.jsp">Remove student</a></li>
+                                <li><a href="studentUpdateInCourse0.jsp">update student</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">||Reports||</a>
+                        <li><a href="#">TS Staff Mgt</a>
                             <ul>
-                                <li><a href="#">Student Reports</a></li>
-                                <li><a href="#">Result Reports</a></li>
-                                <li><a href="#">Exam Reports</a></li>
-
+                                <li><a href="staffAddToCourse.jsp">Add staff</a></li>
+                                <li><a href="staffRemoveFromCourse.jsp">Remove staff</a></li>
+                                <li><a href="staffUpdateInCourse.jsp">update staff</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">||SMS and e-mails||</a>
+                        <li><a href="#">TS Staff Mgt</a>
                             <ul>
-                                <li><a href="#">send SMS to Student</a></li>
-                                <li><a href="#">send SMS to Parent</a></li>
-                                <li><a href="#">send SMS to Staff</a></li>
-                                <li><a href="#">send E-mail to Parent</a></li>
-                                <li><a href="#">send E-mail to Student</a></li>
-                                <li><a href="#">send E-mail to Staff</a></li>
-
+                                <li><a href="addTSSProject.jsp">Add Project</a></li>
+                                <li><a href="removeTSSProject.jsp">Remove Project</a></li>
+                                <li><a href="updateTSSProject.jsp">update Project</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">||Resource Management||</a>
-                            <ul>
-                                <li><a href="#">Add File</a></li>
-                                <li><a href="#">Add video</a></li>
-                                <li><a href="#">Add Audio</a></li>
-                                <li><a href="#">Add Image</a></li>
-                                <li><a href="#">Remove File</a></li>
-                                <li><a href="#">Remove video</a></li>
-                                <li><a href="#">Remove Audio</a></li>
-                                <li><a href="#">Remove Image</a></li>
-                            </ul>
-                        </li>
-
                     </ul>
                 </div>
 
-                <div id="content_container">
 
-                    Hello,<br>
-                    Now you are in TSS management area. select your task from above menue.
-                </div>
+
+
+                <div id="content_container">
+                 
+                    <h3>Add course</h3>
+                    <form action="addCourse" method="post">
+                        <table>
+                            <tr>
+                                <td>
+                                    Course ID
+                                </td>
+                                <td>
+                                    <input type="text" name="courseID">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Course Name
+                                </td>
+                                <td>
+                                    <input type="text" name="CourseName">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Discription</td>
+                                <td><input type="text" name="Discription"></td>
+                            </tr>
+                            <tr>
+                                <td>Sylabus</td>
+                                <td>
+                                    <input type="text" name="Sylabus">
+                                </td>
+                            </tr>
+
+                        </table>
+                        <input type="submit" value="Add course">
+                    </form>
+                </div><!--close content_container-->
+
 
             </div>
-
             <div id="footer">
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
@@ -240,3 +245,4 @@
 
     </body>
 </html>
+
