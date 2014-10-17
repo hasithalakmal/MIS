@@ -124,104 +124,121 @@
     </head>
      <body >
        
-     <%
-           
-          String x1 =(String) session.getAttribute("uid");
-        if(session.getAttribute("useID") == null){
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);}
-              
-        %>
-        
-    <center>
-        <h1>Admin Home Page <%=x1%></h1>
+    <%
+
+                String x1 = (String) session.getAttribute("useID");
+                if (x1 == null) {
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request, response);
+                }
+
+            %>
+            <div id="container">
+            <div id="header">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                    <tr>
+                        <td>
+                            <img src="uper1.jpg" width="300">
+                        </td>
+                        <td>
+                            <h1 style="color: #FFF">Tss Management area</h1>
+                        </td>
+                        <td align="right">
+
+                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
+                    <li><a href="gallary.html">Gallary</a></li>
+                    <li><a href="#">View My Details</a></li>
+                    <li><a href="PasswordChange.jsp">Change password</a></li>
+
+                </ul>
+            </div>
+
+            <div id="section">
+
+
+                <div id="wrap">
+
+                    <ul id="navbar">
+                        <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
+                         
+                        <li><a href="#">||User Management||</a>
+                            <ul>
+                                <li><a href="RCIaddMember.jsp">Add User</a></li>                    
+                                <li><a href="updateUser.jsp">Update User</a></li>
+                                <li><a href="searchUser.jsp">Search User</a></li>
+                                <li><a href="ResetMemberPassword.jsp">Reset Password</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">||Reports||</a>
+                            <ul>
+                                <li><a href="#">Personal detail reports</a></li>
+                                <li><a href="#">Parent Reports</a></li>
+                                <li><a href="#">Class Reports</a></li>
+                                <li><a href="#">Exam Reports</a></li>
+                                <li><a href="#">TSS Reports</a></li>
+                                <li><a href="#">Prefect Reports</a></li>
+                                <li><a href="#">Special Reports</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="#">||SMS and e-mails||</a>
+                            <ul>
+                                <li><a href="#">send SMS to Student</a></li>
+                                <li><a href="#">send SMS to Parent</a></li>
+                                <li><a href="#">send SMS to Staff</a></li>
+                                <li><a href="#">send E-mail to Parent</a></li>
+                                <li><a href="#">send E-mail to Student</a></li>
+                                <li><a href="#">send E-mail to Staff</a></li>
+
+                            </ul>
+                        </li>
+                        <li><a href="#">||Resource Management||</a>
+                            <ul>
+                                <li><a href="#">Add File</a></li>
+                                <li><a href="#">Add video</a></li>
+                                <li><a href="#">Add Audio</a></li>
+                                <li><a href="#">Add Image</a></li>
+                                <li><a href="#">Remove File</a></li>
+                                <li><a href="#">Remove video</a></li>
+                                <li><a href="#">Remove Audio</a></li>
+                                <li><a href="#">Remove Image</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div id="content_container">
+
+                    Hello,<br>
+                    Now you are in TSS management area. select your task from above menue.
+                </div>
+
+            </div>
+
+            <div id="footer">
+                Copyright © SiriWajiraghanaDahamPasala.com
+            </div>
+        </div>
+    
        
-        <!-- Create a table to design the page layout>-->
-        <form action="RegistationStu.jsp" method="post" name="AdmControler">
-            <h2>ADD Student in hear</h2>
-            <table>
-                
-                <tr>
-                    <td>
-                        <input type="submit" Value="Add Student" name="Submit">
-                    </td>
-                </tr>
-
-            </table>
-             
-
-        </form>
+       
 
         
 
 
         
-       <br>
-        <h2>Click this to logout</h2>
-         
-        <form action="LogOut" method="post">
-            <input type="submit" value="Log Out">
-        </form>
+      
         
-        <br><br>
-        <a href="PasswordChange.jsp">Click hear to change your Password</a>
-        
-          <br><br>
-        <a href="addResourse.jsp">add Resourse</a>
-
-        <br><br>
-        <a href="downloardResourses.jsp">Downloard Resourse</a>
-        
-        <br><br>
-         <form action="viweOUProfile" method="post">
-             
-            <input type="submit" value="Personal Data">
-        </form>
-
-        
-         <form action="adminSearchUser" method="post">
-            <h2>Please enter user id for search Student</h2>
-
-
-            <table>
-                <tr>
-                    <td>
-                        Enter user ID
-                     </td>
-                    <td>
-                        <input type="text" name="uid">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit"  Value="Search">
-                    </td>
-                </tr>
-            </table>
-        </form>
-
-         <form action="admUpdateUser" method="post">
-            <h2>Please enter user id for search Student</h2>
-
-
-            <table>
-                <tr>
-                    <td>
-                        Enter user ID
-                    </td>
-                    <td>
-                        <input type="text" name="uid">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit"  Value="Update">
-                    </td>
-                </tr>
-            </table>
-        </form>
-    </center>
 </body>
 </html>

@@ -25,48 +25,10 @@
         <h1>Admin Home Page <%=x1%></h1>
 
         <!-- Create a table to design the page layout>-->
-        <form action="adminAddUser" method="post" name="AdmControler">
-            <h2>ADD Student in hear</h2>
-            <table>
-                <tr >
-                    <td>
-                        <b>Select User Type</b>
-                    </td>
-                    <td>
-                        <select  name="usertype">
-                            <option value="adm">Admin</option>
-                            <option value="rci">Reserch Center Incharge</option>
-                            <option value="pbi">Prefect Incharge</option>
-                            <option value="tsi">Thurunusaviya Incharge</option>
-                            <option value="opi">Old Boy Incharge</option>
-                            <option value="sti">Staff Incharge</option>
-                            <option value="stu">Student</option>
-                            <option value="ebi">Exam Branch Incharge</option>
-                            <option value="stf">Staff</option>
-                            <option value="ops">Old Boy</option>
-                            <option value="prf">Prefect</option>
-                            <option value="tss">Thurunusaviya student</option>
-                            <option value="acc">Accountant</option>
-                            <option value="pub">Public Center</option>
-                            <option value="prn">Gardian</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-
-                <center>
-                    <input type="submit" Value="Add New User" name="Submit">
-                </center>
-                </td>
-                </tr>
-
-            </table>
+        <a href="addUser.jsp">add user</a>
 
 
-        </form>
-
+       
 
 
 
@@ -132,22 +94,8 @@
             <input type="submit" value="Reset password">
         </form>
         <br><br>
-
-        <form action="AdmDeleteMember" method="post">
-            <h2>Delete Student</h2>
-            <table>
-
-                <tr>
-                    <td>
-                        Enter user ID
-                    </td>
-                    <td>
-                        <input type="text" name="uid">
-                    </td>
-                </tr>
-            </table>
-            <input type="submit" value="Deleat Member">
-        </form>
+        <a href="removeUser.jsp"> Delete User</a>
+        
     </center>
     </body>
 </html>
