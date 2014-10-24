@@ -192,7 +192,7 @@
                                 <li><a href="updateTSSProject.jsp">update Project</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">||User Management||</a>
+                        <li><a href="#">|>|User Management||</a>
                             <ul>
                                 <li><a href="RegistationTss.jsp">Add Thurunusaviya Student</a></li>                    
                                 <li><a href="#">Add Thurunusaviya Staff</a></li>
