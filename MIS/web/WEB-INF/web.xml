@@ -324,6 +324,10 @@
         <servlet-name>submitUpdateProjects</servlet-name>
         <servlet-class>com.servlet.login.submitUpdateProjects</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>getcoursedetails</servlet-name>
+        <servlet-class>com.servlet.login.getcoursedetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mainAccessControler</servlet-name>
         <url-pattern>/mainAccessControler</url-pattern>
@@ -647,6 +651,10 @@
     <servlet-mapping>
         <servlet-name>submitUpdateProjects</servlet-name>
         <url-pattern>/submitUpdateProjects</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>getcoursedetails</servlet-name>
+        <url-pattern>/getcoursedetails</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

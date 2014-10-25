@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Research center in charge Page</title>
+        <title>Research Center In-Charge Profile</title>
          <style>
             #container {
                 width: 1320px ;
@@ -82,7 +82,7 @@
             #wrap {
                 font-size: 1.1em;
                 width: 1000px;
-                padding: 0px;
+                padding: 20px;
                 margin: 0 0; 
                 background-color: #d4dadc;
                 position: relative; }
@@ -141,7 +141,7 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Tss Management area</h1>
+                            <h1 style="color: #FFF">Research Center In_Charge</h1>
                         </td>
                         <td align="right">
 
@@ -158,7 +158,7 @@
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
                     <li><a href="gallary.html">Gallary</a></li>
                     <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
+                    <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -181,7 +181,7 @@
                         </li>
                         <li><a href="#">||Reports||</a>
                             <ul>
-                                <li><a href="#">Personal detail reports</a></li>
+                                <li><a href="#">Personal Detail Reports</a></li>
                                 <li><a href="#">Parent Reports</a></li>
                                 <li><a href="#">Class Reports</a></li>
                                 <li><a href="#">Exam Reports</a></li>
@@ -193,23 +193,23 @@
                         </li>
                         <li><a href="#">||SMS and e-mails||</a>
                             <ul>
-                                <li><a href="#">send SMS to Student</a></li>
-                                <li><a href="#">send SMS to Parent</a></li>
-                                <li><a href="#">send SMS to Staff</a></li>
-                                <li><a href="#">send E-mail to Parent</a></li>
-                                <li><a href="#">send E-mail to Student</a></li>
-                                <li><a href="#">send E-mail to Staff</a></li>
+                                <li><a href="#">Send SMS to Student</a></li>
+                                <li><a href="#">Send SMS to Parent</a></li>
+                                <li><a href="#">Send SMS to Staff</a></li>
+                                <li><a href="#">Send E-mail to Parent</a></li>
+                                <li><a href="#">Send E-mail to Student</a></li>
+                                <li><a href="#">Send E-mail to Staff</a></li>
 
                             </ul>
                         </li>
                         <li><a href="#">||Resource Management||</a>
                             <ul>
                                 <li><a href="#">Add File</a></li>
-                                <li><a href="#">Add video</a></li>
+                                <li><a href="#">Add Video</a></li>
                                 <li><a href="#">Add Audio</a></li>
                                 <li><a href="#">Add Image</a></li>
                                 <li><a href="#">Remove File</a></li>
-                                <li><a href="#">Remove video</a></li>
+                                <li><a href="#">Remove Video</a></li>
                                 <li><a href="#">Remove Audio</a></li>
                                 <li><a href="#">Remove Image</a></li>
                             </ul>
@@ -219,9 +219,10 @@
                 </div>
 
                 <div id="content_container">
-
-                    Hello,<br>
-                    Now you are in TSS management area. select your task from above menue.
+                    <center>
+                   
+                   <img src="research.jpg" width="450" height="300">
+                    </center>
                 </div>
 
             </div>

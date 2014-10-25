@@ -28,6 +28,8 @@
         <br><br>
         <a href="UserManagement.jsp">User Management</a>
 
+        <br><br>
+        <a href="get course details.jsp">get course details</a>
 
         <br><br>
         <a href="addResourse.jsp">add recourse</a>

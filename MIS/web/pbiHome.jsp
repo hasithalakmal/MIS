@@ -49,7 +49,7 @@
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 330px;
+            { width: 1000px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -140,7 +140,7 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Prefect board in charge</h1>
+                            <h1 style="color: #FFF">Prefect Board In-Charge Profile</h1>
                         </td>
                         <td align="right">
 
@@ -157,7 +157,7 @@
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
                     <li><a href="gallary.html">Gallary</a></li>
                     <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
+                    <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -174,9 +174,9 @@
                                 <li><a href="AddServiseForPrefect.jsp">Add Service For Prefect</a></li>
                                 <li><a href="RemoveServiceForPrefect.jsp">Remove Service From Prefect</a></li>
                                 <li><a href="#">Update Service From Prefect</a></li>
-                                <li><a href="addPrefectBehaviors.jsp">add Prefect Behaviors</a></li>
-                                <li><a href="removePrefectBehaviors.jsp">remove Prefect Behaviors</a></li>
-                                <li><a href="#">update Prefect Behaviors</a></li>
+                                <li><a href="addPrefectBehaviors.jsp">Add Prefect Behaviors</a></li>
+                                <li><a href="removePrefectBehaviors.jsp">Remove Prefect Behaviors</a></li>
+                                <li><a href="#">Update Prefect Behaviors</a></li>
                           </ul>
                         </li>
 
@@ -205,23 +205,23 @@
                         </li>
                         <li><a href="#">||SMS and e-mails||</a>
                             <ul>
-                                <li><a href="#">send SMS to Student</a></li>
-                                <li><a href="#">send SMS to Parent</a></li>
-                                <li><a href="#">send SMS to Staff</a></li>
-                                <li><a href="#">send E-mail to Parent</a></li>
-                                <li><a href="#">send E-mail to Student</a></li>
-                                <li><a href="#">send E-mail to Staff</a></li>
+                                <li><a href="#">Send SMS to Student</a></li>
+                                <li><a href="#">Send SMS to Parent</a></li>
+                                <li><a href="#">Send SMS to Staff</a></li>
+                                <li><a href="#">Send E-mail to Parent</a></li>
+                                <li><a href="#">Send E-mail to Student</a></li>
+                                <li><a href="#">Send E-mail to Staff</a></li>
 
                             </ul>
                         </li>
                         <li><a href="#">||Resource Management||</a>
                             <ul>
                                 <li><a href="#">Add File</a></li>
-                                <li><a href="#">Add video</a></li>
+                                <li><a href="#">Add Video</a></li>
                                 <li><a href="#">Add Audio</a></li>
                                 <li><a href="#">Add Image</a></li>
                                 <li><a href="#">Remove File</a></li>
-                                <li><a href="#">Remove video</a></li>
+                                <li><a href="#">Remove Video</a></li>
                                 <li><a href="#">Remove Audio</a></li>
                                 <li><a href="#">Remove Image</a></li>
                             </ul>
@@ -232,8 +232,8 @@
 
                 <div id="content_container">
 
-                    Hello,<br>
-                    Now you are in TSS management area. select your task from above menue.
+                    <br>
+                    <img src="home1.jpg" width="450" height="370" align="center">
                 </div>
 
             </div>
@@ -242,11 +242,6 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-
-
-
-       
-       
-      
+ 
     </body>
 </html>

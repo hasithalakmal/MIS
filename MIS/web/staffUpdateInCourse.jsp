@@ -1,7 +1,7 @@
 <%-- 
-    Document   : RegistationPbi
-    Created on : Sep 7, 2014, 10:48:21 AM
-    Author     : Mr.Mic
+    Document   : staffUpdateInCourse
+    Created on : 22-Oct-2014, 09:57:26
+    Author     : Prasanga
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-          <style>
+        <title>Staff Update in Course</title>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -82,7 +82,7 @@
             #wrap {
                 font-size: 1.1em;
                 width: 1000px;
-                padding: 20px;
+                padding: 0px;
                 margin: 0 0; 
                 background-color: #d4dadc;
                 position: relative; }
@@ -121,18 +121,19 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-     <body >
-       
-    <%
+        </head>
+        <body>
+            <%
+                /*
+                 // String uid = (String) session.getAttribute("useID");
+                 if (session.getAttribute("useID") == null) {
+                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                 rd.forward(request, response);
+                 }
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                    rd.forward(request, response);
-                }
-
+                 */
             %>
+
             <div id="container">
             <div id="header">
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
@@ -141,7 +142,7 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Research Center In-Charge</h1>
+                            <h1 style="color: #FFF">Thurunusaviya Management Area</h1>
                         </td>
                         <td align="right">
 
@@ -156,7 +157,7 @@
                     <li><a href="home.html">Home</a></li>
                     <li><a href="history.html">History</a></li>
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
+                    <li><a href="gallary.html">Gallery</a></li>
                     <li><a href="#">View My Details</a></li>
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
@@ -170,28 +171,45 @@
 
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
+                        <li><a href="#">||Course Management||</a>
+                            <ul>
+                                <li><a href="addCourse.jsp">Add Course</a></li>
+                                <li><a href="removeCourse.jsp">Remove Course</a></li>
+                                <li><a href="updatecourse0.jsp">Update course</a></li>
+                                <li><a href="studentAddToCourse.jsp">Add Student to Course</a></li>
+                                <li><a href="studentRemoveFromCourse.jsp">Remove Student from Course</a></li>
+                                <li><a href="studentUpdateInCourse0.jsp">Update Student in Course</a></li>
+                                <li><a href="staffAddToCourse.jsp">Add Staff to Course</a></li>
+                                <li><a href="staffRemoveFromCourse.jsp">Remove Staff from Course</a></li>
+                                <li><a href="staffUpdateInCourse.jsp">Update Staff in Course</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li><a href="#">||Project Management||</a>
+                            <ul>
+                                <li><a href="addTSSProject.jsp">Add Project</a></li>
+                                <li><a href="removeTSSProject.jsp">Remove Project</a></li>
+                                <li><a href="updateTSSProject.jsp">Update Project</a></li>
+                            </ul>
+                        </li>
                         <li><a href="#">||User Management||</a>
                             <ul>
-                                <li><a href="RCIaddMember.jsp">Add User</a></li>                    
-                                <li><a href="updateUser.jsp">Update User</a></li>
-                                <li><a href="searchUser.jsp">Search User</a></li>
-                                <li><a href="ResetMemberPassword.jsp">Reset Password</a></li>
+                                <li><a href="RegistationTss.jsp">Add Thurunusaviya Student</a></li>                    
+                                <li><a href="#">Add Thurunusaviya Staff</a></li>
+                                <li><a href="RegistationTsi.jsp">Add Thurunusaviya In-charge</a></li>
                             </ul>
                         </li>
                         <li><a href="#">||Reports||</a>
                             <ul>
-                                <li><a href="#">Personal Detail Reports</a></li>
-                                <li><a href="#">Parent Reports</a></li>
-                                <li><a href="#">Class Reports</a></li>
-                                <li><a href="#">Exam Reports</a></li>
-                                <li><a href="#">TSS Reports</a></li>
-                                <li><a href="#">Prefect Reports</a></li>
-                                <li><a href="#">Special Reports</a></li>
+                                <li><a href="#">Student Reports</a></li>
+                                <li><a href="#">Staff Reports</a></li>
+                                <li><a href="#">Course Reports</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="#">||SMS and e-mails||</a>
+                        <li><a href="#">||SMS and E-mails||</a>
                             <ul>
                                 <li><a href="#">Send SMS to Student</a></li>
                                 <li><a href="#">Send SMS to Parent</a></li>
@@ -219,34 +237,36 @@
                 </div>
 
                 <div id="content_container">
-                     <center>
-        <h3>Prefect Board In-charge Registration</h3>
-        <br>
-        <form action="PbiRegistation" method="post">
-            <table>
-                <tr>
-                    <td>
-                        New User ID
-                    </td>
-                    <td>
-                        <input type="text" name="ouID">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Registration Date</td>
-                    <td><input type="date" name="Reg_Date" value="" ></td>
-                </tr>
-                <tr>
-                    <td>Staff ID</td>
-                    <td>
-                        <input type="text" name="stfID">
-                    </td>
-                </tr>
-                
-            </table>
-            <input type="submit" value="Add">
-        </form>
-        </center>
+
+                    <center>
+                        <h3>Update Staff in Thurunusaviya Course</h3>
+                        <form action="updateStaffForTSScourse" method="post">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Staff ID
+                                    </td>
+                                    <td>
+                                        <input type="text" name="StaffID">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Course ID</td>
+                                    <td><input type="text" name="CourseID"></td>
+                                </tr>
+                                <tr>
+                                    <td>Year</td>
+                                    <td>
+                                        <input type="text" name="Year">
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                            <br>
+                            <input type="submit" value="Update Details">
+                        </form>
+                    </center>
                 </div>
 
             </div>
@@ -255,16 +275,6 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-    
-       
-       
 
-        
-
-
-        
-      
-        
-</body>
+    </body>
 </html>
-

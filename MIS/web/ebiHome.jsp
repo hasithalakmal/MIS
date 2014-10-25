@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ebi Page</title>
+        <title>Ebi Home</title>
          <style>
             #container {
                 width: 1320px ;
@@ -121,18 +121,17 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
+
     </head>
     <body>
          <%
-
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                    rd.forward(request, response);
-                }
-
-            %>
-            <div id="container">
+    /*   
+        if(session.getAttribute("useID") == null){
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);}
+       */       
+        %>
+        <div id="container">
             <div id="header">
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
                     <tr>
@@ -140,7 +139,7 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Tss Management area</h1>
+                            <h1 style="color: #FFF">Exam Management Area</h1>
                         </td>
                         <td align="right">
 
@@ -155,9 +154,9 @@
                     <li><a href="home.html">Home</a></li>
                     <li><a href="history.html">History</a></li>
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
+                    <li><a href="gallary.html">Gallery</a></li>
                     <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
+                    <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -171,12 +170,12 @@
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                         <li><a href="#">||Exam Management||</a>
                             <ul>
-                                <li><a href="addCourse.jsp">Add Exam</a></li>
-                               <li><a href="deleteExam.jsp">Remove Exam</a></li>
-                                <li><a href="updateExam0.jsp">update Exam</a></li>
+                                <li><a href="addExam.jsp">Add Exam</a></li>
+                                <li><a href="deleteExam.jsp">Remove Exam</a></li>
+                                <li><a href="updateExam0.jsp">Update Exam</a></li>
                                 <li><a href="addExamResult.jsp">Add Results</a></li>
                                 <li><a href="DeleteExamResults.jsp">Remove Results</a></li>
-                                <li><a href="updateExamResults0.jsp">update Results</a></li>
+                                <li><a href="updateExamResults0.jsp">Update Results</a></li>
                                 
 
                             </ul>
@@ -198,25 +197,25 @@
 
                             </ul>
                         </li>
-                        <li><a href="#">||SMS and e-mails||</a>
+                        <li><a href="#">||SMS and E-mails||</a>
                             <ul>
-                                <li><a href="#">send SMS to Student</a></li>
-                                <li><a href="#">send SMS to Parent</a></li>
-                                <li><a href="#">send SMS to Staff</a></li>
-                                <li><a href="#">send E-mail to Parent</a></li>
-                                <li><a href="#">send E-mail to Student</a></li>
-                                <li><a href="#">send E-mail to Staff</a></li>
+                                <li><a href="#">Send SMS to Student</a></li>
+                                <li><a href="#">Send SMS to Parent</a></li>
+                                <li><a href="#">Send SMS to Staff</a></li>
+                                <li><a href="#">Send E-mail to Parent</a></li>
+                                <li><a href="#">Send E-mail to Student</a></li>
+                                <li><a href="#">Send E-mail to Staff</a></li>
 
                             </ul>
                         </li>
                         <li><a href="#">||Resource Management||</a>
                             <ul>
                                 <li><a href="#">Add File</a></li>
-                                <li><a href="#">Add video</a></li>
+                                <li><a href="#">Add Video</a></li>
                                 <li><a href="#">Add Audio</a></li>
                                 <li><a href="#">Add Image</a></li>
                                 <li><a href="#">Remove File</a></li>
-                                <li><a href="#">Remove video</a></li>
+                                <li><a href="#">Remove Video</a></li>
                                 <li><a href="#">Remove Audio</a></li>
                                 <li><a href="#">Remove Image</a></li>
                             </ul>
@@ -228,7 +227,8 @@
                 <div id="content_container">
 
                     Hello,<br>
-                    Now you are in TSS management area. select your task from above menue.
+                    Now you are in exam management area.<br> 
+                    Select your task from above menu.
                 </div>
 
             </div>
@@ -237,6 +237,6 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-
+        
     </body>
 </html>

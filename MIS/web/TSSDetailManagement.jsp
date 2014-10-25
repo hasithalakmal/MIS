@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>TSS Detail Management</title>
         <style>
             #container {
                 width: 1320px ;
@@ -124,13 +124,13 @@
         </head>
         <body>
             <%
-
+/*
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
                     RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                     rd.forward(request, response);
                 }
-
+*/
             %>
             <div id="container">
             <div id="header">
@@ -140,7 +140,7 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Tss Management area</h1>
+                            <h1 style="color: #FFF">Tss Management Area</h1>
                         </td>
                         <td align="right">
 
@@ -192,7 +192,7 @@
                                 <li><a href="updateTSSProject.jsp">update Project</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">|>|User Management||</a>
+                        <li><a href="#">||User Management||</a>
                             <ul>
                                 <li><a href="RegistationTss.jsp">Add Thurunusaviya Student</a></li>                    
                                 <li><a href="#">Add Thurunusaviya Staff</a></li>
@@ -236,8 +236,12 @@
 
                 <div id="content_container">
 
-                    Hello,<br>
-                    Now you are in TSS management area. select your task from above menue.
+                    <br><center>
+                  
+          <img src="prefect.jpg" width="550" height="370" align="center">
+
+        
+                    </center>
                 </div>
 
             </div>
@@ -251,3 +255,4 @@
 
     </body>
 </html>
+
