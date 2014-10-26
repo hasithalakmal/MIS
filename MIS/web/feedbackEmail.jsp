@@ -1,6 +1,6 @@
 <%-- 
-    Document   : FogetPassword
-    Created on : Sep 4, 2014, 7:16:42 PM
+    Document   : feedbackEmail
+    Created on : Oct 26, 2014, 10:00:36 PM
     Author     : Mr.Mic
 --%>
 
@@ -47,10 +47,9 @@
                 float:left;
                 padding:10px;
                 background-color:#d4dadc;
-                text-align:center;
             }
             #content_container
-            { width: 330px;
+            { width: 1000px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -122,27 +121,60 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
+        <style>
+            header {
+                background-color:black;
+                color:white;
+                text-align:center;
+                padding:5px;	 
+            }
+            nav {
+                line-height:30px;
+                background-color:#eeeeee;
+                height:300px;
+                width:100px;
+                float:left;
+                padding:5px;	      
+            }
+            section {
+                width:350px;
+                float:left;
+                padding:10px;	 	 
+            }
+            footer {
+                background-color:black;
+                color:white;
+                clear:both;
+                text-align:center;
+                padding:5px;	 	 
+            }
+        </style>
     </head>
-    <body >
-         
+    <body>
+        <%
+            String userID =(String)session.getAttribute("useID");
+        if (userID == null) {
+                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                 rd.forward(request, response);
+                 }
         
-        
+        %>
         <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Forget Password Page</h1>
+                            <h1 style="color: #FFF">Send Your Feed Back</h1>
                         </td>
                         <td align="right">
-
-                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
+                            <h3 align="right"> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3>
                         </td>
                     </tr>
                 </table>
+                 
             </div>
 
             <div id="nav">
@@ -152,7 +184,7 @@
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
                     <li><a href="gallary.html">Gallary</a></li>
                     <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
+                    <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -160,46 +192,62 @@
             <div id="section">
 
 
-                <br><br><br>
-    
+             
 
-    
+                <div id="content_container">
 
-       <center>    
-      
-
-        <form name="MainLogin" action="FogetPassword" method="post">
-
+                    <br>
+                  
+        <center>
+           <form action="feedbackEmail" method="post">
             <table>
-
                 <tr>
-                    <td><b>User ID</b></td>
-                    <td><input type="text" name="userid" value="" size="50"></td>
+                    <td>
+                    subject 
+                    </td>
+                    <td>
+                        <input type="text" name="Subject" id="Subject" required>
+                    </td>
                 </tr>
                 <tr>
-                    <td><b>BirthDay</b></td>
-                    <td><input type="date" name="Bday" value="" ></td>
+                    <td>
+                    Message 
+                    </td>
+                    <td>
+                        <input type="text" name="Message" id="Message" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    User ID 
+                    </td>
+                    <td>
+                       <%=userID%> 
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                <center>
-                    <input type="submit" Value="Send New Password" name="Login">
-                </center>
-                </td>
+                        <input type="submit" value="submit" name="submit" id="submit">
+                    </td>
                 </tr>
-
             </table>
         </form>
-    </center>
+                    
+        
+        </center>
+        
+                    
+                    
+        
+                </div>
+
+            </div>
+
+            <div id="footer">
+                Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-
-</body>
-
-</html>
-
-   
     
-
-
+    </body>
+</html>

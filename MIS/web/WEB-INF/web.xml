@@ -332,6 +332,10 @@
         <servlet-name>FogotUserID</servlet-name>
         <servlet-class>com.servlet.login.FogotUserID</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>feedbackEmail</servlet-name>
+        <servlet-class>com.servlet.login.feedbackEmail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mainAccessControler</servlet-name>
         <url-pattern>/mainAccessControler</url-pattern>
@@ -663,6 +667,10 @@
     <servlet-mapping>
         <servlet-name>FogotUserID</servlet-name>
         <url-pattern>/FogotUserID</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>feedbackEmail</servlet-name>
+        <url-pattern>/feedbackEmail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

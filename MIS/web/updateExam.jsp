@@ -126,12 +126,12 @@
 
             <%
 
-                /*      // String uid = (String) session.getAttribute("useID");
+                      // String uid = (String) session.getAttribute("useID");
                  if (session.getAttribute("useID") == null) {
                  RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                  rd.forward(request, response);
                  }
-                 */
+                 
                 String examID = (String) request.getAttribute("examID");
                 String Grade = (String) request.getAttribute("Grade");
                 String ExamName = (String) request.getAttribute("ExamName");

@@ -4,6 +4,8 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -131,10 +133,14 @@
                     rd.forward(request, response);
                 }
 
+                 IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getOPSID();
+                String today = dg.getToday();
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -227,7 +233,7 @@
             <table>
                 <tr>
                     <td><b>Old Pupil Id</b></td>
-                    <td><input type="text" name="obId" value="" ></td>
+                    <td><input type="text" name="obId" value="<%=ID%>" ></td>
                 </tr>
                 <tr>
                     <td><b>Student Id</b></td>
@@ -237,7 +243,7 @@
 
                 <tr>
                     <td><b>Registration Date</b></td>
-                    <td><input type="date" name="Reg_Date"  ></td>
+                    <td><input type="text" name="Reg_Date" value="<%=today%>" ></td>
                 </tr>
                 <tr>
                     <td><b>Occupation</b></td>

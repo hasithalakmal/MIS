@@ -11,8 +11,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        
     </head>
-    <body>
+    <body background="5.jpg">
         <h1>loard........</h1>
         <%
            
@@ -26,10 +27,11 @@
         <p>code is working...........</p>
         <p><%= pass%></p>
         <p><%= pass2%> </p>
+        
+           <img src="6.jpg" width="300" height="200" /> 
+           <br><br>
             <a href="Main Login.jsp">
                 Main Login
             </a>
-            
-            <img src="blood.jpg" width="50" height="100" />    
     </body>
 </html>

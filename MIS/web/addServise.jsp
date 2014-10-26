@@ -49,7 +49,7 @@
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 1000px;
+            { width: 330px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -140,7 +140,7 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Prefect Board In_Charge Profile</h1>
+                            <h1 style="color: #FFF">Prefect board in charge</h1>
                         </td>
                         <td align="right">
 
@@ -231,7 +231,7 @@
                 </div>
 
                 <div id="content_container">
-                    <center>
+
                       <h3>Add service</h3>
         <form action="addService" method="post">
             <table>
@@ -244,7 +244,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Service Name</td>
+                    <td><b>Service Name</b></td>
                     <td><input type="text" name="ServiseName"></td>
                 </tr>
                 <tr>
@@ -256,7 +256,7 @@
                 
             </table>
             <input type="submit" value="Add servise">
-        </form></center>
+        </form>
                 </div>
 
             </div>

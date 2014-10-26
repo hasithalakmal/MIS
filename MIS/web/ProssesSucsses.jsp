@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body background="5.jpg">
          <%
            
           String x1 =(String) session.getAttribute("uid");
@@ -20,6 +20,6 @@
                 rd.forward(request, response);}
               
         %>
-        <h1>Prosses is Sucssesful!!!</h1>
+        <h1>Process is Successful!!!</h1>
     </body>
 </html>

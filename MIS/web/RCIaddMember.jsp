@@ -160,6 +160,7 @@
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
+                
             </div>
 
             <div id="section">
@@ -167,6 +168,7 @@
 
                 <div id="wrap">
 
+                     <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          

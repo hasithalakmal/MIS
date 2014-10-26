@@ -14,11 +14,9 @@
     <body>
        <%
 
-            // String uid = (String) session.getAttribute("useID");
-            if (session.getAttribute("useID") == null) {
+             if(session.getAttribute("useID") == null){
                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }
+                rd.forward(request, response);}
 
 
         %>

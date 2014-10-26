@@ -49,7 +49,7 @@
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 1000px;
+            { width: 330px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -140,7 +140,7 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Prefect Board In-Charge Profile</h1>
+                            <h1 style="color: #FFF">Prefect Board In Charge</h1>
                         </td>
                         <td align="right">
 
@@ -231,8 +231,7 @@
                 </div>
 
                 <div id="content_container">
-                    <center>
-                     <h1>Delete Service</h1>
+<h3>Delete Service</h3>
         <form action="deleteService" method="post">
             <table>
                 <tr>
@@ -244,14 +243,10 @@
                     </td>
                 </tr>
                 
-            </table><br>
-            <input type="submit" value="Delete servise">
-        </form></center>
-                     
-                
-                
-           
-             </div>
+            </table>
+            <input type="submit" value="delete servise">
+        </form>
+                </div>
 
             </div>
 
@@ -266,5 +261,8 @@
     </body>
 </html>
 
-       
-   
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -162,7 +162,7 @@
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -202,7 +202,7 @@
                             <ul>
                                 <li><a href="#">View Personal Details</a></li>                    
                                 <li><a href="#">View Student Details</a></li>
-                                <li><a href="#">View Student Profile</a></li
+                                <li><a href="#">View Student Profile</a></li>
                                 <li><a href="#">View TSS Profile</a></li>
                                 <li><a href="#">Old Pupil Involvement</a></li>
                                 <li><a href="#">Old Pupil Donations</a></li>
@@ -221,7 +221,7 @@
                         </li>
                         <li><a href="#">||Feedback||</a>
                             <ul>
-                                <li><a href="#">Send e-mail</a></li>
+                                <li><a href="feedbackEmail.jsp" target="_blank">Send e-mail</a></li>
                                 
                             </ul>
                         </li>

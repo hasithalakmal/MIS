@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
+    <head >
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <SCRIPT type="text/javascript">
@@ -18,7 +18,7 @@
         </SCRIPT>
         
     </head>
-    <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">
+    <body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="" background="5.jpg">
         <%
 
             String x1 = (String) session.getAttribute("useID");
@@ -30,7 +30,10 @@
         %>
         <form action="LogOut" method="post">
 
-            <input type="submit" value="Log Out">
+            
+            <p>ARE YOU SURE</p>
+            <input type="submit" value="Yes" > 
+            <input type="submit" value=" No" >
         </form>
     </body>
 </html>

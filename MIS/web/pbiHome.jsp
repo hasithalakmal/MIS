@@ -190,7 +190,7 @@
                         </li>
                         <li><a href="#">||User Management||</a>
                             <ul>
-                                <li><a href="RegistationTss.jsp">Add Prefect</a></li> 
+                                <li><a href="RegistationPrf.jsp">Add Prefect</a></li> 
                                 <li><a href="#">Remove Prefect</a></li>
                                 <li><a href="RegistationTsi.jsp">Add Prefect Incharge</a></li>
                             </ul>

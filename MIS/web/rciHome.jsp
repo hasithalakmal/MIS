@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Research Center In-Charge Profile</title>
-         <style>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -121,10 +121,21 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-     <body >
-       
-    <%
+            <script>
+function validateForm() {
+    var x = document.forms["myForm"]["email"].value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        alert("Not a valid e-mail address");
+        return false;
+    }
+}
+</script>
+        </head>
+        <body >
+
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -141,10 +152,12 @@
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Research Center In_Charge</h1>
+                            <h1 style="color: #FFF">Research Center In-Charge</h1>
                         </td>
+
                         <td align="right">
 
+                           
                             <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
                         </td>
                     </tr>
@@ -168,9 +181,10 @@
 
                 <div id="wrap">
 
+                     <a href="rciHome"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
+
                         <li><a href="#">||User Management||</a>
                             <ul>
                                 <li><a href="RCIaddMember.jsp">Add User</a></li>                    
@@ -216,12 +230,15 @@
                         </li>
 
                     </ul>
+                    
                 </div>
 
                 <div id="content_container">
-                    <center>
+                    
                    
-                   <img src="research.jpg" width="450" height="300">
+                    <center>
+
+                        <img src="research.jpg" width="450" height="300">
                     </center>
                 </div>
 
@@ -231,15 +248,15 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-    
-       
-       
-
-        
 
 
-        
-      
-        
-</body>
+
+
+
+
+
+
+
+
+    </body>
 </html>
