@@ -107,6 +107,8 @@
                         Then go to your e mail and get your new pass word.
             </p>
             <br><br>
+            <a href="FogetUserID.jsp">Foget User ID</a>
+            <br><br>
             <a href="FogetPassword.jsp">Foget password</a>
             <br><br>
             

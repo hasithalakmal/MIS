@@ -28,6 +28,7 @@ public class StudentRegistation extends HttpServlet {
     private  String passWord;
     // int x1,x2,x3,x4,x5;
     Connection con;
+    private String p18;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -109,9 +110,10 @@ public class StudentRegistation extends HttpServlet {
             p15 = request.getParameter("school");
             p16 = request.getParameter("slm");
             p17 = request.getParameter("dlm");
+            p18 = request.getParameter("ParentID");
             
             ProsedeurControls pc = new ProsedeurControls();
-            String para1 = "('" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" +p17 +"')";
+            String para1 = "('" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" +p17+"','"+p18 +"')";
             pc.callProc("insertStudentData", para1);
             
             PasswordEncoding pe = new PasswordEncoding();

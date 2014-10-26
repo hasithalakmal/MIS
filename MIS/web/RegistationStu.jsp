@@ -314,7 +314,12 @@
                     <td><input type="radio" name="dlm" value="Singhela">Sinhala
                         <input type="radio" name="dlm" value="English">English
                         
-                    </td></tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Parent ID</b></td>
+                    <td><input type="text" name="ParentID" value="" size="50"></td></tr>
+                <tr>
                 
             </table>
             <br><br><br>
