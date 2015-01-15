@@ -101,14 +101,14 @@ public class PrfRegistation extends HttpServlet {
 
             if (!"stu".equals(stuid)) {
                 request.setAttribute("massage", "It is not a Student ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
-            }
+            }else{
             if (!"prf".equals(prfid)) {
                 request.setAttribute("massage", "It is not a prefect ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
-            }
+            }else{
 
             ProsedeurControls pc = new ProsedeurControls();
             query = "('" + stuID + "')";
@@ -127,16 +127,17 @@ public class PrfRegistation extends HttpServlet {
                 query = "('" + prfID + "','" + pass + "')";
                 pc.callProc("insertPW", query);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/admHome.jsp");
+                request.setAttribute("massage", "Prefect is added to the system.");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
                 rd.forward(request, response);
 
             } else {
                 request.setAttribute("massage", "Your Student ID is not correct");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }
             //processRequest(request, response);
-        } catch (SQLException ex) {
+        }} }catch (SQLException ex) {
             Logger.getLogger(RCI_Registation.class.getName()).log(Level.SEVERE, null, ex);
         }
         //processRequest(request, response);

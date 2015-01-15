@@ -121,9 +121,9 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-   <body>
-        <%
+        </head>
+        <body>
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -134,7 +134,7 @@
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -152,11 +152,10 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
@@ -166,44 +165,40 @@
 
 
                 <div id="wrap">
-
+  <a href="opiHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
-                        <li><a href="#">||Profile Management||</a>
+
+                        <li><a href="#">||Involvement Management||</a>
                             <ul>
-                                <li><a href="#">View Personal Details</a></li>                    
-                                <li><a href="#">View Student Details</a></li>
-                                <li><a href="#">View Student Profile</a></li
-                                <li><a href="#">View TSS Profile</a></li>
-                                <li><a href="#">Old Pupil Involvement</a></li>
-                                <li><a href="#">Old Pupil Donations</a></li>
-                                 <li><a href="#"></a></li>
+                                <li><a href="#">Add Old Pupil Service</a></li>                    
+                                <li><a href="#">Update Old Pupil Service</a></li>
+                                <li><a href="#">Remove Old Pupil Service</a></li>
+                                <li><a href="#">Add Old Pupil To Service</a></li>
+                                <li><a href="#">Update Old Pupil In Service</a></li>
+                                <li><a href="#">Remove Old Pupil From Service</a></li>
+
                             </ul>
                         </li>
                         <li><a href="#">||Reports||</a>
                             <ul>
-                                <li><a href="#">Prefect Details</a></li>
-                                <li><a href="#">OLd Pupil Involvements</a></li>
-                                
-                                <li><a href="#">Old Pupil Donations</a></li>
-                               
-
+                                <li><a href="#">Old Pupil Personal Details</a></li>
+                                <li><a href="#">Old Pupil Involvements</a></li>
                             </ul>
                         </li>
                         <li><a href="#">||Feedback||</a>
                             <ul>
                                 <li><a href="#">Send e-mail</a></li>
-                                
+
                             </ul>
                         </li>
-                        <li><a href="#">||Gallary||</a>
+                        <li><a href="#">||Gallery||</a>
                             <ul>
                                 <li><a href="#"> File</a></li>
                                 <li><a href="#"> Video</a></li>
                                 <li><a href="#"> Audio</a></li>
                                 <li><a href="#"> Image</a></li>
-                                
+
                             </ul>
                         </li>
 
@@ -213,31 +208,30 @@
                 <div id="content_container">
 
                     <br>
-                  
-        <center>
-         <img src="ob.jpg" width="550" height="370" align="center">
- 
-        
-        </center>
-        
-                    
-                    
-        
+
+                    <center>
+                        <img src="ob.jpg" width="500" height="310" align="center">
+
+
+                    </center>
+
+
+
+
                 </div>
 
             </div>
 
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
-    
-        
+
+
     </body>
 </html>
 
-          
-  
 
-   
-     
+
+
+

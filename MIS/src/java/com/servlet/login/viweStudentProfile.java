@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.servlet.login;
 
 import com.MIS.lib.PersonIdentifier;
@@ -26,10 +25,12 @@ import javax.servlet.http.HttpSession;
  * @author Mr.Mic
  */
 public class viweStudentProfile extends HttpServlet {
-  String userid, parameter;
+
+    String userid, parameter;
     ResultSet result;
-    String p1, p2, p3, p4, p5, p6, p7, p8,p9,p10,p11,p12,p13,p14,p15,p16,p17;
+    String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17;
     private String RequestType;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,15 +46,15 @@ public class viweStudentProfile extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-           /* out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet viweStudentProfile</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet viweStudentProfile at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");*/
+            /* out.println("<!DOCTYPE html>");
+             out.println("<html>");
+             out.println("<head>");
+             out.println("<title>Servlet viweStudentProfile</title>");            
+             out.println("</head>");
+             out.println("<body>");
+             out.println("<h1>Servlet viweStudentProfile at " + request.getContextPath() + "</h1>");
+             out.println("</body>");
+             out.println("</html>");*/
         } finally {
             out.close();
         }
@@ -86,89 +87,78 @@ public class viweStudentProfile extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        // PrintWriter pr = response.getWriter();
-        
-        HttpSession session = request.getSession();    
-         if (session.getAttribute("useID") == null) {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
-        }
-        
-        
-        
-           
-            
-            userid = (String) request.getAttribute("userid");
-            
-            if(userid==null){
+
+        HttpSession session = request.getSession();
+
+        userid = (String) request.getAttribute("userid");
+
+        if (userid == null) {
             userid = (String) session.getAttribute("useID");
-            }
-            
-           // pr.write(userid);
-            
-            ProsedeurControls pc = new ProsedeurControls();
-            parameter = "('" + userid + "')";
-            result = pc.callProc("selectStudent", parameter);
-            try {
-                if (result.next()) {
-                    p1 = result.getString(1);
-                    p2 = result.getString(2);
-                    p3 = result.getString(3);
-                    p4 = result.getString(4);
-                    p5 = result.getString(5);
-                    p6 = result.getString(6);
-                    p7 = result.getString(7);
-                    p8 = result.getString(8);
-                    p9 = result.getString(9);
-                    p10 = result.getString(10);
-                    p11= result.getString(11);
-                    p12= result.getString(12);
-                    p13= result.getString(13);
-                    p14 = result.getString(14);
-                    p15 = result.getString(15);
-                    p16 = result.getString(17);
-                    p17 = result.getString(18);
-                    
-                
-                   
-                    request.setAttribute("p1", p1);
-                    request.setAttribute("p2", p2);
-                    request.setAttribute("p3", p3);
-                    request.setAttribute("p4", p4);
-                    request.setAttribute("p5", p5);
-                    request.setAttribute("p6", p6);
-                    request.setAttribute("p7", p7);
-                    request.setAttribute("p8", p8);
-                    request.setAttribute("p9", p9);
-                    request.setAttribute("p10", p10);
-                    request.setAttribute("p11", p11);
-                    request.setAttribute("p12", p12);
-                    request.setAttribute("p13", p13);
-                    request.setAttribute("p14", p14);
-                    request.setAttribute("p15", p15);
-                    request.setAttribute("p16", p16);
-                    request.setAttribute("p17", p17);
-                }            
-                
-            } catch (SQLException ex) {
-                Logger.getLogger(adminSearchUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        ProsedeurControls pc = new ProsedeurControls();
+        parameter = "('" + userid + "')";
+        result = pc.callProc("selectStudent", parameter);
+        try {
+            if (result.next()) {
+                p1 = result.getString(1);
+                p2 = result.getString(2);
+                p3 = result.getString(3);
+                p4 = result.getString(4);
+                p5 = result.getString(5);
+                p6 = result.getString(6);
+                p7 = result.getString(7);
+                p8 = result.getString(8);
+                p9 = result.getString(9);
+                p10 = result.getString(10);
+                p11 = result.getString(11);
+                p12 = result.getString(12);
+                p13 = result.getString(13);
+                p14 = result.getString(14);
+                p15 = result.getString(15);
+                p16 = result.getString(17);
+                p17 = result.getString(18);
+
+                request.setAttribute("p1", p1);
+                request.setAttribute("p2", p2);
+                request.setAttribute("p3", p3);
+                request.setAttribute("p4", p4);
+                request.setAttribute("p5", p5);
+                request.setAttribute("p6", p6);
+                request.setAttribute("p7", p7);
+                request.setAttribute("p8", p8);
+                request.setAttribute("p9", p9);
+                request.setAttribute("p10", p10);
+                request.setAttribute("p11", p11);
+                request.setAttribute("p12", p12);
+                request.setAttribute("p13", p13);
+                request.setAttribute("p14", p14);
+                request.setAttribute("p15", p15);
+                request.setAttribute("p16", p16);
+                request.setAttribute("p17", p17);
+
+                RequestType = (String) request.getAttribute("FuntionType");
+
+                if ("update".equals(RequestType)) {
+                    RequestDispatcher rd = request.getRequestDispatcher("/updateStudentData.jsp");
+                    rd.forward(request, response);
+                } else {
+                    RequestDispatcher rd = request.getRequestDispatcher("/viweStudentProfile.jsp");
+                    rd.forward(request, response);
+                }
+            } else {
+                request.setAttribute("massage", "User is not exsist");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                rd.forward(request, response);
             }
 
- 
+        } catch (SQLException ex) {
+            Logger.getLogger(adminSearchUser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
                //8    pr.write(p1+p2+p3+p4+p5);
-
-
-            RequestType = (String) request.getAttribute("FuntionType");
-            
-            if("update".equals(RequestType)){
-            RequestDispatcher rd = request.getRequestDispatcher("/updateStudentData.jsp");
-            rd.forward(request, response);
-            }else{
-            RequestDispatcher rd = request.getRequestDispatcher("/viweStudentProfile.jsp");
-            rd.forward(request, response);
-            }
-      //  processRequest(request, response);
+        //  processRequest(request, response);
     }
-    
 
     /**
      * Returns a short description of the servlet.

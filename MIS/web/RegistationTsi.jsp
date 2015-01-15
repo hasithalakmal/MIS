@@ -4,6 +4,8 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,7 +51,7 @@
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 330px;
+            { width: 500px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -82,7 +84,7 @@
             #wrap {
                 font-size: 1.1em;
                 width: 1000px;
-                padding: 0px;
+                padding: 20px;
                 margin: 0 0; 
                 background-color: #d4dadc;
                 position: relative; }
@@ -121,26 +123,29 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-    <body>
-        <%          /*      // String uid = (String) session.getAttribute("useID");
-             if (session.getAttribute("useID") == null) {
-             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-             rd.forward(request, response);
-             }
-             */
+        </head>
+        <body>
+            <%              // String uid = (String) session.getAttribute("useID");
+                if (session.getAttribute("useID") == null) {
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request, response);
+                }
 
-        %>
+                IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getTSSID();
+                String today = dg.getToday();
+            %>
 
-        <div id="container">
+            <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Tss Management Area</h1>
+                            <h1 style="color: #FFF">Thurunu Saviya In-Charge Profile</h1>
                         </td>
                         <td align="right">
 
@@ -152,12 +157,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_TSI.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -167,9 +171,10 @@
 
                 <div id="wrap">
 
+                    <a href="tsiHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                        <li><a href="#">||Course Management||</a>
+                        <li><a href="#">||Course||</a>
                             <ul>
                                 <li><a href="addCourse.jsp">Add Course</a></li>
                                 <li><a href="removeCourse.jsp">Remove Course</a></li>
@@ -185,14 +190,14 @@
                         </li>
 
 
-                        <li><a href="#">||Project Management||</a>
+                        <li><a href="#">||Project||</a>
                             <ul>
                                 <li><a href="addTSSProject.jsp">Add Project</a></li>
                                 <li><a href="removeTSSProject.jsp">Remove Project</a></li>
                                 <li><a href="updateTSSProject.jsp">update Project</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">||User Management||</a>
+                        <li><a href="#">||Users||</a>
                             <ul>
                                 <li><a href="RegistationTss.jsp">Add Thurunusaviya Student</a></li>                    
                                 <li><a href="#">Add Thurunusaviya Staff</a></li>
@@ -218,7 +223,7 @@
 
                             </ul>
                         </li>
-                        <li><a href="#">||Resource Management||</a>
+                        <li><a href="#">||Resource||</a>
                             <ul>
                                 <li><a href="#">Add File</a></li>
                                 <li><a href="#">Add video</a></li>
@@ -234,48 +239,49 @@
                     </ul>
                 </div>
 
-                <div id="content_container">
-                    
-                    <center>
-                    <h2>Thurunusawiya In-charge Registration</h2>
-                    
 
-                    <form action="TsiRegistation" method="post">
+                <div id="content_container">
+
+
+                    <h2>Thurunusaviya In-charge Registration</h2>
+
+
+                    <form action="TSIRegistation_TSI" method="post">
                         <table>
                             <tr>
                                 <td>
-                                    <b> New user ID</b>
+                                    New user ID
                                 </td>
                                 <td>
-                                    <input type="text" name="ouID">
+                                    <input type="text" name="ouID" value="<%=ID%>" required>
                                 </td>
                             </tr>
                             <tr>
-                                <td><b>Registration Date</b></td>
-                                <td><input type="date" name="Reg_Date" value="" ></td>
+                                <td>Registration Date</td>
+                                <td><input type="text" name="Reg_Date" value="<%=today%>" required ></td>
                             </tr>
                             <tr>
-                                <td><b>Staff ID</b></td>
+                                <td>Staff ID</td>
                                 <td>
-                                    <input type="text" name="stfID">
+                                    <input type="text" name="stfID" required>
                                 </td>
                             </tr>
 
                         </table>
-						<br>
-                        <input type="submit" value="Add TSI">
+                        <br>
+                        <input type="submit" value="Add">
                     </form>
-                    </center>
+
                 </div>
 
             </div>
 
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                Copyright © SiriVajiraghanaDahamPasala.com
             </div>
         </div>
 
 
-    </center>
-</body>
+
+    </body>
 </html>

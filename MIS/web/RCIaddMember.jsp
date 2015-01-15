@@ -121,9 +121,9 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-    <body>
-         <%
+        </head>
+        <body>
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -134,7 +134,7 @@
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -152,15 +152,14 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                  <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
 
                 </ul>
-                
+
             </div>
 
             <div id="section">
@@ -168,10 +167,10 @@
 
                 <div id="wrap">
 
-                     <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
+                    <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
+
                         <li><a href="#">||User Management||</a>
                             <ul>
                                 <li><a href="RCIaddMember.jsp">Add User</a></li>                    
@@ -221,63 +220,65 @@
 
                 <div id="content_container">
 
-                    <br><center>
-                   <h2>Add User</h2>
-         <form action="adminAddUser" method="post" name="AdmControler">
-           
-            <table>
-                <tr >
-                    <td>
-                        Select User Type
-                    </td>
-                    <td>
-                        <select  name="usertype">
-                           
-                            <option value="rci">Reserch Center In-charge</option>
-                            <option value="pbi">Prefect Board In-charge</option>
-                            <option value="tsi">Thurunusaviya In-charge</option>
-                            <option value="opi">Old Pupil In-charge</option>
-                            <option value="sti">Staff In-charge</option>
-                            <option value="ebi">Exam Branch In-charge</option>
-                            <option value="stu">Student</option>
-                            <option value="stf">Staff</option>
-                            <option value="ops">Old Boy</option>
-                            <option value="prf">Prefect</option>
-                            <option value="tss">Thurunusaviya student</option>
-                           
-                            <option value="prn">Guardian</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
+                  
+                        <h2>Add User</h2>
+                        <form action="adminAddUser" method="post" name="AdmControler" >
 
-                <center><br>
-                   <input type="submit" Value="Add User" name="Submit">
-                </center>
-                </td>
-                </tr>
+                            <table>
+                                <tr >
+                                    <td>
+                                        Select User Type
+                                    </td>
+                                    <td>
+                                        <select  name="usertype">
 
-            </table></center>
-         </form>
+                                            <option value="rci">Reserch Center In-charge</option>
+                                            <option value="pbi">Prefect Board In-charge</option>
+                                            <option value="tsi">Thurunusaviya In-charge</option>
+                                            <option value="opi">Old Pupil In-charge</option>
+                                            <option value="sti">Staff In-charge</option>
+                                            <option value="ebi">Exam Branch In-charge</option>
+                                            <option value="stu">Student</option>
+                                            <option value="stf">Staff</option>
+                                            <option value="ops">Old Boy</option>
+                                            <option value="prf">Prefect</option>
+                                            <option value="tss">Thurunusaviya student</option>
+
+                                            <option value="prn">Guardian</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+
+                                <center><br>
+                                    <input type="submit" Value="Add User" name="Submit">
+                                </center>
+                                </td>
+                                </tr>
+
+                            </table>
+
+                        </form>
+                   
                 </div>
 
             </div>
 
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
-    
+
     </body></html>
 
-            
-       
-
-        
 
 
-        
-      
-        
+
+
+
+
+
+
+

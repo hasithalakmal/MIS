@@ -336,6 +336,30 @@
         <servlet-name>feedbackEmail</servlet-name>
         <servlet-class>com.servlet.login.feedbackEmail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>JQchangepassword</servlet-name>
+        <servlet-class>com.servlet.login.JQchangepassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffRegistation_STI</servlet-name>
+        <servlet-class>com.servlet.login.StaffRegistation_STI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TSIRegistation_RCI</servlet-name>
+        <servlet-class>com.servlet.login.TSIRegistation_RCI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TSSRegistation_TSI</servlet-name>
+        <servlet-class>com.servlet.login.TSSRegistation_TSI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TSIRegistation_TSI</servlet-name>
+        <servlet-class>com.servlet.login.TSIRegistation_TSI</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RCI_resetMemberPassword</servlet-name>
+        <servlet-class>com.servlet.login.RCI_resetMemberPassword</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mainAccessControler</servlet-name>
         <url-pattern>/mainAccessControler</url-pattern>
@@ -671,6 +695,30 @@
     <servlet-mapping>
         <servlet-name>feedbackEmail</servlet-name>
         <url-pattern>/feedbackEmail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>JQchangepassword</servlet-name>
+        <url-pattern>/JQchangepassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffRegistation_STI</servlet-name>
+        <url-pattern>/StaffRegistation_STI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TSIRegistation_RCI</servlet-name>
+        <url-pattern>/TSIRegistation_RCI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TSSRegistation_TSI</servlet-name>
+        <url-pattern>/TSSRegistation_TSI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TSIRegistation_TSI</servlet-name>
+        <url-pattern>/TSIRegistation_TSI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RCI_resetMemberPassword</servlet-name>
+        <url-pattern>/RCI_resetMemberPassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

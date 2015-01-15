@@ -12,6 +12,9 @@ public class PersonIdentifier {
     String persontype;
     
     public String getUserType(String un){
+        int len = un.length();
+        if(len>=3){
+        
         char x = un.charAt(0);
         char y = un.charAt(1);
         char z = un.charAt(2);
@@ -32,9 +35,13 @@ public class PersonIdentifier {
         else if(x=='o' && y=='p' && z=='i'){userType="opi";}
         else if(x=='a' && y=='c' && z=='c'){userType="acc";}
         else if(x=='s' && y=='t' && z=='i'){userType="sti";}
-        else {userType="invalid User";}
+        else {userType="Invalid User";}
+        return userType;
+        }else{
+            return "Invalid User";
+        }
         
-       return userType;
+       
     }
     
       

@@ -94,15 +94,15 @@ public class removeCourse extends HttpServlet {
             if (res.next()) {
 
                  pc.callProc("deleteCourse", para1);
-                request.setAttribute("massage", "course is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "course is deleted from the system");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
                 rd.forward(request, response);
                
 
             } else {
                 
-                request.setAttribute("massage", "It is exsisting course");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                request.setAttribute("massage", "It is invalid course ID");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
                 rd.forward(request, response);
                
             }

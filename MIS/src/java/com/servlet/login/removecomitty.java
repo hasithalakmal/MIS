@@ -96,13 +96,13 @@ public class removecomitty extends HttpServlet {
 
                 pc.callProc("deleteCommity", para1);
                 request.setAttribute("massage", "servise is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("stiValid.jsp");
                 rd.forward(request, response);
 
             } else {
 
                 request.setAttribute("massage", "It is exsisting Exam");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
                 rd.forward(request, response);
 
             }

@@ -137,7 +137,7 @@
         <center>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">

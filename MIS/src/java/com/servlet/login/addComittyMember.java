@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mr.Mic
  */
 public class addComittyMember extends HttpServlet {
+
     private String staffID;
     private String comityID;
     private String year;
@@ -48,7 +49,7 @@ public class addComittyMember extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyMember</title>");            
+            out.println("<title>Servlet addComittyMember</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet addComittyMember at " + request.getContextPath() + "</h1>");
@@ -85,7 +86,7 @@ public class addComittyMember extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try {
+        try {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
 
@@ -93,29 +94,50 @@ public class addComittyMember extends HttpServlet {
             comityID = request.getParameter("comityID");
             year = request.getParameter("year");
             possision = request.getParameter("possision");
-            
-            para1 = "('" +comityID  + "','" + staffID + "','"+year+"')";
-            res = pc.callProc("selectInvolveCommity", para1);
 
+            para1 = "('" + staffID + "')";
+            res = pc.callProc("selectStaff", para1);
             if (res.next()) {
+                para1 = "('" + comityID + "')";
+                res = pc.callProc("selectCommity", para1);
+                if (res.next()) {
 
-                request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
-                rd.forward(request, response);
+                    para1 = "('" + comityID + "','" + staffID + "','" + year + "')";
+                    res = pc.callProc("selectInvolveCommity", para1);
+
+                    if (res.next()) {
+
+                        request.setAttribute("massage", "It is exsisting recode");
+                        RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
+                        rd.forward(request, response);
+
+                    } else {
+                        para1 = "('" + comityID + "','" + staffID + "','" + year + "','" + possision + "')";
+                        pc.callProc("insertInvolveCommity", para1);
+                        request.setAttribute("massage", "Staff Member is added to the committee");
+                        RequestDispatcher rd = request.getRequestDispatcher("stiValid.jsp");
+                        rd.forward(request, response);
+                    }
+
+                } else {
+                    request.setAttribute("massage", "Committee ID is invalide");
+                    RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
+                    rd.forward(request, response);
+                }
 
             } else {
-                para1 = "('" + comityID + "','" + staffID + "','"+year+"','"+possision + "')";
-                pc.callProc("insertInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "Staff ID is invalide");
+                RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
                 rd.forward(request, response);
+
             }
+
             // processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       // processRequest(request, response);
+
+        // processRequest(request, response);
     }
 
     /**

@@ -21,9 +21,17 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="net.sf.jasperreports.engine.*"%>
         
-        <%
+        <% String x1 = (String) session.getAttribute("useID");
+            
+            
             Connection conn = null;
             String StuID = request.getParameter("StuID");
+            
+            if(StuID==null){
+                StuID=x1;
+            }
+            
+            
            // String ExamID = request.getParameter("Year");
           //  String Year = request.getParameter("Year");
             DataBaseManagement dbm = new DataBaseManagement();

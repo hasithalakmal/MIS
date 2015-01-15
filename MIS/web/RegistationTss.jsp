@@ -4,6 +4,8 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -82,7 +84,7 @@
             #wrap {
                 font-size: 1.1em;
                 width: 1000px;
-                padding: 0px;
+                padding: 20px;
                 margin: 0 0; 
                 background-color: #d4dadc;
                 position: relative; }
@@ -123,23 +125,28 @@
             </style>
         </head>
         <body>
-            <%          // String uid = (String) session.getAttribute("useID");
-              /*   if (session.getAttribute("useID") == null) {
-                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                 rd.forward(request, response);
-                 } */
+           <%
 
+                if (session.getAttribute("useID") == null) {
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request, response);
+                }
+
+                IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getTSSID();
+                String today = dg.getToday();
             %>
 
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Thurunusaviya Management Area</h1>
+                            <h1 style="color: #FFF">Thurunu Saviya In-Charge Profile</h1>
                         </td>
                         <td align="right">
 
@@ -151,12 +158,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallery</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                     <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_TSI.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -166,36 +172,37 @@
 
                 <div id="wrap">
 
+                      <a href="tsiHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                        <li><a href="#">||Course Management||</a>
+                        <li><a href="#">||Course||</a>
                             <ul>
                                 <li><a href="addCourse.jsp">Add Course</a></li>
                                 <li><a href="removeCourse.jsp">Remove Course</a></li>
-                                <li><a href="updatecourse0.jsp">Update Course</a></li>
-                                <li><a href="studentAddToCourse.jsp">Add Student to Course</a></li>
-                                <li><a href="studentRemoveFromCourse.jsp">Remove Student from Course</a></li>
-                                <li><a href="studentUpdateInCourse0.jsp">Update Student in Course</a></li>
-                                <li><a href="staffAddToCourse.jsp">Add Staff to Course</a></li>
-                                <li><a href="staffRemoveFromCourse.jsp">Remove Staff from Course</a></li>
-                                <li><a href="staffUpdateInCourse.jsp">Update Staff in Course</a></li>
+                                <li><a href="updatecourse0.jsp">update course</a></li>
+                                <li><a href="studentAddToCourse.jsp">Add student to course</a></li>
+                                <li><a href="studentRemoveFromCourse.jsp">Remove student from course</a></li>
+                                <li><a href="studentUpdateInCourse0.jsp">update student in course</a></li>
+                                <li><a href="staffAddToCourse.jsp">Add staff to course</a></li>
+                                <li><a href="staffRemoveFromCourse.jsp">Remove staff from course</a></li>
+                                <li><a href="staffUpdateInCourse.jsp">update staff in course</a></li>
 
                             </ul>
                         </li>
 
 
-                        <li><a href="#">||Project Management||</a>
+                        <li><a href="#">||Project||</a>
                             <ul>
                                 <li><a href="addTSSProject.jsp">Add Project</a></li>
                                 <li><a href="removeTSSProject.jsp">Remove Project</a></li>
-                                <li><a href="updateTSSProject.jsp">Update Project</a></li>
+                                <li><a href="updateTSSProject.jsp">update Project</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">||User Management||</a>
+                        <li><a href="#">||Users||</a>
                             <ul>
                                 <li><a href="RegistationTss.jsp">Add Thurunusaviya Student</a></li>                    
                                 <li><a href="#">Add Thurunusaviya Staff</a></li>
-                                <li><a href="RegistationTsi.jsp">Add Thurunusaviya In-charge</a></li>
+                                <li><a href="RegistationTsi.jsp">Add Thurunusaviya Incharge</a></li>
                             </ul>
                         </li>
                         <li><a href="#">||Reports||</a>
@@ -206,25 +213,25 @@
 
                             </ul>
                         </li>
-                        <li><a href="#">||SMS and E-mails||</a>
+                        <li><a href="#">||SMS and e-mails||</a>
                             <ul>
-                                <li><a href="#">Send SMS to Student</a></li>
-                                <li><a href="#">Send SMS to Parent</a></li>
-                                <li><a href="#">Send SMS to Staff</a></li>
-                                <li><a href="#">Send E-mail to Parent</a></li>
-                                <li><a href="#">Send E-mail to Student</a></li>
-                                <li><a href="#">Send E-mail to Staff</a></li>
+                                <li><a href="#">send SMS to Student</a></li>
+                                <li><a href="#">send SMS to Parent</a></li>
+                                <li><a href="#">send SMS to Staff</a></li>
+                                <li><a href="#">send E-mail to Parent</a></li>
+                                <li><a href="#">send E-mail to Student</a></li>
+                                <li><a href="#">send E-mail to Staff</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="#">||Resource Management||</a>
+                        <li><a href="#">||Resource||</a>
                             <ul>
                                 <li><a href="#">Add File</a></li>
-                                <li><a href="#">Add Video</a></li>
+                                <li><a href="#">Add video</a></li>
                                 <li><a href="#">Add Audio</a></li>
                                 <li><a href="#">Add Image</a></li>
                                 <li><a href="#">Remove File</a></li>
-                                <li><a href="#">Remove Video</a></li>
+                                <li><a href="#">Remove video</a></li>
                                 <li><a href="#">Remove Audio</a></li>
                                 <li><a href="#">Remove Image</a></li>
                             </ul>
@@ -235,36 +242,38 @@
 
                 <div id="content_container">
 
-                    <center>
+                   
                         <h3>Thurunusaviya Student Registration</h3>
 
 
-                        <form action="TssRegistation" method="post">
+                        <form action="TSSRegistation_TSI" method="post">
                             <table>
                                 <tr>
                                     <td>
                                         TSS User ID
                                     </td>
                                     <td>
-                                        <input type="text" name="TssID">
+                                        <input type="text" name="TssID" required value="<%=ID%>">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Registration Date</td>
-                                    <td><input type="date" name="Reg_Date" value="" ></td>
+                                    <td><input type="text" name="Reg_Date" value="<%=today%>" required></td>
                                 </tr>
                                 <tr>
                                     <td>Student ID</td>
                                     <td>
-                                        <input type="text" name="stuID">
+                                        <input type="text" name="stuID" required>
                                     </td>
                                 </tr>
 
                             </table>
                             <br>
-                            <input type="submit" value="Add TSS">
+                            <center>
+                            <input type="submit" value="Add">
+                            </center>
                         </form>
-                    </center>
+                   
                 </div>
 
             </div>

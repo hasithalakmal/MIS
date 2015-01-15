@@ -138,15 +138,17 @@
 
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Staff In-Charge Profile</h1>
+                            <h1 style="color: #FFF">Staff In-Charge</h1>
                         </td>
+
                         <td align="right">
+
 
                             <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
                         </td>
@@ -156,11 +158,10 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallery</a></li>
-                    <li><a href="#">View My Details</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
@@ -171,9 +172,11 @@
 
                 <div id="wrap">
 
+                    <a href="stiHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                        <li><a href="#">||Committee Management||</a>
+
+                        <li><a href="#">||Committee||</a>
                             <ul>
                                 <li><a href="addComity.jsp">Add Committee</a></li>
                                 <li><a href="RemoveComity.jsp">Remove Committee</a></li>
@@ -189,17 +192,18 @@
                         </li>
 
 
-                        <li><a href="#">||Service Management||</a>
+                        <li><a href="#">||Service||</a>
                             <ul>
                                 <li><a href="addServise.jsp">Add Service</a></li>
                                 <li><a href="#">Remove Service</a></li>
                                 <li><a href="#">Update service</a></li>
+
                                 <li><a href="staffaddservice.jsp">Allocate Service</a></li>
                                 <li><a href="removestaffservice.jsp">Remove Allocate Service</a></li>
                                 <li><a href="#"> Update Allocate Service</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">||User Management||</a>
+                        <li><a href="#">||User||</a>
                             <ul>
                                 <li><a href="RegistationStf.jsp">Add Staff Member</a></li>                    
                                 <li><a href="removeUser.jsp">Remove Staff Member</a></li>
@@ -226,7 +230,7 @@
 
                             </ul>
                         </li>
-                        <li><a href="#">||Resource Management||</a>
+                        <li><a href="#">||Resource||</a>
                             <ul>
                                 <li><a href="#">Add File</a></li>
                                 <li><a href="#">Add video</a></li>
@@ -240,14 +244,14 @@
                         </li>
 
                     </ul>
+
                 </div>
-
                 <div id="content_container">
-                  
 
-                    <br><br>
-                    <center>
-                        <h3>Remove Service Staff</h3>
+
+                    
+                  
+                        <h3>Remove Service from staff</h3>
                         <form action="RemoveServiceForStaff" method="post">
                             <table>
                                 <tr>
@@ -255,7 +259,7 @@
                                         Service ID
                                     </td>
                                     <td>
-                                        <input type="text" name="ServiseID">
+                                        <input type="text" name="ServiseID" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -263,7 +267,7 @@
                                         Staff ID
                                     </td>
                                     <td>
-                                        <input type="text" name="StaffID">
+                                        <input type="text" name="StaffID" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -271,25 +275,26 @@
                                         Date
                                     </td>
                                     <td>
-                                        <input type="text" name="Date">
+                                        <input type="date" name="Date" required>
                                     </td>
                                 </tr>
 
                             </table>
-                            <input type="submit" value="Remove Servise from Staff">
+                            <input type="submit" value="Remove">
                         </form>
-                    </center>
-                </div></div></div>
+                    </div>
+                </div>
 
 
 
-        <div id="footer">
-            Copyright © SiriWajiraghanaDahamPasala.com
+                <div id="footer">
+                    Copyright © SirivajiraghanaDahamPasala.com
+                
+            </div>
         </div>
-    </div>
 
 
-</body>
+    </body>
 </html>
 
 

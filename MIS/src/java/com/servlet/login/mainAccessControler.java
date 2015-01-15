@@ -195,7 +195,7 @@ public class mainAccessControler extends HttpServlet {
                         RequestDispatcher rd = request.getRequestDispatcher("/stiHome.jsp");
                         rd.forward(request, response);
                     } else {
-                        //  request.setAttribute("massage", "Your Use Name is not Correct");
+                          request.setAttribute("massage", "Your Use Name is not Correct");
                         RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
                         rd.forward(request, response);
                     }
@@ -264,7 +264,7 @@ public class mainAccessControler extends HttpServlet {
                     res = proc.callProc("selectOperationalUser", para);
 
                 } else {
-                    request.setAttribute("massage", "There is not any User with user ID");
+                    request.setAttribute("massage", "your account is temporaly blocked and go and meet system admin in the dhamma school");
                     RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
                     rd.forward(request, response);
 

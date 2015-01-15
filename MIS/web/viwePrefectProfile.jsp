@@ -9,9 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-         <style>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -50,7 +48,7 @@
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 1000px;
+            { width: 800px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -124,18 +122,25 @@
             </style>
     </head>
     <body>
-        <%
-
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                    rd.forward(request, response);
-                }
-
-            %>
+        <% 
+            if(session.getAttribute("useID") == null){
+               RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }            
+            
+            String p1 = (String) request.getAttribute("p1");
+            String p2 = (String) request.getAttribute("p2");
+            String p3 = (String) request.getAttribute("p3");
+            
+            
+            
+                
+        %>
+      
+         
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -156,9 +161,8 @@
                     <li><a href="home.html">Home</a></li>
                     <li><a href="history.html">History</a></li>
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                    <li><a href="gallary.html">Gallery</a></li>
+                    
 
                 </ul>
             </div>
@@ -166,135 +170,47 @@
             <div id="section">
 
 
-                <div id="wrap">
-
-                    <ul id="navbar">
-                        <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
-                        <li><a href="#">||Profile||</a>
-                            <ul>
-                                <li><a href="#">Personal Details</a></li>                    
-                                <li><a href="#">Involvement</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="#">||Reports||</a>
-                            <ul>
-                                <li><a href="#">Prefect Progress Reports</a></li>
-                                <li><a href="#">Involvement</a></li>
-                                <li><a href="#">Personal Details</a></li>
-                               
-
-                            </ul>
-                        </li>
-                        <li><a href="#">||Feedback||</a>
-                            <ul>
-                                <li><a href="#">Send e-mail</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="#">||Gallary||</a>
-                            <ul>
-                                <li><a href="#"> File</a></li>
-                                <li><a href="#"> Video</a></li>
-                                <li><a href="#"> Audio</a></li>
-                                <li><a href="#"> Image</a></li>
-                                
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
+               
 
                 <div id="content_container">
                     
-                    <br>
-                   
-        
-             <% 
-            if(session.getAttribute("useID") == null){
-               RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }            
-            
-            String p1 = (String) request.getAttribute("p1");
-            String p2 = (String) request.getAttribute("p2");
-            String p3 = (String) request.getAttribute("p3");
-            String p4 = (String) request.getAttribute("p4");
-            String p5 = (String) request.getAttribute("p5");
-            String p6 = (String) request.getAttribute("p6");
-            String p7 = (String) request.getAttribute("p7");
-            String p8 = (String) request.getAttribute("p8");
-            String p9 = (String) request.getAttribute("p9");
-            String p10 = (String) request.getAttribute("p10");
-            String p11 = (String) request.getAttribute("p11");
-            String p12 = (String) request.getAttribute("p12");
-            String p13 = (String) request.getAttribute("p13");
-            String p14 = (String) request.getAttribute("p14");
-            String p15 = (String) request.getAttribute("p15");
-            String p16 = (String) request.getAttribute("p16");
-            String p17 = (String) request.getAttribute("p17");
-            String p18 = (String) request.getAttribute("p18");
-            
-            
-                
-        %>
-        <h1>Prefect Profile!!!</h1>
-        <p>
-            p1 = <%=p1%>
-            <br>
-            p2 = <%= p2%>
-            <br>
-            p3 = <%= p3%>
-            <br>
-            p4 = <%= p4%>
-            <br>
-            p5 = <%= p5%>
-            <br>
-            p6 = <%= p6%>
-            <br>
-            p7 = <%=  p7%>
-            <br>
-            p8 = <%= p8%>
-            <br>
-            p9 = <%= p9%>
-            <br>
-            p10 = <%= p10%>
-            <br>
-            p11 = <%= p11%>
-            <br>
-            p12 = <%= p12%>
-            <br>
-            p13 = <%=  p13%>
-            <br>
-            p14 = <%= p14%>
-            <br>
-            p15 = <%= p15%>
-            <br>
-            p16 = <%= p16%>
-            <br>
-            p17 = <%=p17%>
-            <br>
-
-        </p>
-
-
-                               
-
-
-    </body>
-</html>
-
-                </div>
-
+                    <table>
+                        <tr>
+                            <td>
+                              Prefect ID   
+                            </td>
+                            <td>
+                              : <%=p1%>  
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                              Registration Date 
+                            </td>
+                            <td>
+                              : <%= p2%> 
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                             Student ID 
+                            </td>
+                            <td>
+                             : <%= p3%>  
+                            </td>
+                        </tr>
+                         
+                        
+                        
+                    </table>
+                  
             </div>
-
+            </div>
             <div id="footer">
                 Copyright © SiriWajiraghanaDahamPasala.com
-            </div>
-        </div>
-    
-        
+                  
+            </div></div>          
+
     </body>
 </html>
 

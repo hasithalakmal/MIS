@@ -4,6 +4,8 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -124,16 +126,19 @@
     </head>
      <%
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
+                if (session.getAttribute("useID") == null) {
                     RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                     rd.forward(request, response);
                 }
 
+                IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getSTIID();
+                String today = dg.getToday();
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -165,7 +170,7 @@
 
 
                 <div id="wrap">
-
+   <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          
@@ -227,17 +232,17 @@
                         New User ID
                     </td>
                     <td>
-                        <input type="text" name="ouID">
+                        <input type="text" name="ouID" value="<%=ID%>" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Registration Date</td>
-                    <td><input type="date" name="Reg_Date" value="" ></td>
+                    <td><input type="text" name="Reg_Date" value="<%=today%>" required ></td>
                 </tr>
                 <tr>
                     <td>Staff ID</td>
                     <td>
-                        <input type="text" name="stfID">
+                        <input type="text" name="stfID"  required>
                     </td>
                 </tr>
                 

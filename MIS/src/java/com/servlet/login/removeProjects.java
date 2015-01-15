@@ -94,15 +94,15 @@ public class removeProjects extends HttpServlet {
             if (res.next()) {
 
                  pc.callProc("deleteProject", para1);
-                request.setAttribute("massage", "course is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "Project is removed");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
                 rd.forward(request, response);
                
 
             } else {
                 
-                request.setAttribute("massage", "It is exsisting course");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                request.setAttribute("massage", "It is invalid project ID");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
                 rd.forward(request, response);
                
             }

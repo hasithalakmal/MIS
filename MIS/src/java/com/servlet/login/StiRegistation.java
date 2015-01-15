@@ -99,12 +99,12 @@ public class StiRegistation extends HttpServlet {
 
             if (!"stf".equals(stfid)) {
                 request.setAttribute("massage", "It is not a Staff ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }else{
             if (!"sti".equals(ouid)) {
                 request.setAttribute("massage", "It is not a Staff in charge ID format");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }else{
 
@@ -125,12 +125,13 @@ public class StiRegistation extends HttpServlet {
                 query = "('" + ouID + "','" + pass + "')";
                 pc.callProc("insertPW", query);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/admHome.jsp");
+                request.setAttribute("massage", "Staff In-charge is added to the system");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
                 rd.forward(request, response);
 
             } else {
                 request.setAttribute("massage", "Your staff ID is not correct");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }
             //processRequest(request, response);

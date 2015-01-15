@@ -101,15 +101,15 @@ public class removeComittyMember extends HttpServlet {
             if (res.next()) {
 
                  pc.callProc("deleteInvolveCommity", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "Committee member is deleted");
+                RequestDispatcher rd = request.getRequestDispatcher("stiValid.jsp");
                 rd.forward(request, response);
 
             } else {
                
                
-                request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                request.setAttribute("massage", "Invalid inputes");
+                RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
                 rd.forward(request, response);
             }
             // processRequest(request, response);

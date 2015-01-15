@@ -43,7 +43,7 @@
                 margin: 7px; 
                 float:left;
                 border-radius: 10px;
-                height:650px;
+                height:550px;
                 float:left;
                 padding:10px;
                 background-color:#d4dadc;
@@ -151,7 +151,7 @@
         
          <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -169,12 +169,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                   <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -183,7 +182,7 @@
 
 
                 <div id="wrap">
-
+<a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          
@@ -238,7 +237,7 @@
                      <center>
            
       
-        <h1>Registration Form </h1>
+        <h3>Student Update </h3>
 
         <!--The registration form for the users -->
         <form action="SubmitUpdateStudent" name="StudentRegistation" method="post">
@@ -246,45 +245,27 @@
             <table>
                 <tr>
                     <td><b>Student ID</b></td>
-                    <td><input type="text" name="Id" value="<%=p1%>" size="50"></td>
+                    <td><input type="text" name="Id" value="<%=p1%>" size="50" readonly ></td>
                 </tr>
                 
                 
                 <tr>
                     <td><b>Registration Date</b></td>
-                    <td><input type="text" name="Reg_Date" value="<%=p2%>" ></td>
+                    <td><input type="text" name="Reg_Date" value="<%=p2%>" readonly></td>
                 </tr>
                 <tr>
                     <td><b>Full Name</b></td>
-                    <td><input type="text" name="Full_Name" value="<%=p3%>" size="50"></td>
+                    <td><input type="text" name="Full_Name" value="<%=p3%>" size="50" readonly></td>
                 </tr>
                 <tr>
                     <td><b>Initials</b></td>
-                    <td><input type="text" name="Initial_Name" value="<%=p4%>" size="50"></td>
+                    <td><input type="text" name="Initial_Name" value="<%=p4%>" size="50" readonly></td>
                 </tr> 
  <tr>
                     <td><b>Birthday</b></td>
-                    <td><input type="text" name="bDay" value="<%=p16%>" size="50"></td>
+                    <td><input type="text" name="bDay" value="<%=p16%>" size="50" readonly></td>
                 </tr> 
-                <tr>
-                    <td><b>Race</b></td>
-                    <td><input type="radio" name='Race' value='Sinhala'>Sinhala
-                        <input type="radio" name='Race' value='tamil'>Tamil
-                        <input type="radio" name='Race' value='Muslim'>Muslim
-                        <input type="radio" name='Race' value='Other'>Other
-                    </td></tr>
-                <tr>
-                    <td><b>Religion</b></td>
-                    <td><input type="radio" name="Religion" value="Buddhist">Buddhist
-                        <input type="radio" name="Religion" value="christian">Christian 
-           
-      
-       
-                        <input type="radio" name="Religion" value="chataolic">Catholic
-                        <input type="radio" name="Religion" value="Hindu">Hindu
-                        <input type="radio" name="Religion" value="Others">Others
-                    </td></tr>
-                <tr>
+                
                     <td><b>National Identity Card No</b></td>
                     <td><input type="text" name="NIC" value="<%=p7%>" size="50"></td>
                 </tr>
@@ -309,27 +290,16 @@
                     <td><input type="text" name="Fax" value="<%=p11%>" size="50"></td></tr>
                 <tr>
                     <td><b>Email</b></td>
-                    <td><input type="text" name="email" value="<%=p17%>" placeholder="@gmail.com" size="50"></td>
+                    <td><input type="email" name="email" value="<%=p17%>" placeholder="@gmail.com" size="50"></td>
                 </tr>
                 <tr>
                     <td><b>School</b></td>
                     <td><input type="text" name="school" value="<%=p13%>" size="50"></td></tr>
-                <tr>
-                    <td><b>School Learning Medium</b></td>
-                    <td><input type="radio" name="slm" value="Sinhala">Sinhala
-                        <input type="radio" name="slm" value="English">English
-                        <input type="radio" name="slm" value="Tamil">Tamil
-                    </td></tr>
-                <tr>
-                    <td><b>Dhamma School Learning Medium</b></td>
-                    <td><input type="radio" name="dlm" value="Sinhala">Sinhala
-                        <input type="radio" name="dlm" value="English">English
-                        
-                    </td></tr>
+                
                 
             </table>
                 <br>
-            <center><input type="submit" Value="Register"></center>
+            <center><input type="submit" Value="Update"></center>
             <br><br>
 
         </form>

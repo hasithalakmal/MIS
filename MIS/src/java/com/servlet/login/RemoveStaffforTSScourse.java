@@ -98,14 +98,14 @@ public class RemoveStaffforTSScourse extends HttpServlet {
             if (res.next()) {
 
                 pc.callProc("deleteConduct", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "Staff is deleated from course");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
                 rd.forward(request, response);
 
             } else {
 
                 request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
                 rd.forward(request, response);
 
             }

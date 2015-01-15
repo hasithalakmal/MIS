@@ -19,15 +19,19 @@ public class LogginValidation {
 
     public boolean checkValidity(String x, String y) {
         try {
-            query = "select * from password where Id ='" + x + "' and PW ='" + y + "'";
+          /*  query = "select * from password where Id ='" + x + "' and PW ='" + y + "'";
             dbcon1 = new DataBaseManagement();
             con = (Connection) dbcon1.setConnetction();
             
             
-            res = dbcon1.getResult(query, con);
+            res = dbcon1.getResult(query, con);*/
+            
+            query ="('"+x+"','"+y+"')";
+            ProsedeurControls pc = new ProsedeurControls();
+            res =pc.callProc("logginChek", query);
 
             if (res.next()) {
-                ProsedeurControls pc = new ProsedeurControls();
+                
                 query = "('"+x+"','"+y+"')";
                 pc.callProc("updatePassword", query);
                 

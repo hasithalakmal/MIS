@@ -92,14 +92,13 @@ public class admUpdateUser extends HttpServlet {
         
             HttpSession session = request.getSession();
             String x1 = (String) session.getAttribute("useID");
-            if (session.getAttribute("useID") == null) {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }
+           userid = request.getParameter("uid");
+            
+            PersonIdentifier pi = new PersonIdentifier();
+            userType = pi.getUserType(userid);
+            user2 = pi.getUserType(x1);
             
             
-            
-            userid = request.getParameter("uid");
             
             ProsedeurControls pc = new ProsedeurControls();
             para = "('"+userid+"')";
@@ -108,9 +107,7 @@ public class admUpdateUser extends HttpServlet {
         try {
             if(res.next()){
                 
-                 PersonIdentifier pi = new PersonIdentifier();
-            userType = pi.getUserType(userid);
-            user2 = pi.getUserType(x1);
+                
             
             if (userType.equals("stu") && ("adm".equals(user2) || "rci".equals(user2) )) {
                 request.setAttribute("userid", userid);
@@ -124,33 +121,63 @@ public class admUpdateUser extends HttpServlet {
                 RequestDispatcher rd = request.getRequestDispatcher("viweParentProfile");
                 rd.forward(request, response);
                 
-            }else if (userType.equals("stf") && ("adm".equals(user2) || "sti".equals(user2) )) {
+            }else if (userType.equals("stf") && ("adm".equals(user2) || "sti".equals(user2) || "rci".equals(user2) )) {
                 request.setAttribute("userid", userid);
                  request.setAttribute("FuntionType","update");
                 RequestDispatcher rd = request.getRequestDispatcher("viweStaffProfile");
                 rd.forward(request, response);
                 
-            }else if (userType.equals("ops")&& ("adm".equals(user2) || "opi".equals(user2) )) {
+            }else if (userType.equals("ops")&& ("adm".equals(user2) || "opi".equals(user2) || "rci".equals(user2))) {
                 request.setAttribute("userid", userid);
                  request.setAttribute("FuntionType","update");
                 RequestDispatcher rd = request.getRequestDispatcher("viweOldBoyProfile");
                 rd.forward(request, response);
                 
             }else{
+                if("rci".equals(user2)){
                 request.setAttribute("massage", "You cant Update this user");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
+                }
+                else if("adm".equals(user2)){
+                request.setAttribute("massage", "You cant Update this user");
+                RequestDispatcher rd = request.getRequestDispatcher("/admInValid.jsp");
+                rd.forward(request, response);
+                }
+                else if( "opi".equals(user2)){
+                request.setAttribute("massage", "You cant Update this user");
+                RequestDispatcher rd = request.getRequestDispatcher("/pbiInValid.jsp");
+                rd.forward(request, response);
+                }
+                else if("sti".equals(user2)){
+                request.setAttribute("massage", "You cant Update this user");
+                RequestDispatcher rd = request.getRequestDispatcher("/stiInValid.jsp");
+                rd.forward(request, response);
+                }
+                
             }
-                
-                
-                
-                
-               
-            }else{
+             }else{
             
-             request.setAttribute("massage", "There is not any User with user ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+              if("rci".equals(user2)){
+                request.setAttribute("massage", "User ID is invalid.");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
+                }
+                else if("adm".equals(user2)){
+                request.setAttribute("massage", "User ID is invalid.");
+                RequestDispatcher rd = request.getRequestDispatcher("/admInValid.jsp");
+                rd.forward(request, response);
+                }
+                else if( "opi".equals(user2)){
+                request.setAttribute("massage", "User ID is invalid.");
+                RequestDispatcher rd = request.getRequestDispatcher("/pbiInValid.jsp");
+                rd.forward(request, response);
+                }
+                else if("sti".equals(user2)){
+                request.setAttribute("massage", "User ID is invalid.");
+                RequestDispatcher rd = request.getRequestDispatcher("/stiInValid.jsp");
+                rd.forward(request, response);
+                }
             }
         } catch (SQLException ex) {
             Logger.getLogger(adminSearchUser.class.getName()).log(Level.SEVERE, null, ex);

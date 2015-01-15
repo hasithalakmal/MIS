@@ -22,8 +22,15 @@
 <%@page import="net.sf.jasperreports.engine.*"%>
         
         <%
+             String x1 = (String) session.getAttribute("useID");
+            
             Connection conn = null;
             String id = request.getParameter("studentID");
+            if(id==null){
+                id=x1;
+            }
+            
+            
             DataBaseManagement dbm = new DataBaseManagement();
             conn = dbm.setConnetction();
             

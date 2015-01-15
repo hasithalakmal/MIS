@@ -5,6 +5,7 @@
  */
 package com.servlet.login;
 
+import com.MIS.lib.PersonIdentifier;
 import com.MIS.lib.ProsedeurControls;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,7 +25,8 @@ public class SubmitUpdateParent extends HttpServlet {
 
     String userid, parameter;
     ResultSet result;
-    String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17,p18,p19;
+    String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19;
+    private String user2;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -81,43 +83,47 @@ public class SubmitUpdateParent extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        if (session.getAttribute("useID") == null) {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
-        }
-
+       HttpSession session = request.getSession();
+        String x1 = (String) session.getAttribute("useID");
+        PersonIdentifier pi = new PersonIdentifier();
+        user2 = pi.getUserType(x1);
+        
         p1 = request.getParameter("Id");
-            p2 = request.getParameter("Relation");
-  
-            p4 = request.getParameter("state");
-            p5 = request.getParameter("Full_Name");
-            p6 = request.getParameter("Initial_Name");
-            p7 = request.getParameter("bDay");
-            p8 = request.getParameter("Race");
-            p9 = request.getParameter("Religion");
-            p10 = request.getParameter("NIC");
-            p11 = request.getParameter("Address");
-            p12 = request.getParameter("Land_Phone");
-            p13 = request.getParameter("Mobile_Phone1");
-            p14 = request.getParameter("Mobile_Phone1");
-            p15 = request.getParameter("Fax");
-            p16 = request.getParameter("email");
-            p17 = request.getParameter("occupation");
-            p18 = request.getParameter("office_phone");
-            p19 = request.getParameter("Office_address");
-            
+        p11 = request.getParameter("Address");
+        p12 = request.getParameter("Land_Phone");
+        p13 = request.getParameter("Mobile_Phone1");
+        p14 = request.getParameter("Mobile_Phone1");
+        p15 = request.getParameter("Fax");
+        p16 = request.getParameter("email");
+        p17 = request.getParameter("occupation");
+        p18 = request.getParameter("office_phone");
+        p19 = request.getParameter("Office_address");
+
         ProsedeurControls pc = new ProsedeurControls();
-        String para1 = "('" + p1 + "','" + p2 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "','" + p19 +"')";
+        String para1 = "('" + p1  + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "','" + p19 + "')";
         pc.callProc("updateGardian", para1);
 
-       // PrintWriter pr = response.getWriter();
-        // pr.write("helloooooooooooooo");
-       // pr.write(para1);
-
-         request.setAttribute("massage", "Parent is  updated........");
-       RequestDispatcher rd = request.getRequestDispatcher("/valid.jsp");
-       rd.forward(request, response);
+       if("rci".equals(user2)){
+                request.setAttribute("massage", "Parent is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+                rd.forward(request, response);
+                }
+                else if("adm".equals(user2)){
+                request.setAttribute("massage", "Parent is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/admValid.jsp");
+                rd.forward(request, response);
+                }
+                else if( "opi".equals(user2)){
+                request.setAttribute("massage", "Parent is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/pbiValid.jsp");
+                rd.forward(request, response);
+                }
+                else if("sti".equals(user2)){
+                request.setAttribute("massage", "Parent is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/stiValid.jsp");
+                rd.forward(request, response);
+                }
+       
         //  processRequest(request, response);
     }
 

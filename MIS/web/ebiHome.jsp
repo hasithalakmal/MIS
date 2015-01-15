@@ -125,15 +125,15 @@
     </head>
     <body>
          <%
-    /*   
+      
         if(session.getAttribute("useID") == null){
                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);}
-       */       
+             
         %>
         <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -151,11 +151,10 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallery</a></li>
-                    <li><a href="#">View My Details</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
@@ -165,7 +164,7 @@
 
 
                 <div id="wrap">
-
+ <a href="ebiHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                         <li><a href="#">||Exam Management||</a>
@@ -176,8 +175,6 @@
                                 <li><a href="addExamResult.jsp">Add Results</a></li>
                                 <li><a href="DeleteExamResults.jsp">Remove Results</a></li>
                                 <li><a href="updateExamResults0.jsp">Update Results</a></li>
-                                
-
                             </ul>
                         </li>
 
@@ -185,7 +182,7 @@
                         
                         <li><a href="#">||User Management||</a>
                             <ul>
-                                <li><a href="RegistationTss.jsp">Select User</a></li>                    
+                                <li><a href="#">Select User</a></li>                    
                                 
                             </ul>
                         </li>

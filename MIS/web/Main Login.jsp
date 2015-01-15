@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MainLogin</title>
+        
         <SCRIPT type="text/javascript">
             window.history.forward();
             function noBack() {
@@ -53,10 +54,9 @@
                 float:left;
                 padding:10px;
                 background-color:#d4dadc;
-                text-align:center;
             }
             #content_container
-            { width: 330px;
+            { width: 1000px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -128,15 +128,21 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-            
+
         </head>
         <body >
 
 
 
+
+
+
+
+
+
             <div id="container">
             <div id="header">
-                <table >
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -144,69 +150,77 @@
                         <td>
                             <h1 style="color: #FFF">Welcome To Our Main login</h1>
                         </td>
-                        <td align="right">
 
-                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
-                        </td>
                     </tr>
                 </table>
             </div>
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallery</a></li>
-
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
-
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
                 </ul>
+
             </div>
 
             <div id="section">
 
 
-                <center>
-                    <br>
-                    <br>
-                    <br>
-                    <!-- Create a table to design the page layout-->
-                    <form name="MainLogin" action="mainAccessControler" method="post" >
-                        <table>
-
-                            <tr>
-                                <td><b>User ID</b></td>
-                                <td><input type="text" id="uid" name="userid" value="" size="50" required></td>
-                            </tr>
-                            <tr>
-                                <td><b>Password</b></td>
-                                <td><input type="password" id="pass" name="userpassword" value="" size="50" required></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                            <center>
-                                <input type="submit" Value="Log In" name="Login">
-                            </center>
-                            </td>
-                            </tr>
 
 
-                        </table>
-                    </form> 
-                    <p>
-                        If you forget your user ID or Password flow these links.
-                    </p>
-                    <br><br>
-                    <a href="FogetUserID.jsp" target="_blank">Forget User ID</a>
-                    <br><br>
-                    <a href="FogetPassword.jsp" target="_blank">Forget password</a>
-                    <br><br>
+                <div id="content_container">
 
-                </center>
+                    <center>
+                        <br>
+                        <br>
+                        <br>
+                        <!-- Create a table to design the page layout-->
+                        <form name="MainLogin" action="mainAccessControler" method="post" >
+                            <table>
+
+                                <tr>
+                                    <td><b>User ID</b></td>
+                                    <td><input type="text" id="uid" name="userid" value="" size="50" required></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Password</b></td>
+                                    <td><input type="password" id="pass" name="userpassword" value="" size="50" required></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                <center>
+                                    <input type="submit" Value="Log In" name="Login">
+                                </center>
+                                </td>
+                                </tr>
+
+
+                            </table>
+                        </form> 
+                        <p>
+                            If you forgot your user ID or Password follow these links.
+                        </p>
+                        <br><br>
+                        <a href="FogetUserID.jsp" target="_blank">Forgot User ID</a>
+                        <br><br>
+                        <a href="FogetPassword.jsp" target="_blank">Forgot password</a>
+                        <br><br>
+
+                    </center>
+
+                </div>
+
+            </div>
+
+            <div id="footer">
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
+
+
 
     </body>
 

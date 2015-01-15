@@ -9,74 +9,237 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>admHome</title>
+        <title>Research Center In-Charge Profile</title>
+         <style>
+            #container {
+                width: 1320px ;
+                margin-left: auto ;
+                margin-right: auto ;
+                background-color:#254a6e;
 
-    </head>
-    <body >
-        <%
+            }
+            #header {
+                background-color:#254a6e;//dark blue
+                color:white;
+                border-radius: 10px;
+                padding:5px;
 
-            String x1 = (String) session.getAttribute("useID");
-            if (x1 == null) {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
             }
 
-        %>
+            #nav {
+                line-height:30px;
+                margin: 7px; 
+                float:left;
+                background-color:#d4dadc;//ash
+                border-radius: 10px;
+                height:300px;
+                width:200px;
+                float:left;
+                padding:5px;	      
+            }
 
-    <center>
+            #section {
+                width:1050px;
+                margin: 7px; 
+                float:left;
+                border-radius: 10px;
+                height:450px;
+                float:left;
+                padding:10px;
+                background-color:#d4dadc;
+            }
+            #content_container
+            { width: 330px;
+              margin: 20px 10px 0 0;
+              float: left;}
+            #sidebar {
 
-        <br><br>
-        <a href="UserManagement.jsp">User Management</a>
+                margin: 7px; 
+                float:left;
+                background-color:#d4dadc;
+                border-radius: 10px;
+                height:200px;
+                width:200px;
+                float:left;
+                padding:5px; 	      
 
-        <br><br>
-        <a href="get course details.jsp">get course details</a>
+            }
+            #footer {
+                background-color:black;
+                color:white;
+                clear:both;
+                text-align:center;
+                padding:5px;
+                border-radius: 10px;
+            }
+            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+            /* These styles are related to popup menu. */
 
-        <br><br>
-        <a href="addResourse.jsp">add recourse</a>
+            /* These styles just pretty up the page a bit. */
+            body {
+                font: 62.5%/1.2 Arial, Helvetica, sans-serif;
+                background-color: #eee; }
+            #wrap {
+                font-size: 1.1em;
+                width: 1000px;
+                padding: 20px;
+                margin: 0 0; 
+                background-color: #d4dadc;
+                position: relative; }
 
-        <br><br>
-        <a href="downloardResourses.jsp">download recourse</a>
-
-        <br><br>
-        <form action="viweOUProfile" method="post">
-
-            <input type="submit" value="Personal Data">
-        </form>
-
-
-
-        <br><br>
-        <a href="studentBehaviorManagement.jsp">student Behavior Management</a>
-
-        <br><br>
-        <a href="ReportsForStudent.jsp">Student Reports</a>
-
-        <br><br>
-        <a href="Prefect service Updates.jsp">Prefect service Updates</a>
-
-        <br><br>
-        <a href="Staff service Updates.jsp">Staff service Updates</a>
-
-
-        <br><br>
-        <a href="Exam Details.jsp">Exam Details Updates</a>
-
-        <br><br>
-        <a href="CommityDetailManagement.jsp">Commity Detail Management</a>
+            /* These styles create the dropdown menus. */
+            #navbar {
+                margin: 0;
+                padding: 0;
+                height: 1em; }
+            #navbar li {
+                list-style: none;
+                float: left; }
+            #navbar li a {
+                display: block;
+                padding: 3px 8px;
+                background-color: #254a6e;
+                color: #fff;
+                text-decoration: none; }
+            #navbar li ul {
+                display: none; 
+                width: 10em; /* Width to help Opera out */
+                background-color: #69f;
+            }
+            #navbar li:hover ul, #navbar li.hover ul {
+                display: block;
+                position: absolute;
+                margin: 0;
+                padding: 0; 
+                opacity: 0.8}
+            #navbar li:hover li, #navbar li.hover li {
+                float: none; }
+            #navbar li:hover li a, #navbar li.hover li a {
+                background-color: #69f;
+                border-bottom: 1px solid #fff;
+                color: #000; }
+            #navbar li li a:hover {
+                background-color: #8db3ff; }
+            </style>
         
-        <br><br>
-        <a href="TSSDetailManagement.jsp">TSS Detail Management</a>
+    </head>
+     <body >
+       
+    <%
 
-        <br><br>
-        <a href="logoutPage.jsp">logoutPage</a>
+                String x1 = (String) session.getAttribute("useID");
+                if (x1 == null) {
+                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                    rd.forward(request, response);
+                }
 
-        <br><br>
-        <a href="PasswordChange.jsp">change Password</a>
+            %>
+            <div id="container">
+            <div id="header">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
+                    <tr>
+                        <td>
+                            <img src="uper1.jpg" width="300">
+                        </td>
+                        <td>
+                            <h1 style="color: #FFF">Administrator Profile</h1>
+                        </td>
+
+                        <td align="right">
+
+                           
+                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
+                </ul>
+            </div>
+
+            <div id="section">
 
 
+                <div id="wrap">
 
+                     <a href="admHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
+                    <ul id="navbar">
+                        <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
 
-    </center>
+                        <li><a href="#">||Administrator Privileges||</a>
+                            <ul>
+                                <li><a href="searchUser.jsp">Add User</a></li>
+                                <li><a href="searchUser.jsp">Update User</a></li>
+                                <li><a href="removeUser.jsp">Delete User</a></li>  
+                                <li><a href="RCIaddMember.jsp">Search User</a></li>    
+                                <li><a href="updateUser.jsp">Reset User Password</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li><a href="#">||Operational Users||</a>
+                            <ul>
+                                <li><a href="rciHome.jsp" target="_blank">Research Center In-charge </a></li>
+                                <li><a href="stiHome.jsp" target="_blank">Staff In-charge</a></li>
+                                <li><a href="opiHome.jsp" target="_blank">Old Pupil In-charge</a></li>
+                                <li><a href="pbiHome.jsp" target="_blank">Prefect Board In-charge</a></li>
+                                <li><a href="tsiHome.jsp" target="_blank">Thurunu Saviya In-charge</a></li>
+                                <li><a href="ebiHome.jsp" target="_blank">Exam Branch In-charge</a></li>
+                                
+
+                            </ul>
+                        </li>
+                        <li><a href="#">||External Users||</a>
+                            <ul>
+                                <li><a href="stuHome.jsp" target="_blank">Student</a></li>
+                                <li><a href="prfHome.jsp" target="_blank">Prefect</a></li>
+                                <li><a href="tssHome.jsp" target="_blank">Thurunu Saviya Student</a></li>
+                                <li><a href="stfHome.jsp" target="_blank">Staff</a></li>
+                                <li><a href="prnHome.jsp" target="_blank">Parent</a></li>
+                                <li><a href="opsHome.jsp" target="_blank">Old Pupil</a></li>
+                                
+
+                            </ul>
+                        </li>
+                        <li><a href="#">||Resource Management||</a>
+                            <ul>
+                                <li><a href="#">Add File</a></li>
+                                <li><a href="#">Add Video</a></li>
+                                <li><a href="#">Add Audio</a></li>
+                                <li><a href="#">Add Image</a></li>
+                                <li><a href="#">Remove File</a></li>
+                                <li><a href="#">Remove Video</a></li>
+                                <li><a href="#">Remove Audio</a></li>
+                                <li><a href="#">Remove Image</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    
+                </div>
+
+                <div id="content_container">
+                    
+                   
+                    <center>
+
+                        <img src="research.jpg" width="450" height="300">
+                    </center>
+                </div>
+
+            </div>
+
+            <div id="footer">
+                Copyright © SirivajiraghanaDahamPasala.com
+            </div>
+        </div>
+    
 </body>
-
 </html>
+

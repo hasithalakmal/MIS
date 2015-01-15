@@ -4,13 +4,15 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-          <style>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -121,20 +123,23 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-    <body>
-        <%
+        </head>
+        <body>
+            <%
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
+                if (session.getAttribute("useID") == null) {
                     RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                     rd.forward(request, response);
                 }
 
+                IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getPRFID();
+                String today = dg.getToday();
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e">
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -152,12 +157,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -166,10 +170,10 @@
 
 
                 <div id="wrap">
-
+                    <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
+
                         <li><a href="#">||User Management||</a>
                             <ul>
                                 <li><a href="RCIaddMember.jsp">Add User</a></li>                    
@@ -218,34 +222,34 @@
                 </div>
 
                 <div id="content_container">
-                     <center>
-        <h3>Prefect Registration</h3>
-        <br>
-        <form action="PrfRegistation" method="post">
-            <table>
-                <tr>
-                    <td>
-                        New User ID
-                    </td>
-                    <td>
-                        <input type="text" name="prfID">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Registration Date</td>
-                    <td><input type="date" name="Reg_Date" value="" ></td>
-                </tr>
-                <tr>
-                    <td>Student ID</td>
-                    <td>
-                        <input type="text" name="stuID">
-                    </td>
-                </tr>
-                
-            </table><br><br>
-            <input type="submit" value="Add Prefect">
-        </form>
-        </center>
+                    <center>
+                        <h3>Prefect Registration</h3>
+                        <br>
+                        <form action="PrfRegistation" method="post">
+                            <table>
+                                <tr>
+                                    <td>
+                                        New User ID
+                                    </td>
+                                    <td>
+                                        <input type="text" name="prfID" value="<%=ID%>" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Registration Date</td>
+                                    <td><input type="text" name="Reg_Date" value="<%=today%>" required ></td>
+                                </tr>
+                                <tr>
+                                    <td>Student ID</td>
+                                    <td>
+                                        <input type="text" name="stuID" required>
+                                    </td>
+                                </tr>
+
+                            </table><br><br>
+                            <input type="submit" value="Add">
+                        </form>
+                    </center>
                 </div>
 
             </div>
@@ -254,17 +258,16 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-    
-       
-       
-
-        
 
 
-        
-      
-        
-</body>
+
+
+
+
+
+
+
+
+    </body>
 </html>
 
-    

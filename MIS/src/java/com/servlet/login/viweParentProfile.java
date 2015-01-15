@@ -85,22 +85,13 @@ public class viweParentProfile extends HttpServlet {
             throws ServletException, IOException {
         
          HttpSession session = request.getSession();    
-         if (session.getAttribute("useID") == null) {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
-        }
-        
-        
-        
-           
-            
-            userid = (String) request.getAttribute("userid");
+         
+        userid = (String) request.getAttribute("userid");
             
             if(userid==null){
             userid = (String) session.getAttribute("useID");
             }
-            
-           // pr.write(userid);
+           
             
             ProsedeurControls pc = new ProsedeurControls();
             parameter = "('" + userid + "')";

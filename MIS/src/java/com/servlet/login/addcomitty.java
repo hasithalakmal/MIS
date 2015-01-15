@@ -97,15 +97,15 @@ public class addcomitty extends HttpServlet {
 
             if (res.next()) {
 
-                request.setAttribute("massage", "It is exsisting Exam");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                request.setAttribute("massage", "It is exsisting committee");
+                RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
                 rd.forward(request, response);
 
             } else {
                 para1 = "('" + comityID + "','" + comityName + "','" + Discription + "')";
                 pc.callProc("InsertCommity", para1);
-                request.setAttribute("massage", "servise is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "Committee is added to the system");
+                RequestDispatcher rd = request.getRequestDispatcher("stiValid.jsp");
                 rd.forward(request, response);
             }
             // processRequest(request, response);

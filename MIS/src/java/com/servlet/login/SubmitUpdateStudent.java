@@ -5,6 +5,7 @@
  */
 package com.servlet.login;
 
+import com.MIS.lib.PersonIdentifier;
 import com.MIS.lib.ProsedeurControls;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,6 +29,7 @@ public class SubmitUpdateStudent extends HttpServlet {
     String userid, parameter;
     ResultSet result;
     String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17;
+    private String user2;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -85,16 +87,11 @@ public class SubmitUpdateStudent extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("useID") == null) {
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
-        }
+        String x1 = (String) session.getAttribute("useID");
+        PersonIdentifier pi = new PersonIdentifier();
+        user2 = pi.getUserType(x1);
 
         p1 = request.getParameter("Id");
-        p3 = request.getParameter("Full_Name");
-        p4 = request.getParameter("Initial_Name");
-        p5 = request.getParameter("Race");
-        p6 = request.getParameter("Religion");
         p7 = request.getParameter("NIC");
         p8 = request.getParameter("Address");
         p9 = request.getParameter("Land_Phone");
@@ -102,24 +99,35 @@ public class SubmitUpdateStudent extends HttpServlet {
         p11 = request.getParameter("Mobile_Phone1");
         p12 = request.getParameter("Fax");
         p13 = request.getParameter("school");
-        p14 = request.getParameter("slm");
-        p15 = request.getParameter("dlm");
-        p16= request.getParameter("bDay");
         p17 = request.getParameter("email");
 
         ProsedeurControls pc = new ProsedeurControls();
-        String para1 = "('" + p1 + "','"  + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "')";
-       pc.callProc("updateStudent", para1);
+        String para1 = "('" + p1 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p17 + "')";
+        pc.callProc("updateStudent", para1);
 
+       
         
-        request.setAttribute("massage", "Student is updated........");
-       RequestDispatcher rd = request.getRequestDispatcher("/valid.jsp");
-       rd.forward(request, response);
-       // PrintWriter pr = response.getWriter();
-        // pr.write("helloooooooooooooo");
-     //   pr.write(para1);
-
-        // processRequest(request, response);
+        if("rci".equals(user2)){
+                request.setAttribute("massage", "Student is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+                rd.forward(request, response);
+                }
+                else if("adm".equals(user2)){
+                request.setAttribute("massage", "Student is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/admValid.jsp");
+                rd.forward(request, response);
+                }
+                else if( "opi".equals(user2)){
+                request.setAttribute("massage", "Student is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/pbiValid.jsp");
+                rd.forward(request, response);
+                }
+                else if("sti".equals(user2)){
+                request.setAttribute("massage", "Student is updated");
+                RequestDispatcher rd = request.getRequestDispatcher("/stiValid.jsp");
+                rd.forward(request, response);
+                }
+      
     }
 
     /**

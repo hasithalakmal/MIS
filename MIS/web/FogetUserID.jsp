@@ -143,30 +143,25 @@
 
             <div id="container">
             <div id="header">
-                <table >
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e">
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Forget User ID</h1>
+                            <h1 style="color: #FFF">Forgot User ID</h1>
                         </td>
-                        <td align="right">
-
-                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
-                        </td>
+                        
                     </tr>
                 </table>
             </div>
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallery</a></li>
-
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
 
                 </ul>
             </div>
@@ -174,45 +169,48 @@
             <div id="section">
                 <br><br><br>  
                 <center>
-                <form id="form1" >
-                    <table>
-                        <tr>
-                            <td>
-                                Select User Type
-                            </td>
-                            <td>
-                                <select  name="usertype" id="ut">
+                    <form id="form1" >
+                        <table>
+                            <tr>
+                                <td>
+                                    User Type
+                                </td>
+                                <td>
+                                    <select  name="usertype" id="ut">
 
-                                    <option value="stu">Student</option>
-                                    <option value="stf">Staff</option>
-                                    <option value="ops">Old Boy</option>
-                                    <option value="prf">Prefect</option>
-                                    <option value="tss">Thurunusaviya student</option>                          
-                                    <option value="prn">Guardian</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                User Name 
-                            </td>
-                            <td>
-                                <input type="text" name="userName" id="un">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                Birth Day 
-                            </td>
-                            <td>
-                                <input type="text" name="birthday" id="bd">
-                            </td>
-                        </tr>
-                    </table>
-                    <input id="submit" type="button" value="search">
-                </form>
-                <p id="namelist"></p>
+                                        <option value="stu">Student</option>
+                                        <option value="stf">Staff</option>
+                                        <option value="ops">Old Boy</option>
+                                        <option value="prf">Prefect</option>
+                                        <option value="tss">Thurunusaviya Student</option>                          
+                                        <option value="prn">Guardian</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    User Name 
+                                </td>
+                                <td>
+                                    <input type="text" name="userName" id="un" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Birth Day 
+                                </td>
+                                <td>
+                                    <input type="text" name="birthday" id="bd" required>
+                                </td>
+                            </tr>
+                        </table>
+                        <input id="submit" type="button" value="search">
+                    </form>
+                    <p id="namelist"></p>
                 </center>
+            </div>
+            <div id="footer">
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
     </body>

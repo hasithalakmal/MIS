@@ -95,7 +95,7 @@ public class SubmitUpdateCourse extends HttpServlet {
         
         
         request.setAttribute("massage", "exam is updated");
-        RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
         rd.forward(request, response);
         
         

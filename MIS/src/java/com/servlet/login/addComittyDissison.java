@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mr.Mic
  */
 public class addComittyDissison extends HttpServlet {
+
     private String DisisonID;
     private String comityID;
     private String year;
@@ -49,7 +50,7 @@ public class addComittyDissison extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addComittyDissison</title>");            
+            out.println("<title>Servlet addComittyDissison</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet addComittyDissison at " + request.getContextPath() + "</h1>");
@@ -95,28 +96,37 @@ public class addComittyDissison extends HttpServlet {
             year = request.getParameter("year");
             Subject = request.getParameter("Subject");
             Discription = request.getParameter("Discription");
-            
-            para1 = "('" + DisisonID +"')";
-            res = pc.callProc("selectComityDissisions", para1);
 
+            para1 = "('" + comityID + "')";
+            res = pc.callProc("selectCommity", para1);
             if (res.next()) {
+                para1 = "('" + DisisonID + "')";
+                res = pc.callProc("selectComityDissisions", para1);
 
-                request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
-                rd.forward(request, response);
+                if (res.next()) {
+
+                    request.setAttribute("massage", "It is exsisting behavior");
+                    RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
+                    rd.forward(request, response);
+
+                } else {
+                    para1 = "('" + DisisonID + "','" + comityID + "','" + year + "','" + Subject + "','" + Discription + "')";
+                    pc.callProc("insertComityDissison", para1);
+                    request.setAttribute("massage", "Behavior is added");
+                    RequestDispatcher rd = request.getRequestDispatcher("stiValid.jsp");
+                    rd.forward(request, response);
+                }
 
             } else {
-                para1 = "('" + DisisonID + "','" + comityID + "','"+year+"','"+Subject +"','"+Discription+ "')";
-                pc.callProc("insertComityDissison", para1);
-                request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "Invalide committee ID");
+                RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
                 rd.forward(request, response);
             }
-            // processRequest(request, response);
+
         } catch (SQLException ex) {
             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //processRequest(request, response);
     }
 

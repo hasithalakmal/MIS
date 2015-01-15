@@ -97,12 +97,12 @@ public class removeComittyDissison extends HttpServlet {
 
                 pc.callProc("deleteDissisons", para1);
                 request.setAttribute("massage", "Behavior is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("stiValid.jsp");
                 rd.forward(request, response);
 
             } else {
                 request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
                 rd.forward(request, response);
             }
             // processRequest(request, response);

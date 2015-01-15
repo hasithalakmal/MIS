@@ -24,14 +24,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class RemoveServiceForStaff extends HttpServlet {
 
-     private String ServiseID;
+    private String ServiseID;
     private String StaffID;
     private String Date;
     private String Marks;
     private String Assigned;
     private String para1;
     private ResultSet res;
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -50,7 +50,7 @@ public class RemoveServiceForStaff extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RemoveServiceForStaff</title>");            
+            out.println("<title>Servlet RemoveServiceForStaff</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet RemoveServiceForStaff at " + request.getContextPath() + "</h1>");
@@ -87,40 +87,35 @@ public class RemoveServiceForStaff extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         try {
+
+        try {
             ProsedeurControls pc = new ProsedeurControls();
-            PrintWriter pr = response.getWriter();
+            // PrintWriter pr = response.getWriter();
 
             ServiseID = request.getParameter("ServiseID");
             StaffID = request.getParameter("StaffID");
             Date = request.getParameter("Date");
-            
 
-            para1 = "('" + ServiseID +"','"+StaffID+"','"+Date+ "')";
+            para1 = "('" + ServiseID + "','" + StaffID + "','" + Date + "')";
             res = pc.callProc("SelectInvolveStaff", para1);
 
             if (res.next()) {
-                
-               
                 pc.callProc("DeleteInvolveStaff", para1);
-                request.setAttribute("massage", "servise is removed for staff");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "servise is removed form staff");
+                RequestDispatcher rd = request.getRequestDispatcher("/stiValid.jsp");
                 rd.forward(request, response);
 
-               
-
             } else {
-                request.setAttribute("massage", "It is not exsisting servise");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                request.setAttribute("massage", "It is not exsisting record");
+                RequestDispatcher rd = request.getRequestDispatcher("/stiInValid.jsp");
                 rd.forward(request, response);
             }
             // processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-      //  processRequest(request, response);
+
+        //  processRequest(request, response);
     }
 
     /**

@@ -171,8 +171,8 @@ public class updateStudentforTSScourse extends HttpServlet {
                 rd.forward(request, response);
 
             } else {
-                request.setAttribute("massage", "It is exsisting behavior");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                request.setAttribute("massage", "It is invalid course");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
                 rd.forward(request, response);
 
             }

@@ -43,13 +43,13 @@
                 margin: 7px; 
                 float:left;
                 border-radius: 10px;
-                height:550px;
+                height:800px;
                 float:left;
                 padding:10px;
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 1000px;
+            { width: 800px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -123,103 +123,12 @@
             </style>
     </head>
     <body>
-         <%
-
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                    rd.forward(request, response);
-                }
-
-            %>
-            <div id="container">
-            <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
-                    <tr>
-                        <td>
-                            <img src="uper1.jpg" width="300">
-                        </td>
-                        <td>
-                            <h1 style="color: #FFF">Staff Profile</h1>
-                        </td>
-                        <td align="right">
-
-                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div id="nav">
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
-
-                </ul>
-            </div>
-
-            <div id="section">
-
-
-                <div id="wrap">
-
-                    <ul id="navbar">
-                        <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
-                        <li><a href="#">||Profile Management||</a>
-                            <ul>
-                                <li><a href="#">View Personal Details</a></li>                    
-                                <li><a href="#">View Education Details</a></li
-                                <li><a href="#">Service Details</a></li>
-                                <li><a href="#">Committee Details</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="#">||Reports||</a>
-                            <ul>
-                                <li><a href="#">My Personal Details</a></li>
-                                
-                                <li><a href="#">My Service Details</a></li>
-                                <li><a href="#">My committee Details </a></li>
-                                <li><a href="#">Thuunusaviya Progress Report</a></li>
-                               
-
-                            </ul>
-                        </li>
-                        <li><a href="#">||Feedback||</a>
-                            <ul>
-                                <li><a href="#">Send e-mail</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="#">||Gallary||</a>
-                            <ul>
-                                <li><a href="#"> File</a></li>
-                                <li><a href="#"> Video</a></li>
-                                <li><a href="#"> Audio</a></li>
-                                <li><a href="#"> Image</a></li>
-                                
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div id="content_container">
-
-                    <br>
-                  
-        
-          <%
-            if (session.getAttribute("useID") == null) {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+         <% 
+            if(session.getAttribute("useID") == null){
+               RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
-            }
-
+            }            
+            
             String p1 = (String) request.getAttribute("p1");
             String p2 = (String) request.getAttribute("p2");
             String p3 = (String) request.getAttribute("p3");
@@ -240,61 +149,353 @@
             String p18 = (String) request.getAttribute("p18");
             String p19 = (String) request.getAttribute("p19");
             String p20 = (String) request.getAttribute("p20");
+            String p21 = (String) request.getAttribute("p21");
+            String p22 = (String) request.getAttribute("p22");
+            String p23 = (String) request.getAttribute("p23");
+            String p24 = (String) request.getAttribute("p24");
+            String p25 = (String) request.getAttribute("p25");
+            String p26 = (String) request.getAttribute("p26");
+            String p27 = (String) request.getAttribute("p27");
+            String p28 = (String) request.getAttribute("p28");
+            String p29 = (String) request.getAttribute("p29");
+            String p30 = (String) request.getAttribute("p30");
+            String p31 = (String) request.getAttribute("p31");
+            String p32 = (String) request.getAttribute("p32");
+            String p33 = (String) request.getAttribute("p33");
+            String p34 = (String) request.getAttribute("p34");
+            String p35 = (String) request.getAttribute("p35");
+            
+            
+                
         %>
-        <h1>Parent Profile!!!</h1>
-        <p>
-            p1 = <%=p1%>
-            <br>
-            p2 = <%= p2%>
-            <br>
-            p3 = <%= p3%>
-            <br>
-            p4 = <%= p4%>
-            <br>
-            p5 = <%= p5%>
-            <br>
-            p6 = <%= p6%>
-            <br>
-            p7 = <%=  p7%>
-            <br>
-            p8 = <%= p8%>
-            <br>
-            p9 = <%= p9%>
-            <br>
-            p10 = <%= p10%>
-            <br>
-            p11 = <%= p11%>
-            <br>
-            p12 = <%= p12%>
-            <br>
-            p13 = <%=  p13%>
-            <br>
-            p14 = <%= p14%>
-            <br>
-            p15 = <%= p15%>
-            <br>
-            p16 = <%= p16%>
-            <br>
-            p17 = <%=p17%>
-            <br>
+      
+         
+            <div id="container">
+            <div id="header">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
+                    <tr>
+                        <td>
+                            <img src="uper1.jpg" width="300">
+                        </td>
+                        <td>
+                            <h1 style="color: #FFF">Staff Profile</h1>
+                        </td>
+                        <td align="right">
 
-        </p>
-
-
-        <input type="submit" value="Edit Data" id="btn">
-        
-                    
-                    
-        
-                </div>
-
+                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
+                        </td>
+                    </tr>
+                </table>
             </div>
 
+            <div id="nav">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
+                    <li><a href="gallary.html">Gallery</a></li>
+                    
+
+                </ul>
+            </div>
+
+            <div id="section">
+
+
+               
+
+                <div id="content_container">
+                    
+                    <table>
+                        <tr>
+                            <td>
+                              Staff ID   
+                            </td>
+                            <td>
+                              : <%=p1%>  
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                              Is Academic Staff? 
+                            </td>
+                            <td>
+                              : <%= p2%> 
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                             Registration Date 
+                            </td>
+                            <td>
+                             : <%= p3%>  
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                             State 
+                            <td>
+                              : <%= p4%> 
+                            </td> 
+                            
+                        </tr>
+                         <tr>
+                            <td>
+                                Full Name 
+                            </td>
+                            <td>
+                              : <%= p5%>    
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                              Name With Initials 
+                            </td>
+                            <td>
+                             : <%= p6%>    
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                              Birthday
+                              </td>
+                            <td>
+                           : <%=  p7%>
+                            </td>
+                            
+                        </tr>
+                         <tr>
+                            <td>
+                              Race
+                            </td>
+                            <td>
+                             : <%= p8%>   
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                              Religion  
+                            </td>
+                            <td>
+                              : <%= p9%>    
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                               NIC Number 
+                            </td>
+                            <td>
+                              : <%= p10%>  
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                            Home Address  
+                            </td>
+                            <td>
+                           : <%= p11%>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                           Land line No 
+                            </td>
+                            <td>
+                            : <%= p12%>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                           Mobile NO 1  
+                            </td>
+                            <td>
+                           : <%=  p13%>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                            Mobile No 2 
+                            </td>
+                            <td>
+                            : <%= p14%>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                           Fax 
+                            <td>
+                           : <%= p15%>
+                            </td>
+                            
+                        </tr>
+                         <tr>
+                            <td>
+                          Email  
+                            </td>
+                            <td>
+                           : <%= p16%>
+                            </td>
+                        </tr>
+                        
+                         <tr>
+                            <td>
+                           Occupation  
+                            </td>
+                            <td>
+                           : <%=p17%>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                           Office Phone No  
+                            </td>
+                            <td>
+                           : <%=p18%>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                           Office Address  
+                            </td>
+                            <td>
+                           : <%=p19%>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                           Educational Qualifications   
+                            </td>
+                            <td>
+                           : <%=p20%>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                            
+                            </td>
+                            <td>
+                           : <%=p21%>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                             
+                            </td>
+                            <td>
+                           : <%=p22%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                             
+                            </td>
+                            <td>
+                           : <%=p23%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                             
+                            </td>
+                            <td>
+                           : <%=p24%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            
+                            </td>
+                            <td>
+                           : <%=p25%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                             
+                            </td>
+                            <td>
+                           : <%=p26%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                             
+                            </td>
+                            <td>
+                           : <%=p27%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                           Other Qualifications  
+                            </td>
+                            <td>
+                           : <%=p28%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                           Professional Qualifications  
+                            </td>
+                            <td>
+                           : <%=p29%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                           Is Student?  
+                            </td>
+                            <td>
+                           : <%=p30%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                           Student ID  
+                            </td>
+                            <td>
+                           : <%=p31%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                           Is Thurunusavaiya Student?  
+                            </td>
+                            <td>
+                           : <%=p32%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                           Thurunusaviya Student ID 
+                            </td>
+                            <td>
+                           : <%=p33%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                           Is Thurunusaviya Taecher?
+                            </td>
+                            <td>
+                           : <%=p34%>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                  
+            </div>
+            </div>
             <div id="footer">
                 Copyright © SiriWajiraghanaDahamPasala.com
-            </div>
-        </div>
-    
+                  
+            </div></div>          
+
         
     </body>
 </html>

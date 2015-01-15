@@ -159,12 +159,6 @@ public class FogotUserID extends HttpServlet {
             }
         }
         
-        
-        
-        
-        
-        
-        
         response.setContentType("text/Html");
         response.setCharacterEncoding("UTF-8");
         response.getWriter().write(result);

@@ -102,12 +102,12 @@ public class RCI_Registation extends HttpServlet {
             
             if(!"stf".equals(stfid)){
                 request.setAttribute("massage", "It is not a Staff ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }else{
             if(!"rci".equals(outid)){
-                request.setAttribute("massage", "It is not a admin ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                request.setAttribute("massage", "It is not a rci ID");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }else{
             
@@ -127,13 +127,13 @@ public class RCI_Registation extends HttpServlet {
                 }
                 query = "('" + ouID + "','" + pass + "')";
                 pc.callProc("insertPW", query);
-                
-                RequestDispatcher rd = request.getRequestDispatcher("/admHome.jsp");
+                request.setAttribute("massage", "Reaserch Center In-charge is added to the system.");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
                 rd.forward(request, response);
                 
             }else{
             request.setAttribute("massage", "Your Staff ID is not correct");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }
             //processRequest(request, response);

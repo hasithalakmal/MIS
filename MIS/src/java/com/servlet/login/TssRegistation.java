@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.servlet.login;
 
 import com.MIS.lib.PasswordEncoding;
@@ -26,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mr.Mic
  */
 public class TssRegistation extends HttpServlet {
+
     private String TssID;
     private String RDate;
     private String stuID;
@@ -49,15 +49,15 @@ public class TssRegistation extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-          /*  out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet TssRegistation</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet TssRegistation at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");*/
+            /*  out.println("<!DOCTYPE html>");
+             out.println("<html>");
+             out.println("<head>");
+             out.println("<title>Servlet TssRegistation</title>");            
+             out.println("</head>");
+             out.println("<body>");
+             out.println("<h1>Servlet TssRegistation at " + request.getContextPath() + "</h1>");
+             out.println("</body>");
+             out.println("</html>");*/
         } finally {
             out.close();
         }
@@ -100,46 +100,48 @@ public class TssRegistation extends HttpServlet {
 
             if (!"stu".equals(stuid)) {
                 request.setAttribute("massage", "It is not a Student ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
-            }else{
-            if (!"tss".equals(tssid)) {
-                request.setAttribute("massage", "It is not a Thurunusaviya ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
-                rd.forward(request, response);
-            }else{
-
-            ProsedeurControls pc = new ProsedeurControls();
-            query = "('" + stuID + "')";
-            res = pc.callProc("selectStudentByID", query);
-
-            if (res.next()) {
-                query = "('" + TssID + "','" + RDate + "','" + stuID + "')";
-                pc.callProc("InsertTSStudent", query);
-
-                PasswordEncoding pe = new PasswordEncoding();
-                try {
-                    pass = pe.Encode(TssID);
-                } catch (Exception ex) {
-                    Logger.getLogger(AdmRegistation.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                query = "('" + TssID + "','" + pass + "')";
-                pc.callProc("insertPW", query);
-
-                RequestDispatcher rd = request.getRequestDispatcher("/admHome.jsp");
-                rd.forward(request, response);
-
             } else {
-                request.setAttribute("massage", "Your Student ID is not correct");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
-                rd.forward(request, response);
+                if (!"tss".equals(tssid)) {
+                    request.setAttribute("massage", "It is not a Thurunusaviya ID");
+                    RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                    rd.forward(request, response);
+                } else {
+
+                    ProsedeurControls pc = new ProsedeurControls();
+                    query = "('" + stuID + "')";
+                    res = pc.callProc("selectStudentByID", query);
+
+                    if (res.next()) {
+                        query = "('" + TssID + "','" + RDate + "','" + stuID + "')";
+                        pc.callProc("InsertTSStudent", query);
+
+                        PasswordEncoding pe = new PasswordEncoding();
+                        try {
+                            pass = pe.Encode(TssID);
+                        } catch (Exception ex) {
+                            Logger.getLogger(AdmRegistation.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        query = "('" + TssID + "','" + pass + "')";
+                        pc.callProc("insertPW", query);
+                        request.setAttribute("massage", "Reaserch Center In-charge is added to the system.");
+                        RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+                        rd.forward(request, response);
+
+                    } else {
+                        request.setAttribute("massage", "Your Student ID is not correct");
+                        RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                        rd.forward(request, response);
+                    }
+                    //processRequest(request, response);
+                }
             }
-            //processRequest(request, response);
-        }}} catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(RCI_Registation.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-      //  processRequest(request, response);
+
+        //  processRequest(request, response);
     }
 
     /**

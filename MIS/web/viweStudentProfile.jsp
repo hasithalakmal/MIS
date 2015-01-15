@@ -49,7 +49,7 @@
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 500px;
+            { width: 800px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -156,7 +156,7 @@
          
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -177,9 +177,8 @@
                     <li><a href="home.html">Home</a></li>
                     <li><a href="history.html">History</a></li>
                     <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                    <li><a href="gallary.html">Gallery</a></li>
+                    
 
                 </ul>
             </div>
@@ -197,7 +196,7 @@
                               Student ID   
                             </td>
                             <td>
-                              <%=p1%>  
+                              : <%=p1%>  
                             </td>
                         </tr>
                          <tr>
@@ -205,31 +204,31 @@
                               Registration Date 
                             </td>
                             <td>
-                              <%= p2%> 
+                              : <%= p2%> 
                             </td>
                         </tr>
                          <tr>
                             <td>
-                             Name 
+                             Full Name 
                             </td>
                             <td>
-                             <%= p3%>  
+                             : <%= p3%>  
                             </td>
                         </tr>
                          <tr>
                             <td>
-                             Initials 
+                             Name With Initials 
                             <td>
-                              <%= p4%> 
+                              : <%= p4%> 
                             </td> 
-                            </td>
+                            
                         </tr>
                          <tr>
                             <td>
                                 Race 
                             </td>
                             <td>
-                              <%= p5%>    
+                              : <%= p5%>    
                             </td>
                         </tr>
                          <tr>
@@ -237,7 +236,7 @@
                               Religion 
                             </td>
                             <td>
-                             <%= p6%>    
+                             : <%= p6%>    
                             </td>
                         </tr>
                          <tr>
@@ -245,7 +244,7 @@
                               National Identity Card No
                               </td>
                             <td>
-                           <%=  p7%>
+                           : <%=  p7%>
                             </td>
                             
                         </tr>
@@ -254,7 +253,7 @@
                               Address 
                             </td>
                             <td>
-                             <%= p8%>   
+                             : <%= p8%>   
                             </td>
                         </tr>
                          <tr>
@@ -262,7 +261,7 @@
                               Mobile Phone No1  
                             </td>
                             <td>
-                              <%= p9%>    
+                              : <%= p9%>    
                             </td>
                         </tr>
                          <tr>
@@ -270,7 +269,7 @@
                                Mobile Phone No2 
                             </td>
                             <td>
-                              <%= p10%>  
+                              : <%= p10%>  
                             </td>
                         </tr>
                          <tr>
@@ -278,7 +277,7 @@
                             Fax  
                             </td>
                             <td>
-                           <%= p11%>
+                           : <%= p11%>
                             </td>
                         </tr>
                          <tr>
@@ -286,7 +285,7 @@
                            Land line No 
                             </td>
                             <td>
-                            <%= p12%>
+                            : <%= p12%>
                             </td>
                         </tr>
                          <tr>
@@ -294,7 +293,7 @@
                            School  
                             </td>
                             <td>
-                           <%=  p13%>
+                           : <%=  p13%>
                             </td>
                         </tr>
                          <tr>
@@ -302,48 +301,44 @@
                             Learning medium in School 
                             </td>
                             <td>
-                            <%= p14%>
+                            : <%= p14%>
                             </td>
                         </tr>
                          <tr>
                             <td>
                            Learning medium in School 
                             <td>
-                           <%= p15%>
+                           : <%= p15%>
                             </td>
-                            </td>
+                            
                         </tr>
                          <tr>
                             <td>
                           Birthday  
                             </td>
                             <td>
-                           <%= p16%>
+                           : <%= p16%>
                             </td>
                         </tr>
                         
                          <tr>
                             <td>
-                           e-mail  
+                           Email  
                             </td>
                             <td>
-                           <%=p17%>
+                           : <%=p17%>
                             </td>
                         </tr>
                         
                         
                     </table>
-                    
-       
-           
-
-        
                   
             </div>
             </div>
             <div id="footer">
                 Copyright © SiriWajiraghanaDahamPasala.com
                   
+            </div></div>          
 
     </body>
 </html>

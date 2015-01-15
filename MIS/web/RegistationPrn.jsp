@@ -4,6 +4,8 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,7 +51,7 @@
                 background-color:#d4dadc;
             }
             #content_container
-            { width: 500px;
+            { width: 700px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -125,16 +127,19 @@
     <body>
          <%
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
+                if (session.getAttribute("useID") == null) {
                     RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                     rd.forward(request, response);
                 }
 
+                IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getParentID();
+                String today = dg.getToday();
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -152,12 +157,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                   <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -166,7 +170,7 @@
 
 
                 <div id="wrap">
-
+<a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          
@@ -218,7 +222,7 @@
                 </div>
 
                 <div id="content_container">
-                     <center>
+                     
 
         <h3>Registration Form </h3>
 
@@ -227,11 +231,11 @@
 
             <table>
                 <tr>
-                    <td><b>Parent Id</b></td>
-                    <td><input type="text" name="Id" value="" size="50"></td>
+                    <td>Parent Id</td>
+                    <td><input type="text" name="Id" value="<%=ID%>" required size="50"></td>
                 </tr>
                 <tr>
-                    <td><b>Relation</b></td>
+                    <td>Relation</td>
                     <td>
                         <input type="radio" name='Relation' value='father'>father
                         <input type="radio" name='Relation' value='mother'>mother
@@ -240,29 +244,29 @@
                 </tr>
 
                 <tr>
-                    <td><b>Registration Date</b></td>
-                    <td><input type="date" name="Reg_Date" value="" ></td>
+                    <td>Registration Date</td>
+                    <td><input type="text" name="Reg_Date"  value="<%=today%>" required ></td>
                 </tr>
                 <tr>
-                    <td><b>State</b></td>
+                    <td>State</td>
                     <td><input type="radio" name='state' value='Mr.'>Mr
                         <input type="radio" name='state' value='Mrs.'>Mrs.
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Full Name</b></td>
-                    <td><input type="text" name="Full_Name" value="" size="50"></td>
+                    <td>Full Name</td>
+                    <td><input type="text" name="Full_Name" value="" size="50" required></td>
                 </tr>
                 <tr>
-                    <td><b>Initials</b></td>
-                    <td><input type="text" name="Initial_Name" value="" size="50"></td>
+                    <td>Initials</td>
+                    <td><input type="text" name="Initial_Name" value="" size="50" required></td>
                 </tr> 
                 <tr>
-                    <td><b>Birthday</b></td>
-                    <td><input type="text" name="bDay" value="" size="50"></td>
+                    <td>Birthday</td>
+                    <td><input type="text" name="bDay" value="" size="50" required></td>
                 </tr> 
                 <tr>
-                    <td><b>Race</b></td>
+                    <td>Race</td>
                     <td><input type="radio" name='Race' value='Sinhala'>Sinhala
                         <input type="radio" name='Race' value='tamil'>Tamil
                         <input type="radio" name='Race' value='Muslim'>Muslim
@@ -270,7 +274,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><b>Religion</b></td>
+                    <td>Religion</td>
                     <td><input type="radio" name="Religion" value="Buddhist">Buddhist
                         <input type="radio" name="Religion" value="christian">Christian
                         <input type="radio" name="Religion" value="chataolic">Catholic
@@ -278,30 +282,30 @@
                         <input type="radio" name="Religion" value="Others">Others
                     </td></tr>
                 <tr>
-                    <td><b>NIC No</b></td>
-                    <td><input type="text" name="NIC" value="" size="50"></td>
+                    <td>NIC No</td>
+                    <td><input type="text" name="NIC" value="" size="50" required></td>
                 </tr>
                 <tr>
-                    <td><b>Address</b></td>
-                    <td><input type="text" name="Address" value="" size="50">
+                    <td>Address</td>
+                    <td><input type="text" name="Address" value="" size="50" required>
                     </td>
                 </tr><tr>
-                    <td><b>Land Phone</b></td>
+                    <td>Land Phone</td>
                     <td><input type="text" name="Land_Phone" value="" size="50"></td>
                 </tr>
                 <tr>
-                    <td><b>Mobile Phone 1</b></td>
-                    <td><input type="text" name="Mobile_Phone1" value="" size="50"></td>
+                    <td>Mobile Phone 1</td>
+                    <td><input type="text" name="Mobile_Phone1" value="" size="50" required></td>
                 </tr>
                 <tr>
-                    <td><b>Mobile Phone 2</b></td>
+                    <td>Mobile Phone 2</td>
                     <td><input type="text" name="Mobile_Phone2" value="" size="50"></td>
                 </tr>
                 <tr>
-                    <td><b>Fax</b></td>
+                    <td>Fax</td>
                     <td><input type="text" name="Fax" value="" size="50"></td></tr>
                 <tr>
-                    <td><b>Email</b></td>
+                    <td>Email</td>
                     <td><input type="text" name="email" value="" placeholder="@gmail.com" size="50"></td>
                 </tr>
 
@@ -310,11 +314,11 @@
                     <td><input type="text" name="occupation" value=""  size="50"></td>
                 </tr>
                 <tr>
-                    <td><b>Office Phone</b></td>
+                    <td>Office Phone</td>
                     <td><input type="text" name="office_phone" value=""  size="50"></td>
                 </tr>
                 <tr>
-                    <td><b>Office Address</b></td>
+                    <td>Office Address</td>
                     <td><input type="text" name="Office_address" value=""  size="50"></td>
                 </tr>
                
@@ -325,14 +329,14 @@
 
         </form>
 
-    </center>
+    
                  
                 </div>
 
             </div>
 
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
     

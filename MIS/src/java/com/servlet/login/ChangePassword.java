@@ -7,6 +7,7 @@ package com.servlet.login;
 
 import com.MIS.lib.LogginValidation;
 import com.MIS.lib.PasswordEncoding;
+import com.MIS.lib.PersonIdentifier;
 import com.MIS.lib.ProsedeurControls;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,6 +28,8 @@ import javax.servlet.jsp.PageContext;
 public class ChangePassword extends HttpServlet {
 
     String uid, opw, npw1, npw2, newpw, para1;
+    private String type;
+    private String massage;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -84,7 +87,7 @@ public class ChangePassword extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            PrintWriter pr = response.getWriter();
+
             HttpSession session = request.getSession();
             ProsedeurControls pc = new ProsedeurControls();
             PasswordEncoding pe = new PasswordEncoding();
@@ -95,6 +98,8 @@ public class ChangePassword extends HttpServlet {
             npw1 = request.getParameter("newpw1");
             npw2 = request.getParameter("newpw2");
 
+            PersonIdentifier pi = new PersonIdentifier();
+            type=pi.getUserType(uid);
             newpw = pe.Encode(npw1);
 
             if (lv.checkValidity(uid, opw)) {
@@ -103,18 +108,108 @@ public class ChangePassword extends HttpServlet {
                     para1 = "('" + uid + "','" + npw2 + "')";
                     pc.callProc("updatePassword", para1);
 
-                    RequestDispatcher rd = request.getRequestDispatcher("/PasswordChange.jsp");
+                    massage="Pasword is changed";
+                    request.setAttribute("massage", massage);
+                    
+                    if ("adm".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/admValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("stu".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/stuValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("rci".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
                     rd.forward(request, response);
-                } else {
-                    request.setAttribute("massage", "Please enter same password two times");
-                    RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
-                    rd.forward(request, response);
-
-                }
-            } else {
+                    } else if ("stf".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/stfValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("ops".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/opsValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("prf".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/prfValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("tss".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/tssValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("pbi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/pbiValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("tsi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/tsiValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("ebi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/ebiValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("prn".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/prnValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("opi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/opiValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("sti".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/stiValid.jsp");
+                        rd.forward(request, response);
+                    } else {
+                        //  request.setAttribute("massage", "Your Use Name is not Correct");
+                        RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                        rd.forward(request, response);
+                    }
+                    
+                    
+                    
+                } 
+            }
+            else {
                 request.setAttribute("massage", "Your old User name or password is not correct");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
-                rd.forward(request, response);
+                
+                
+                 if ("adm".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/admInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("stu".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/stuInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("rci".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                    rd.forward(request, response);
+                    } else if ("stf".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/stfInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("ops".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/opsInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("prf".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/prfInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("tss".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/tssInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("pbi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/pbiInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("tsi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/tsiInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("ebi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/ebiInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("prn".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/prnInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("opi".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/opiInValid.jsp");
+                        rd.forward(request, response);
+                    } else if ("sti".equals(type)) {
+                        RequestDispatcher rd = request.getRequestDispatcher("/stiInValid.jsp");
+                        rd.forward(request, response);
+                    } else {
+                        //  request.setAttribute("massage", "Your Use Name is not Correct");
+                        RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                        rd.forward(request, response);
+                    }
+                
+           
 
             }
 

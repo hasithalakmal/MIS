@@ -123,72 +123,7 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-            <script>             function validateEmail() {
-                    var x = document.forms["myForm"]["email"].value;
-                    var atpos = x.indexOf("@");
-                    var dotpos = x.lastIndexOf(".");
-                    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
-                        alert("Not a valid e-mail address");
-                        return false;
-                    }
-                }
-
-                function ValidateTelephone()
-                {
-                    var x = document.forms["myForm"]["Land_Phone"].value;
-                    var y = document.forms["myForm"]["Mobile_Phone 1"].value;
-                    var z = document.forms["myForm"]["Mobile_Phone2"].value;
-                    if (isNaN(x) || x.indexOf(" ") != -1)
-                    {
-                        alert("Enter numeric value")
-                        return false;
-                    }
-                    if (x.length > 8)
-                    {
-                        alert("enter 8 characters");
-                        return false;
-                    }
-                    if (x.charAt(0) != "2")
-                    {
-                        alert("it should start with 2 ");
-                        return false
-                    }
-
-                    if (isNaN(y) || y.i ndexOf(" ") != -1)
-                    {
-                        alert("Enter numeric value")
-                        return false;
-                    }
-                    if (y.length > 10)
-                    {
-                        alert("enter 10 characters");
-                        return false;
-                    }
-                    if (y.charAt(0) != "9")
-                    {
-                        alert("it should start with 9 ");
-                        return false
-                    }
-
-                    if (isNaN(z) || z.indexOf(" ") != -1)
-                    {
-                        alert(" Enter numeric value")
-                        return false;
-                    }
-                    if (z.length > 10)
-                    {
-                        alert("enter 10 characters");
-                        return false;
-                    }
-                    if (z.charAt(0) != "9")
-                    {
-                        alert("it should start with 9 ");
-                        return false
-                    }
-                }
-
-
-            </script>
+           
         </head>
 
 
@@ -205,18 +140,19 @@
                 String ID = idg.getStudentID();
                 String today = dg.getToday();
             %>
-            <br>
             <div id="container">
             <div id="header">
-                <table >
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Research Center In_Charge</h1>
+                            <h1 style="color: #FFF">Research Center In-Charge</h1>
                         </td>
+
                         <td align="right">
+
 
                             <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
                         </td>
@@ -226,12 +162,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -241,6 +176,7 @@
 
                 <div id="wrap">
 
+                    <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
 
@@ -289,113 +225,114 @@
                         </li>
 
                     </ul>
+
                 </div>
 
                 <div id="content_container">
+
+
                     <center>
 
-                        <center>
+                        <h1>Registration Form </h1>
 
-                            <h1>Registration Form </h1>
+                        <!--The registration form for the users -->
+                        <form action="StudentRegistation"   method="post">
 
-                            <!--The registration form for the users -->
-                            <form action="StudentRegistation" name="StudentRegistation" onsubmit = "return ValidateTelephone(); return validateEmail();" method="post">
-
-                                <table>
-                                    <tr>
-                                        <td><b>Student ID</b></td>
-                                        <td><input type="text" name="Id" value="<%=ID%>" size="50"></td>
-                                    </tr>
+                            <table>
+                                <tr>
+                                    <td><b>Student ID</b></td>
+                                    <td><input type="text" name="Id" value="<%=ID%>" size="50" required></td>
+                                </tr>
 
 
-                                    <tr>
-                                        <td><b>Registration Date</b></td>
-                                        <td><input type="text" name="Reg_Date" value="<%=today%>" ></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Full Name</b></td>
-                                        <td><input type="text" name="Full_Name" value="" size="50"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Initials</b></td>
-                                        <td><input type="text" name="Initial_Name" value="" size="50"></td>
-                                    </tr> 
-                                    <tr>
-                                        <td><b>Birthday</b></td>
-                                        <td><input type="text" name="bDay" value="" size="50"></td>
-                                    </tr> 
-                                    <tr>
-                                        <td><b>Race</b></td>
-                                        <td><input type="radio" name='Race' value='Sinhala'>Sinhala
-                                            <input type="radio" name='Race' value='tamil'>Tamil
-                                            <input type="radio" name='Race' value='Muslim'>Muslim
-                                            <input type="radio" name='Race' value='Other'>Other
-                                        </td></tr>
-                                    <tr>
-                                        <td><b>Religion</b></td>
-                                        <td><input type="radio" name="Religion" value="Buddhist">Buddhist
-                                            <input type="radio" name="Religion" value="christian">Christian
-                                            <input type="radio" name="Religion" value="chataolic">Catholic
-                                            <input type="radio" name="Religion" value="Hindu">Hindu
-                                            <input type="radio" name="Religion" value="Others">Others
-                                        </td></tr>
-                                    <tr>
-                                        <td><b>NIC No</b></td>
-                                        <td><input type="text" name="NIC" value="" size="50"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Address</b></td>
-                                        <td><input type="text" name="Address" value="" size="50">
-                                        </td>
-                                    </tr><tr>
-                                        <td><b>Land Phone</b></td>
-                                        <td><input type="text" name="Land_Phone" value="" size="50"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Mobile Phone 1</b></td>
-                                        <td><input type="text" name="Mobile_Phone1" value="" size="50"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Mobile Phone 2</b></td>
-                                        <td><input type="text" name="Mobile_Phone2" value="" size="50"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Fax</b></td>
-                                        <td><input type="text" name="Fax" value="" size="50"></td></tr>
-                                    <tr>
-                                        <td><b>Email</b></td>
-                                        <td><input type="text" name="email" value="" placeholder="@gmail.com" size="50"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>School</b></td>
-                                        <td><input type="text" name="school" value="" size="50"></td></tr>
-                                    <tr>
-                                        <td><b>School Learning Medium</b></td>
-                                        <td><input type="radio" name="slm" value="Singhela">Sinhala
-                                            <input type="radio" name="slm" value="English">English
-                                            <input type="radio" name="slm" value="Tamil">Tamil
-                                        </td></tr>
-                                    <tr>
-                                        <td><b>Dhamma School Medium</b></td>
-                                        <td><input type="radio" name="dlm" value="Singhela">Sinhala
-                                            <input type="radio" name="dlm" value="English">English
+                                <tr>
+                                    <td><b>Registration Date</b></td>
+                                    <td><input type="text" name="Reg_Date" value="<%=today%>" required ></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Full Name</b></td>
+                                    <td><input type="text" aria-describedby="name-format" name="Full_Name" value="" size="50" required></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Initials</b></td>
+                                    <td><input type="text" name="Initial_Name" value="" size="50" required></td>
+                                </tr> 
+                                <tr>
+                                    <td><b>Birthday</b></td>
+                                    <td><input type="text" name="bDay" value="" size="50" required></td>
+                                </tr> 
+                                <tr>
+                                    <td><b>Race</b></td>
+                                    <td><input type="radio" name='Race' value='Sinhala'>Sinhala
+                                        <input type="radio" name='Race' value='tamil'>Tamil
+                                        <input type="radio" name='Race' value='Muslim'>Muslim
+                                        <input type="radio" name='Race' value='Other'>Other
+                                    </td></tr>
+                                <tr>
+                                    <td><b>Religion</b></td>
+                                    <td><input type="radio" name="Religion" value="Buddhist">Buddhist
+                                        <input type="radio" name="Religion" value="christian">Christian
+                                        <input type="radio" name="Religion" value="chataolic">Catholic
+                                        <input type="radio" name="Religion" value="Hindu">Hindu
+                                        <input type="radio" name="Religion" value="Others">Others
+                                    </td></tr>
+                                <tr>
+                                    <td><b>NIC No</b></td>
+                                    <td><input type="text" name="NIC" value="" size="50"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Address</b></td>
+                                    <td><input type="text" name="Address" value="" size="50" required>
+                                    </td>
+                                </tr><tr>
+                                    <td><b>Land Phone</b></td>
+                                    <td><input type="tel" name="Land_Phone" value="" size="50"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mobile Phone 1</b></td>
+                                    <td><input type="tel" name="Mobile_Phone1" value="" size="50" required></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Mobile Phone 2</b></td>
+                                    <td><input type="tel" name="Mobile_Phone2" value="" size="50"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Fax</b></td>
+                                    <td><input type="tel" name="Fax" value="" size="50"></td></tr>
+                                <tr>
+                                    <td><b>Email</b></td>
+                                    <td><input type="email" name="email" value="" placeholder="yourmail@mail.com" size="50"></td>
+                                </tr>
+                                <tr>
+                                    <td><b>School</b></td>
+                                    <td><input type="text" name="school" value="" size="50" required></td></tr>
+                                <tr>
+                                    <td><b>School Learning Medium</b></td>
+                                    <td><input type="radio" name="slm" value="Singhela" required>Sinhala
+                                        <input type="radio" name="slm" value="English" required>English
+                                        <input type="radio" name="slm" value="Tamil" required>Tamil
+                                    </td></tr>
+                                <tr>
+                                    <td><b>Dhamma School Medium</b></td>
+                                    <td><input type="radio" name="dlm" value="Singhela" required>Sinhala
+                                        <input type="radio" name="dlm" value="English" required>English
 
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Parent ID</b></td>
-                                        <td><input type="text" name="ParentID" value="" size="50"></td></tr>
-                                    <tr>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Parent ID</b></td>
+                                    <td><input type="text" name="ParentID" value="" size="50" required></td></tr>
+                                <tr>
 
-                                </table>
-                                <br><br><br>
-                                <center><input type="submit" Value="Register Student" name="Submit"></center>
-                                <br><br>
+                            </table>
+                            <br><br><br>
+                            <center><input type="submit" Value="Add" name="Submit"></center>
+                            <br><br>
 
-                            </form>
+                        </form>
 
 
-                        </center>
+                    </center>
                 </div>
 
             </div>
@@ -404,8 +341,6 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-
-
 
     </body>
 </html>

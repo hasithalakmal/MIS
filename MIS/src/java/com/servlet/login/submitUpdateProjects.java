@@ -95,7 +95,7 @@ public class submitUpdateProjects extends HttpServlet {
         res = pc.callProc("updateProject", para);
 
         request.setAttribute("massage", "exam is updated");
-        RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
         rd.forward(request, response);
 
         // processRequest(request, response);

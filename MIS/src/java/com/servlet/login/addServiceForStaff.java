@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mr.Mic
  */
 public class addServiceForStaff extends HttpServlet {
+
     private String ServiseID;
     private String StaffID;
     private String Date;
@@ -49,7 +50,7 @@ public class addServiceForStaff extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addServiceForStaff</title>");            
+            out.println("<title>Servlet addServiceForStaff</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet addServiceForStaff at " + request.getContextPath() + "</h1>");
@@ -86,7 +87,7 @@ public class addServiceForStaff extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         try {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
@@ -94,32 +95,51 @@ public class addServiceForStaff extends HttpServlet {
             ServiseID = request.getParameter("ServiseID");
             StaffID = request.getParameter("StaffID");
             Date = request.getParameter("Date");
-             Marks = request.getParameter("Marks");
+            Marks = request.getParameter("Marks");
             Assigned = request.getParameter("Assigned");
 
-            para1 = "('" + ServiseID +"','"+StaffID+"','"+Date+ "')";
-            res = pc.callProc("SelectInvolveStaff", para1);
-
+            para1 = "('" + ServiseID + "')";
+            res = pc.callProc("SelectServices", para1);
             if (res.next()) {
+                para1 = "('" + StaffID + "')";
+                res = pc.callProc("selectStaff", para1);
+                if (res.next()) {
 
-                request.setAttribute("massage", "It is exsisting servise");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
-                rd.forward(request, response);
+                    para1 = "('" + ServiseID + "','" + StaffID + "','" + Date + "')";
+                    res = pc.callProc("SelectInvolveStaff", para1);
+
+                    if (res.next()) {
+
+                        request.setAttribute("massage", "It is exsisting servise");
+                        RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
+                        rd.forward(request, response);
+
+                    } else {
+                        para1 = "('" + ServiseID + "','" + StaffID + "','" + Date + "'," + Marks + ",'" + Assigned + "')";
+                        pc.callProc("InsertInvolvestaff", para1);
+                        request.setAttribute("massage", "servise is added for staff");
+                        RequestDispatcher rd = request.getRequestDispatcher("stiValid.jsp");
+                        rd.forward(request, response);
+                    }
+                } else {
+                    request.setAttribute("massage", "Invalid staff ID");
+                    RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
+                    rd.forward(request, response);
+                }
 
             } else {
-                para1 = "('" + ServiseID +"','"+StaffID+"','"+Date+"',"+Marks+",'"+Assigned+ "')";
-                pc.callProc("InsertInvolvestaff", para1);
-                request.setAttribute("massage", "servise is added for staff");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+
+                request.setAttribute("massage", "Servise ID is invalid.");
+                RequestDispatcher rd = request.getRequestDispatcher("stiInValid.jsp");
                 rd.forward(request, response);
             }
+
             // processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-       // processRequest(request, response);
+
+        // processRequest(request, response);
     }
 
     /**

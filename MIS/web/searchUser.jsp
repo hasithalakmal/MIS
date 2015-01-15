@@ -134,7 +134,7 @@
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -152,12 +152,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -166,7 +165,7 @@
 
 
                 <div id="wrap">
-
+      <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          
@@ -219,9 +218,9 @@
 
                 <div id="content_container">
 
-                  <center>
+                 
                       <form action="adminSearchUser" method="post" target="_blank">
-            <h2>Search user</h2>
+            <h3>Search user</h3>
 
             <br>
             <table>
@@ -240,12 +239,12 @@
                     </td>
                 </tr>
             </table>
-       </form></center>
+       </form>
             </div>
             </div>
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
-                  
+                Copyright © SirivajiraghanaDahamPasala.com
+            </div></div>
 
     </body>
 </html>

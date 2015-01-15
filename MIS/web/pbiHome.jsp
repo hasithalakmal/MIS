@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>pbi Page</title>
-    <style>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -43,7 +43,7 @@
                 margin: 7px; 
                 float:left;
                 border-radius: 10px;
-                height:450px;
+                height:500px;
                 float:left;
                 padding:10px;
                 background-color:#d4dadc;
@@ -134,7 +134,7 @@
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -152,21 +152,20 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
             </div>
 
             <div id="section">
-
+<a href="pbiHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
 
                 <div id="wrap">
-
+                    
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                         <li><a href="#">||Prefect Management||</a>
@@ -177,7 +176,7 @@
                                 <li><a href="addPrefectBehaviors.jsp">Add Prefect Behaviors</a></li>
                                 <li><a href="removePrefectBehaviors.jsp">Remove Prefect Behaviors</a></li>
                                 <li><a href="#">Update Prefect Behaviors</a></li>
-                          </ul>
+                            </ul>
                         </li>
 
 
@@ -185,7 +184,7 @@
                             <ul>
                                 <li><a href="addServise.jsp">Add Service</a></li>
                                 <li><a href="deleteServise.jsp">Remove Service</a></li>
-                                
+
                             </ul>
                         </li>
                         <li><a href="#">||User Management||</a>
@@ -232,8 +231,9 @@
 
                 <div id="content_container">
 
-                    <br>
-                    <img src="home1.jpg" width="450" height="370" align="center">
+                    <center>
+                    <img src="home1.jpg" width="550" height="370" align="center">
+                    </center>
                 </div>
 
             </div>
@@ -242,6 +242,6 @@
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
- 
+
     </body>
 </html>

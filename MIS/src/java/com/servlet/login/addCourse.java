@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mr.Mic
  */
 public class addCourse extends HttpServlet {
+
     private String courseID;
     private String CourseName;
     private String Discription;
@@ -48,7 +49,7 @@ public class addCourse extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet addCourse</title>");            
+            out.println("<title>Servlet addCourse</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet addCourse at " + request.getContextPath() + "</h1>");
@@ -85,8 +86,8 @@ public class addCourse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         try {
+
+        try {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
 
@@ -94,28 +95,26 @@ public class addCourse extends HttpServlet {
             CourseName = request.getParameter("CourseName");
             Discription = request.getParameter("Discription");
             Sylabus = request.getParameter("Sylabus");
-
             para1 = "('" + courseID + "')";
             res = pc.callProc("selectCourse", para1);
 
             if (res.next()) {
-
                 request.setAttribute("massage", "It is exsisting course");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
                 rd.forward(request, response);
 
             } else {
-                para1 = "('" + courseID + "','" + CourseName + "','" + Discription +"','"+Sylabus+ "')";
+                para1 = "('" + courseID + "','" + CourseName + "','" + Discription + "','" + Sylabus + "')";
                 pc.callProc("InsertCourse", para1);
-                request.setAttribute("massage", "course is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                request.setAttribute("massage", "course is added to the system");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
                 rd.forward(request, response);
             }
             // processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //processRequest(request, response);
     }
 

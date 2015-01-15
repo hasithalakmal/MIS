@@ -4,6 +4,8 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -127,16 +129,19 @@
        
     <%
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
+                if (session.getAttribute("useID") == null) {
                     RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                     rd.forward(request, response);
                 }
 
+                IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getOBIID();
+                String today = dg.getToday();
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -154,12 +159,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
+                   <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -168,7 +172,7 @@
 
 
                 <div id="wrap">
-
+   <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          
@@ -220,10 +224,9 @@
                 </div>
 
                 <div id="content_container">
-                    <center>
-                   
+                                       
                  
-        <h3>Old Pupil Incharge Registation</h3>
+        <h3>Old Pupil In-charge Registration</h3>
         <br>
         <form action="OpiRegistation" method="post">
             <table>
@@ -232,24 +235,24 @@
                         New User ID
                     </td>
                     <td>
-                        <input type="text" name="ouID">
+                        <input type="text" name="ouID" value="<%=ID%>" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Registration Date</td>
-                    <td><input type="date" name="Reg_Date" value="" ></td>
+                    <td><input type="text" name="Reg_Date" value="<%=today%>" required ></td>
                 </tr>
                 <tr>
                     <td>Staff ID</td>
                     <td>
-                        <input type="text" name="stfID">
+                        <input type="text" name="stfID" required>
                     </td>
                 </tr>
                 
             </table>
             <input type="submit" value="Add">
         </form>
-        </center>
+       
                  
                 </div>
 

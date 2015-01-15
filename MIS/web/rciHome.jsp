@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Research Center In-Charge Profile</title>
-        <style>
+         <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -121,21 +121,11 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-            <script>
-function validateForm() {
-    var x = document.forms["myForm"]["email"].value;
-    var atpos = x.indexOf("@");
-    var dotpos = x.lastIndexOf(".");
-    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
-        alert("Not a valid e-mail address");
-        return false;
-    }
-}
-</script>
-        </head>
-        <body >
-
-            <%
+        
+    </head>
+     <body >
+       
+    <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -146,7 +136,7 @@ function validateForm() {
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -166,13 +156,11 @@ function validateForm() {
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change Password</a></li>
-
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange_rci.jsp">Change Password</a></li>
                 </ul>
             </div>
 
@@ -181,7 +169,7 @@ function validateForm() {
 
                 <div id="wrap">
 
-                     <a href="rciHome"><img src="Images/home.png" width="75" height="75" align="right"></a>
+                     <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
 
@@ -195,17 +183,17 @@ function validateForm() {
                         </li>
                         <li><a href="#">||Reports||</a>
                             <ul>
-                                <li><a href="#">Personal Detail Reports</a></li>
-                                <li><a href="#">Parent Reports</a></li>
-                                <li><a href="#">Class Reports</a></li>
-                                <li><a href="#">Exam Reports</a></li>
-                                <li><a href="#">TSS Reports</a></li>
-                                <li><a href="#">Prefect Reports</a></li>
+                                <li><a href="rciPersonalDetailsReports.jsp">Personal Detail Reports</a></li>
+                                <li><a href="rciParentReports.jsp">Parent Reports</a></li>
+                                <li><a href="rciClassReports.jsp">Class Reports</a></li>
+                                <li><a href="rciExamReports.jsp">Exam Reports</a></li>
+                                <li><a href="rciTssCourseDetails.jsp">TSS Reports</a></li>
+                                <li><a href="rciPrfPersonalDetails.jsp">Prefect Reports</a></li>
                                 <li><a href="#">Special Reports</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="#">||SMS and e-mails||</a>
+                        <li><a href="#">||SMS and E-mails||</a>
                             <ul>
                                 <li><a href="#">Send SMS to Student</a></li>
                                 <li><a href="#">Send SMS to Parent</a></li>
@@ -248,15 +236,6 @@ function validateForm() {
                 Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-    </body>
+    
+</body>
 </html>

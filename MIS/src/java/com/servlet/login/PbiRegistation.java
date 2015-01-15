@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.servlet.login;
 
 import com.MIS.lib.PasswordEncoding;
@@ -26,12 +25,14 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mr.Mic
  */
 public class PbiRegistation extends HttpServlet {
+
     private String ouID;
     private String stfID;
     private String RDate;
     private String query;
     private ResultSet res;
     private String pass;
+    private String massage;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,15 +49,15 @@ public class PbiRegistation extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
-         /*   out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PbiRegistation</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PbiRegistation at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");*/
+            /*   out.println("<!DOCTYPE html>");
+             out.println("<html>");
+             out.println("<head>");
+             out.println("<title>Servlet PbiRegistation</title>");            
+             out.println("</head>");
+             out.println("<body>");
+             out.println("<h1>Servlet PbiRegistation at " + request.getContextPath() + "</h1>");
+             out.println("</body>");
+             out.println("</html>");*/
         } finally {
             out.close();
         }
@@ -88,7 +89,7 @@ public class PbiRegistation extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         try {
+        try {
             ouID = request.getParameter("ouID");
             stfID = request.getParameter("stfID");
             RDate = request.getParameter("Reg_Date");
@@ -99,46 +100,50 @@ public class PbiRegistation extends HttpServlet {
 
             if (!"stf".equals(stfid)) {
                 request.setAttribute("massage", "It is not a Staff ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
-            }else{
-            if (!"pbi".equals(ouid)) {
-                request.setAttribute("massage", "It is not a PBI ID format");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
-                rd.forward(request, response);
-            }else{
-
-            ProsedeurControls pc = new ProsedeurControls();
-            query = "('" + stfID + "')";
-            res = pc.callProc("selectStaffByID", query);
-
-            if (res.next()) {
-                query = "('" + ouID + "','" + RDate + "','" + stfID + "')";
-                pc.callProc("InsertOperationalUsers", query);
-
-                PasswordEncoding pe = new PasswordEncoding();
-                try {
-                    pass = pe.Encode(ouID);
-                } catch (Exception ex) {
-                    Logger.getLogger(AdmRegistation.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                query = "('" + ouID + "','" + pass + "')";
-                pc.callProc("insertPW", query);
-
-                RequestDispatcher rd = request.getRequestDispatcher("/admHome.jsp");
-                rd.forward(request, response);
-
             } else {
-                request.setAttribute("massage", "Your Student ID is not correct");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
-                rd.forward(request, response);
+                if (!"pbi".equals(ouid)) {
+                    request.setAttribute("massage", "It is not a prefect board in-charge ID");
+                    RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                    rd.forward(request, response);
+                } else {
+
+                    ProsedeurControls pc = new ProsedeurControls();
+                    query = "('" + stfID + "')";
+                    res = pc.callProc("selectStaffByID", query);
+
+                    if (res.next()) {
+                        query = "('" + ouID + "','" + RDate + "','" + stfID + "')";
+                        pc.callProc("InsertOperationalUsers", query);
+
+                        PasswordEncoding pe = new PasswordEncoding();
+                        try {
+                            pass = pe.Encode(ouID);
+                        } catch (Exception ex) {
+                            Logger.getLogger(AdmRegistation.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        query = "('" + ouID + "','" + pass + "')";
+                        pc.callProc("insertPW", query);
+
+                        massage = "Prefect Board In-charge is added to the system";
+                        request.setAttribute("massage", massage);
+                        RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+                        rd.forward(request, response);
+
+                    } else {
+                        request.setAttribute("massage", "Your Staff ID is not correct");
+                        RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                        rd.forward(request, response);
+                    }
+                    //processRequest(request, response);
+                }
             }
-            //processRequest(request, response);
-        }}} catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(RCI_Registation.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       // processRequest(request, response);
+
+        // processRequest(request, response);
     }
 
     /**

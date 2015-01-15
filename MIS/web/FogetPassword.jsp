@@ -50,7 +50,7 @@
                 text-align:center;
             }
             #content_container
-            { width: 330px;
+            { width: 1000px;
               margin: 20px 10px 0 0;
               float: left;}
             #sidebar {
@@ -121,64 +121,59 @@
                 color: #000; }
             #navbar li li a:hover {
                 background-color: #8db3ff; }
-            </style>
+        </style>
     </head>
     <body >
          
-        
-        
-        <div id="container">
+
+
+            <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Forget Password Page</h1>
+                            <h1 style="color: #FFF">Forgot Password</h1>
                         </td>
-                        <td align="right">
 
-                            <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
-                        </td>
                     </tr>
                 </table>
             </div>
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
-
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
                 </ul>
+
             </div>
 
             <div id="section">
 
 
-                <br><br><br>
-    
 
-    
 
-       <center>    
-      
+                <div id="content_container">
 
+                    
+                        
+                        <!-- Create a table to design the page layout-->
+                        <p>Enter your user ID and birth day. Then go to your email. Then you can get new password.</p>
         <form name="MainLogin" action="FogetPassword" method="post">
-
+<center>
             <table>
 
                 <tr>
-                    <td><b>User ID</b></td>
-                    <td><input type="text" name="userid" value="" size="50"></td>
+                    <td>User ID</td>
+                    <td><input type="text" name="userid" value="" size="50" required></td>
                 </tr>
                 <tr>
-                    <td><b>BirthDay</b></td>
-                    <td><input type="date" name="Bday" value="" ></td>
+                    <td>BirthDay</td>
+                    <td><input type="date" name="Bday" value="" required></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -190,10 +185,22 @@
                 </tr>
 
             </table>
-        </form>
     </center>
+        </form>
+
+                    
+
+                </div>
+
+            </div>
+
+            <div id="footer">
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
+
+
+    
 
 </body>
 

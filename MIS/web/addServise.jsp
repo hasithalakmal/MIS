@@ -4,13 +4,15 @@
     Author     : Mr.Mic
 --%>
 
+<%@page import="com.MIS.lib.DateGenarator"%>
+<%@page import="com.MIS.lib.IDGenorator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <style>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -82,7 +84,7 @@
             #wrap {
                 font-size: 1.1em;
                 width: 1000px;
-                padding: 0px;
+                padding: 20px;
                 margin: 0 0; 
                 background-color: #d4dadc;
                 position: relative; }
@@ -121,9 +123,9 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-    <body>
-        <%
+        </head>
+        <body>
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -131,18 +133,25 @@
                     rd.forward(request, response);
                 }
 
+                IDGenorator idg = new IDGenorator();
+                DateGenarator dg = new DateGenarator();
+                String ID = idg.getServiseID();
+                String today = dg.getToday();
+
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
                         </td>
                         <td>
-                            <h1 style="color: #FFF">Prefect board in charge</h1>
+                            <h1 style="color: #FFF">Staff In-Charge</h1>
                         </td>
+
                         <td align="right">
+
 
                             <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
                         </td>
@@ -152,12 +161,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
-                    <li><a href="PasswordChange.jsp">Change password</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
             </div>
@@ -167,54 +175,65 @@
 
                 <div id="wrap">
 
+                    <a href="stiHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                        <li><a href="#">||Prefect Management||</a>
+
+                        <li><a href="#">||Committee||</a>
                             <ul>
-                                <li><a href="AddServiseForPrefect.jsp">Add Service For Prefect</a></li>
-                                <li><a href="RemoveServiceForPrefect.jsp">Remove Service From Prefect</a></li>
-                                <li><a href="#">Update Service From Prefect</a></li>
-                                <li><a href="addPrefectBehaviors.jsp">add Prefect Behaviors</a></li>
-                                <li><a href="removePrefectBehaviors.jsp">remove Prefect Behaviors</a></li>
-                                <li><a href="#">update Prefect Behaviors</a></li>
-                          </ul>
-                        </li>
+                                <li><a href="addComity.jsp">Add Committee</a></li>
+                                <li><a href="RemoveComity.jsp">Remove Committee</a></li>
+                                <li><a href="#">Update Committee</a></li>
+                                <li><a href="addComityMember.jsp">Add Committee Member </a></li>
+                                <li><a href="RemoveComityMember.jsp">Remove Committee Member</a></li>
+                                <li><a href="addComityDissision.jsp">Add Committee Decision</a></li>
+                                <li><a href="RemoveComityDissision.jsp">Remove Committee Decision </a></li>
+                                <li><a href="#">Update Committee Decision</a></li>
 
 
-                        <li><a href="#">||Service Management||</a>
-                            <ul>
-                                <li><a href="addServise.jsp">Add Service</a></li>
-                                <li><a href="deleteServise.jsp">Remove Service</a></li>
-                                
                             </ul>
                         </li>
-                        <li><a href="#">||User Management||</a>
+
+
+                        <li><a href="#">||Service||</a>
                             <ul>
-                                <li><a href="RegistationTss.jsp">Add Prefect</a></li> 
-                                <li><a href="#">Remove Prefect</a></li>
-                                <li><a href="RegistationTsi.jsp">Add Prefect Incharge</a></li>
+                                <li><a href="addServise.jsp">Add Service</a></li>
+                                <li><a href="#">Remove Service</a></li>
+                                <li><a href="#">Update service</a></li>
+
+                                <li><a href="staffaddservice.jsp">Allocate Service</a></li>
+                                <li><a href="removestaffservice.jsp">Remove Allocate Service</a></li>
+                                <li><a href="#"> Update Allocate Service</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">||User||</a>
+                            <ul>
+                                <li><a href="RegistationStf.jsp">Add Staff Member</a></li>                    
+                                <li><a href="removeUser.jsp">Remove Staff Member</a></li>
+                                <li><a href="updateStaffData.jsp">Update Staff Member</a></li>
+                                <li><a href="searchUser.jsp">Search User</a></li>
                             </ul>
                         </li>
                         <li><a href="#">||Reports||</a>
                             <ul>
-                                <li><a href="#">Student Reports</a></li>
-                                <li><a href="#">Prefect Reports</a></li>
-                                <li><a href="#">Prefect Board Reports</a></li>
+                                <li><a href="#">Staff  Reports</a></li>
+                                <li><a href="#">Reports</a></li>
+                                <li><a href="#">Course Reports</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="#">||SMS and e-mails||</a>
+                        <li><a href="#">||SMS and E-mails||</a>
                             <ul>
-                                <li><a href="#">send SMS to Student</a></li>
-                                <li><a href="#">send SMS to Parent</a></li>
-                                <li><a href="#">send SMS to Staff</a></li>
-                                <li><a href="#">send E-mail to Parent</a></li>
-                                <li><a href="#">send E-mail to Student</a></li>
-                                <li><a href="#">send E-mail to Staff</a></li>
+                                <li><a href="#">Send SMS to Student</a></li>
+                                <li><a href="#">Send SMS to Parent</a></li>
+                                <li><a href="#">Send SMS to Staff</a></li>
+                                <li><a href="#">Send E-mail to Parent</a></li>
+                                <li><a href="#">Send E-mail to Student</a></li>
+                                <li><a href="#">Send E-mail to Staff</a></li>
 
                             </ul>
                         </li>
-                        <li><a href="#">||Resource Management||</a>
+                        <li><a href="#">||Resource||</a>
                             <ul>
                                 <li><a href="#">Add File</a></li>
                                 <li><a href="#">Add video</a></li>
@@ -228,35 +247,35 @@
                         </li>
 
                     </ul>
-                </div>
 
+                </div>
                 <div id="content_container">
 
-                      <h3>Add service</h3>
-        <form action="addService" method="post">
-            <table>
-                <tr>
-                    <td>
-                        Service ID
-                    </td>
-                    <td>
-                        <input type="text" name="ServiseID">
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Service Name</b></td>
-                    <td><input type="text" name="ServiseName"></td>
-                </tr>
-                <tr>
-                    <td>Description</td>
-                    <td>
-                        <input type="text" name="Discription">
-                    </td>
-                </tr>
-                
-            </table>
-            <input type="submit" value="Add servise">
-        </form>
+                    <h3>Add service</h3>
+                    <form action="addService" method="post">
+                        <table>
+                            <tr>
+                                <td>
+                                    Service ID
+                                </td>
+                                <td>
+                                    <input type="text" name="ServiseID" value="<%=ID%>" required readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Service Name</td>
+                                <td><input type="text" name="ServiseName" required></td>
+                            </tr>
+                            <tr>
+                                <td>Description</td>
+                                <td>
+                                    <input type="text" name="Discription">
+                                </td>
+                            </tr>
+
+                        </table>
+                        <input type="submit" value="Add">
+                    </form>
                 </div>
 
             </div>
@@ -267,7 +286,7 @@
         </div>
 
 
-        
-      
+
+
     </body>
 </html>

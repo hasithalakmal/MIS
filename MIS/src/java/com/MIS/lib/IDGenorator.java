@@ -607,7 +607,7 @@ public class IDGenorator {
         temp = Integer.toString(count);
         int len = temp.length();
         switch (len) {
-           
+
             case 1: {
                 index = "00" + temp;
                 break;
@@ -627,10 +627,10 @@ public class IDGenorator {
         return finalid;
 
     }
-   
-     public String getComityID() {
+
+    public String getComityID() {
         try {
-            query = "select count(*) from course;";
+            query = "select count(*) from committee;";
             res = dbmc.getResult(query, con);
             while (res.next()) {
                 count = res.getInt(1);
@@ -643,7 +643,7 @@ public class IDGenorator {
         temp = Integer.toString(count);
         int len = temp.length();
         switch (len) {
-           
+
             case 1: {
                 index = "00" + temp;
                 break;
@@ -663,8 +663,8 @@ public class IDGenorator {
         return finalid;
 
     }
-   
-public String getDissisonID() {
+
+    public String getDissisonID() {
         try {
             query = "select count(*) from commitydissisions;";
             res = dbmc.getResult(query, con);
@@ -679,7 +679,7 @@ public String getDissisonID() {
         temp = Integer.toString(count);
         int len = temp.length();
         switch (len) {
-           
+
             case 1: {
                 index = "00" + temp;
                 break;
@@ -699,7 +699,8 @@ public String getDissisonID() {
         return finalid;
 
     }
-public String getexamID() {
+
+    public String getexamID() {
         try {
             query = "select count(*) from exam;";
             res = dbmc.getResult(query, con);
@@ -714,7 +715,7 @@ public String getexamID() {
         temp = Integer.toString(count);
         int len = temp.length();
         switch (len) {
-           case 1: {
+            case 1: {
                 index = "000" + temp;
                 break;
             }
@@ -737,7 +738,8 @@ public String getexamID() {
         return finalid;
 
     }
-     public String getObserviseID() {
+
+    public String getObserviseID() {
         try {
             query = "select count(*) from observises;";
             res = dbmc.getResult(query, con);
@@ -752,7 +754,7 @@ public String getexamID() {
         temp = Integer.toString(count);
         int len = temp.length();
         switch (len) {
-           case 1: {
+            case 1: {
                 index = "0000" + temp;
                 break;
             }
@@ -779,8 +781,8 @@ public String getexamID() {
         return finalid;
 
     }
-     
-     public String getProjectID() {
+
+    public String getProjectID() {
         try {
             query = "select count(*) from project;";
             res = dbmc.getResult(query, con);
@@ -795,7 +797,7 @@ public String getexamID() {
         temp = Integer.toString(count);
         int len = temp.length();
         switch (len) {
-           case 1: {
+            case 1: {
                 index = "0000" + temp;
                 break;
             }
@@ -822,7 +824,8 @@ public String getexamID() {
         return finalid;
 
     }
-      public String getServiseID() {
+
+    public String getServiseID() {
         try {
             query = "select count(*) from service;";
             res = dbmc.getResult(query, con);
@@ -837,7 +840,7 @@ public String getexamID() {
         temp = Integer.toString(count);
         int len = temp.length();
         switch (len) {
-           case 1: {
+            case 1: {
                 index = "0000" + temp;
                 break;
             }
@@ -864,8 +867,8 @@ public String getexamID() {
         return finalid;
 
     }
-     
-     /*  public static void main(String[] args) {
+
+    /*  public static void main(String[] args) {
      IDGenorator idg = new IDGenorator();
      idg.getStudentID();
      }*/

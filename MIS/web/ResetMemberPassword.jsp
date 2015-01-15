@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-         <style>
+        <style>
             #container {
                 width: 1320px ;
                 margin-left: auto ;
@@ -121,9 +121,9 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-    <body>
-        <%
+        </head>
+        <body>
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -134,7 +134,7 @@
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" border-radius="10px">
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -166,10 +166,10 @@
 
 
                 <div id="wrap">
-
+                    <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
+
                         <li><a href="#">||User Management||</a>
                             <ul>
                                 <li><a href="RCIaddMember.jsp">Add User</a></li>                    
@@ -219,33 +219,32 @@
 
                 <div id="content_container">
 
-                    <br>
-                   <center>
-        <h2>Reset Member Password</h2>
-        <form action="AdmResetMemberPassword" method="post">
-            <table>
-                <tr>
-                    <td>
-                        Enter User ID
-                    </td>
-                    <td>
-                        <input type="text" name="uid">
-                    </td>
-                </tr>
-            </table><br>
-            <input type="submit" value="Reset password">
-        </form></center>
-         </form>
+
+                    <h2>Reset Member Password</h2>
+                    <form action="RCI_resetMemberPassword" method="post">
+                        <table>
+                            <tr>
+                                <td>
+                                    Enter User ID
+                                </td>
+                                <td>
+                                    <input type="text" name="uid">
+                                </td>
+                            </tr>
+                        </table><br>
+                        <input type="submit" value="Reset password">
+                    </form>
+
                 </div>
 
             </div>
 
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
-    
+
     </body></html>
 
 
-    
+

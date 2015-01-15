@@ -29,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FogetPassword extends HttpServlet {
 ResultSet res;
 String uid,bday,type,newpw,email,pw;
+    private String massage;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -157,6 +158,7 @@ String uid,bday,type,newpw,email,pw;
         }
         
         if (!res.next()) {
+            request.setAttribute("massage", "Your User ID Or Password is Wrong");
            RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
            rd.forward(request, response);
             
@@ -171,8 +173,10 @@ String uid,bday,type,newpw,email,pw;
             SendMailTLS smt = new SendMailTLS();
             smt.SendMail(email, "New password for SVMIS", "your new password is = "+pw);
             
+            massage ="Go to your email ( " +email +" ) and get your new password.";
             
-            RequestDispatcher rd = request.getRequestDispatcher("/PasswordChanging.jsp");
+            request.setAttribute("massage", massage);
+            RequestDispatcher rd = request.getRequestDispatcher("/valid.jsp");
             rd.forward(request, response);
             
         }

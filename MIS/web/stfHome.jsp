@@ -153,11 +153,10 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
+                     <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
@@ -167,7 +166,7 @@
 
 
                 <div id="wrap">
-
+       <a href="stfHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          
@@ -197,7 +196,7 @@
                                 
                             </ul>
                         </li>
-                        <li><a href="#">||Gallary||</a>
+                        <li><a href="#">||Gallery||</a>
                             <ul>
                                 <li><a href="#"> File</a></li>
                                 <li><a href="#"> Video</a></li>
@@ -215,7 +214,7 @@
                     <br>
                   
         <center>
-         <img src="staff.jpg" width="550" height="370" align="center">
+         <img src="staff.jpg" width="450" height="300" align="center">
 
         </center>
         
@@ -227,7 +226,7 @@
             </div>
 
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                Copyright © SirivajiraghanaDahamPasala.com
             </div>
         </div>
     

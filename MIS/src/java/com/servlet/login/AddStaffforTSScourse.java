@@ -23,14 +23,16 @@ import javax.servlet.http.HttpServletResponse;
  * @author Mr.Mic
  */
 public class AddStaffforTSScourse extends HttpServlet {
+
     private String StaffID;
     private String CourseID;
     private String Year;
     private String attendance;
     private String Possision;
- String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20;
+    String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20;
     private String para1;
     private ResultSet res;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,7 +51,7 @@ public class AddStaffforTSScourse extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddStaffforTSScourse</title>");            
+            out.println("<title>Servlet AddStaffforTSScourse</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddStaffforTSScourse at " + request.getContextPath() + "</h1>");
@@ -95,8 +97,7 @@ public class AddStaffforTSScourse extends HttpServlet {
             Year = request.getParameter("Year");
             attendance = request.getParameter("attendance");
             Possision = request.getParameter("Possision");
-                       
-            
+
             p1 = request.getParameter("q1");
             p2 = request.getParameter("q2");
             p3 = request.getParameter("q3");
@@ -118,30 +119,46 @@ public class AddStaffforTSScourse extends HttpServlet {
             p19 = request.getParameter("q19");
             p20 = request.getParameter("q20");
 
-          
+            para1 = "('" + StaffID + "')";
+            res = pc.callProc("selectStaff", para1);
+            if (res.next()) {
+                para1 = "('" + CourseID + "')";
+                res = pc.callProc("selectCourse", para1);
+                if (res.next()) {
+                    para1 = "('" + StaffID + "','" + CourseID + "','" + Year + "')";
+                    res = pc.callProc("selectConduct", para1);
 
-             para1 = "('" + StaffID +"','"+CourseID+"','"+Year+ "')";
-             res = pc.callProc("selectConduct", para1);
+                    if (res.next()) {
 
-             if (res.next()) {
+                        request.setAttribute("massage", "It is exsisting behavior");
+                        RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
+                        rd.forward(request, response);
 
-             request.setAttribute("massage", "It is exsisting behavior");
-             RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
-             rd.forward(request, response);
+                    } else {
 
-             } else {
-             para1 = "('" + StaffID +"','"+CourseID+"','"+Year+"','"+attendance +"','"+Possision+"','"+ p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "','" + p19 + "','" + p20 +"')";
-             pc.callProc("insertConduct", para1);
-             request.setAttribute("massage", "Behavior is added");
-             RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
-             rd.forward(request, response);
-             }
-             // processRequest(request, response);
-             } catch (SQLException ex) {
-             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        
-      //  processRequest(request, response);
+                        para1 = "('" + StaffID + "','" + CourseID + "','" + Year + "','" + attendance + "','" + Possision + "','" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "','" + p19 + "','" + p20 + "')";
+                        pc.callProc("insertConduct", para1);
+                        request.setAttribute("massage", "Behavior is added");
+                        RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
+                        rd.forward(request, response);
+                    }
+                } else {
+                    request.setAttribute("massage", "Course ID is Invalid");
+                    RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
+                    rd.forward(request, response);
+                }
+            } else {
+                request.setAttribute("massage", "Staff ID is Invalid");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
+                rd.forward(request, response);
+            }
+
+            // processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //  processRequest(request, response);
     }
 
     /**

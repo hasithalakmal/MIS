@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class AddStudentforTSScourse extends HttpServlet {
 
-     String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20;
+    String p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18, p19, p20;
     private String TSSID;
     private String CourseID;
     private String Year;
@@ -36,7 +36,7 @@ public class AddStudentforTSScourse extends HttpServlet {
     private String gotcertificate;
     private String para1;
     private ResultSet res;
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -55,7 +55,7 @@ public class AddStudentforTSScourse extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddStudentforTSScourse</title>");            
+            out.println("<title>Servlet AddStudentforTSScourse</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddStudentforTSScourse at " + request.getContextPath() + "</h1>");
@@ -92,7 +92,7 @@ public class AddStudentforTSScourse extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          try {
+        try {
             ProsedeurControls pc = new ProsedeurControls();
             PrintWriter pr = response.getWriter();
 
@@ -105,8 +105,7 @@ public class AddStudentforTSScourse extends HttpServlet {
             IsLevelPass = request.getParameter("IsLevelPass");
             gotbadge = request.getParameter("gotbadge");
             gotcertificate = request.getParameter("gotcertificate");
-            
-            
+
             p1 = request.getParameter("q1");
             p2 = request.getParameter("q2");
             p3 = request.getParameter("q3");
@@ -128,29 +127,45 @@ public class AddStudentforTSScourse extends HttpServlet {
             p19 = request.getParameter("q19");
             p20 = request.getParameter("q20");
 
-          
+            para1 = "('" + TSSID + "','" + CourseID + "','" + Year + "')";
+            res = pc.callProc("selectFollow", para1);
 
-             para1 = "('" + TSSID +"','"+CourseID+"','"+Year+ "')";
-             res = pc.callProc("selectFollow", para1);
+            if (res.next()) {
 
-             if (res.next()) {
+                request.setAttribute("massage", "It is exsisting record");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
+                rd.forward(request, response);
 
-             request.setAttribute("massage", "It is exsisting behavior");
-             RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
-             rd.forward(request, response);
+            } else {
+                para1 = "('" + TSSID + "')";
+                res = pc.callProc("selectTSS", para1);
+                if (res.next()) {
+                    para1 = "('" + CourseID + "')";
+                    res = pc.callProc("selectCourse", para1);
+                    if (res.next()) {
+                        para1 = "('" + TSSID + "','" + CourseID + "','" + Year + "','" + attendance + "','" + LogMarks + "','" + PracticalMarks + "','" + IsLevelPass + "','" + gotbadge + "','" + gotcertificate + "','" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "','" + p19 + "','" + p20 + "')";
+                        pc.callProc("InsertFollow", para1);
+                        request.setAttribute("massage", "Behavior is added");
+                        RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
+                        rd.forward(request, response);
+                    } else {
+                        request.setAttribute("massage", "Course ID is invalid");
+                        RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
+                        rd.forward(request, response);
+                    }
 
-             } else {
-             para1 = "('" + TSSID +"','"+CourseID+"','"+Year+"','"+attendance +"','"+LogMarks+"','"+PracticalMarks+"','"+IsLevelPass+"','"+gotbadge+"','"+gotcertificate+"','"+ p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "','" + p19 + "','" + p20 +"')";
-             pc.callProc("InsertFollow", para1);
-             request.setAttribute("massage", "Behavior is added");
-             RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
-             rd.forward(request, response);
-             }
-             // processRequest(request, response);
-             } catch (SQLException ex) {
-             Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        
+                } else {
+                    request.setAttribute("massage", "Thurunu saviya ID is invalid");
+                    RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
+                    rd.forward(request, response);
+                }
+
+            }
+            // processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(addService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         //processRequest(request, response);
     }
 

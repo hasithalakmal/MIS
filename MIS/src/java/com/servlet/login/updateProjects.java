@@ -118,7 +118,7 @@ public class updateProjects extends HttpServlet {
             }else{
                 
                 request.setAttribute("massage", "no exam with that exam ID");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
                 rd.forward(request, response);
             }
             

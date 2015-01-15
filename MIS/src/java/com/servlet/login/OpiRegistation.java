@@ -99,13 +99,13 @@ public class OpiRegistation extends HttpServlet {
             String ouid = pi.getUserType(ouID);
 
             if (!"stf".equals(stfid)) {
-                request.setAttribute("massage", "It is not a Staff ID");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                request.setAttribute("massage", "It is not a valid Staff ID");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }else{
             if (!"opi".equals(ouid)) {
                 request.setAttribute("massage", "It is not a Accountent ID format");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }else{
 
@@ -126,12 +126,13 @@ public class OpiRegistation extends HttpServlet {
                 query = "('" + ouID + "','" + pass + "')";
                 pc.callProc("insertPW", query);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/admHome.jsp");
+                request.setAttribute("massage", "Old pupil in-charge is added ti the system");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
                 rd.forward(request, response);
 
             } else {
                 request.setAttribute("massage", "Your Staff ID is not correct");
-                RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
                 rd.forward(request, response);
             }
             //processRequest(request, response);

@@ -88,15 +88,6 @@ public class adminSearchUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
-            HttpSession session = request.getSession();
-            String x1 = (String) session.getAttribute("uid");
-            if (session.getAttribute("useID") == null) {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }
-            
-            
             userid = request.getParameter("uid");
             
             ProsedeurControls pc = new ProsedeurControls();

@@ -10,6 +10,7 @@ import com.MIS.lib.ProsedeurControls;
 import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -28,6 +29,9 @@ public class OBRegistation extends HttpServlet {
     String p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16;
     Connection con;
     private String passWord;
+    private String para;
+    private ResultSet res;
+    private ResultSet res1;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -86,12 +90,6 @@ public class OBRegistation extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            HttpSession session = request.getSession();
-            //   String x1 = (String) session.getAttribute("uid");
-            if (session.getAttribute("useID") == null) {
-                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                rd.forward(request, response);
-            }
 
             p1 = request.getParameter("obId");
             p2 = request.getParameter("stuId");
@@ -109,20 +107,41 @@ public class OBRegistation extends HttpServlet {
             p14 = request.getParameter("education7");
             p15 = request.getParameter("education8");
             p16 = request.getParameter("education9");
-            
 
             ProsedeurControls pc = new ProsedeurControls();
-            String para1 = "('" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','"+ p16  + "')";
-            pc.callProc("InsertOB", para1);
+            para = "('" + p1 + "')";
+            res1 = pc.callProc("selectOldBoy", para);
 
-            PasswordEncoding pe = new PasswordEncoding();
-            passWord = pe.Encode(p1);
-            String para2 = "('" + p1 + "','" + passWord + "')";
-            pc.callProc("insertPW", para2);
+            if (res1.next()) {
+                request.setAttribute("massage", "Old pupil is olredy exsist");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                rd.forward(request, response);
+            } else {
+
+                para = "('" + p2 + "')";
+                res = pc.callProc("selectStudent", para);
+                if (res.next()) {
+                    String para1 = "('" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "')";
+                    pc.callProc("InsertOB", para1);
+
+                    PasswordEncoding pe = new PasswordEncoding();
+                    passWord = pe.Encode(p1);
+                    String para2 = "('" + p1 + "','" + passWord + "')";
+                    pc.callProc("insertPW", para2);
+
+                    request.setAttribute("massage", "Old pupil is added to the system.");
+                    RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+                    rd.forward(request, response);
+                }
+                else{
+                 request.setAttribute("massage", "Student ID is not valid");
+                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                rd.forward(request, response);
+                }
+            }
+
             // PrintWriter pr = response.getWriter();
             //pr.write(para1);
-           RequestDispatcher rd = request.getRequestDispatcher("/ProssesSucsses.jsp");
-            rd.forward(request, response);
             // processRequest(request, response);
         } catch (Exception ex) {
             Logger.getLogger(StaffRegistation.class.getName()).log(Level.SEVERE, null, ex);

@@ -4,6 +4,7 @@
  */
 package com.servlet.login;
 
+import com.MIS.lib.PersonIdentifier;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpSession;
 public class adminAddUser extends HttpServlet {
 
     String userType;
+    private String type;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -77,64 +79,87 @@ public class adminAddUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        // String x1 = (String) session.getAttribute("uid");
+        String x1 = (String) session.getAttribute("useID");
         if (session.getAttribute("useID") == null) {
             RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
             rd.forward(request, response);
         }
 
+        PersonIdentifier pi = new PersonIdentifier();
+        type = pi.getUserType(x1);
+
         userType = (String) request.getParameter("usertype");
 
+        if ("rci".equals(type) || "adm".equals(type)){
+            
+        
         if ("stu".equals(userType)) {
-
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationStu.jsp");
-            rd.forward(request, response);
-            processRequest(request, response);
-        } else if ("stf".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationStf.jsp");
-            rd.forward(request, response);
-            processRequest(request, response);
-        } else if ("rci".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationRci.jsp");
-            rd.forward(request, response);
-        } else if ("adm".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationAdm.jsp");
-            rd.forward(request, response);
-        } else if ("ops".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationOldBoy.jsp");
-            rd.forward(request, response);
-        } else if ("prf".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationPrf.jsp");
-            rd.forward(request, response);
-        } else if ("tss".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationTss.jsp");
-            rd.forward(request, response);
-        } else if ("acc".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationAcc.jsp");
-            rd.forward(request, response);
-        } else if ("pub".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationPub.jsp");
-            rd.forward(request, response);
-        } else if ("pbi".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationPbi.jsp");
-            rd.forward(request, response);
-        } else if ("tsi".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationTsi.jsp");
-            rd.forward(request, response);
-        } else if ("ebi".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationEbi.jsp");
-            rd.forward(request, response);
-        } else if ("opi".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationOpi.jsp");
-            rd.forward(request, response);
-        }else if ("sti".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationSti.jsp");
-            rd.forward(request, response);
-        }  else if ("prn".equals(userType)) {
-            RequestDispatcher rd = request.getRequestDispatcher("/RegistationPrn.jsp");
-            rd.forward(request, response);
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationStu.jsp");
+                rd.forward(request, response);
+                processRequest(request, response);
+            } else if ("stf".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationStf.jsp");
+                rd.forward(request, response);
+                processRequest(request, response);
+            } else if ("rci".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationRci.jsp");
+                rd.forward(request, response);
+            } else if ("adm".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationAdm.jsp");
+                rd.forward(request, response);
+            } else if ("ops".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationOldBoy.jsp");
+                rd.forward(request, response);
+            } else if ("prf".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationPrf.jsp");
+                rd.forward(request, response);
+            } else if ("tss".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/TSSRegistation_RCI1.jsp");
+                rd.forward(request, response);
+            } else if ("acc".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationAcc.jsp");
+                rd.forward(request, response);
+            } else if ("pub".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationPub.jsp");
+                rd.forward(request, response);
+            } else if ("pbi".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationPbi.jsp");
+                rd.forward(request, response);
+            } else if ("tsi".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/TSIRegistation_RCI.jsp");
+                rd.forward(request, response);
+            } else if ("ebi".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/Registrationebi_Rci.jsp");
+                rd.forward(request, response);
+            } else if ("opi".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationOpi.jsp");
+                rd.forward(request, response);
+            } else if ("sti".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationSti.jsp");
+                rd.forward(request, response);
+            } else if ("prn".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationPrn.jsp");
+                rd.forward(request, response);
+            }
+            // processRequest(request, response);
         }
-       // processRequest(request, response);
+        else {
+              if ("stf".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationStf_STI.jsp");
+                rd.forward(request, response);
+                processRequest(request, response);
+            }  else if ("ops".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationOPS_OPI.jsp");
+                rd.forward(request, response);
+            } else if ("prf".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationPrf-PBI.jsp");
+                rd.forward(request, response);
+            } else if ("tss".equals(userType)) {
+                RequestDispatcher rd = request.getRequestDispatcher("/RegistationTSS_TSI.jsp");
+                rd.forward(request, response);
+            } 
+            
+            }
     }
 
     /**

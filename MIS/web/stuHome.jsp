@@ -162,7 +162,7 @@
             %>
             <div id="container">
             <div id="header">
-                <table width="100%" >
+                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
                     <tr>
                         <td>
                             <img src="uper1.jpg" width="300">
@@ -180,11 +180,11 @@
 
             <div id="nav">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="history.html">History</a></li>
-                    <li><a href="thurunusaviya.html">Thurunusaviya</a></li>
-                    <li><a href="gallary.html">Gallary</a></li>
-                    <li><a href="#">View My Details</a></li>
+                   <li><a href="#">Home</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Thurunusaviya</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    
                     <li><a href="PasswordChange.jsp">Change Password</a></li>
 
                 </ul>
@@ -195,37 +195,36 @@
 
                 <div id="wrap">
 
+                    <a href="stuHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
                          
                         <li><a href="#">||Profile Management||</a>
                             <ul>
-                                <li><a href="#">View Personal Details</a></li>                    
-                                <li><a href="#">View Student Details</a></li>
-                                <li><a href="#">View Student Profile</a></li>
-                                <li><a href="#">View TSS Profile</a></li>
-                                <li><a href="#">Old Pupil Involvement</a></li>
-                                <li><a href="#">Old Pupil Donations</a></li>
-                                 <li><a href="#"></a></li>
+                                <li><a href="Student-One-PersonalDetails-StudentID.jsp" target="_blank">View Personal Details</a></li>                    
+                                <li><a href="#">View Parent Details</a></li>
+                               <li><a href="#">Extra Curricular Activity Details</a></li>
+                               
+                                 
                             </ul>
                         </li>
                         <li><a href="#">||Reports||</a>
                             <ul>
-                                <li><a href="#">Prefect Details</a></li>
-                                <li><a href="#">OLd Pupil Involvements</a></li>
-                                
-                                <li><a href="#">Old Pupil Donations</a></li>
+                                <li><a href="Student-One-AllMarks-StuID.jsp" target="_blank">Exam Reports</a></li>
+                                 <li><a href="#">Behavior Reports</a></li>
+                                <li><a href="#.jsp">Student Progress Reports</a></li>                         
+                                <li><a href="#">character certificate</a></li>
                                
 
                             </ul>
                         </li>
                         <li><a href="#">||Feedback||</a>
                             <ul>
-                                <li><a href="feedbackEmail.jsp" target="_blank">Send e-mail</a></li>
+                                <li><a href="feedbackEmail.jsp" target="_blank">Send Email</a></li>
                                 
                             </ul>
                         </li>
-                        <li><a href="#">||Gallary||</a>
+                        <li><a href="#">||Gallery||</a>
                             <ul>
                                 <li><a href="#"> File</a></li>
                                 <li><a href="#"> Video</a></li>
@@ -243,7 +242,7 @@
                     <br>
                   
         <center>
-         <img src="student.jpg" width="550" height="370" align="center">
+         <img src="student.jpg" width="500" height="300" align="center">
  
         
         </center>
@@ -256,7 +255,7 @@
             </div>
 
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                Copyright © SiriVajiraghanaDahamPasala.com
             </div>
         </div>
     

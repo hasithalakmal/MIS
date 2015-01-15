@@ -89,7 +89,7 @@ public class addProjects extends HttpServlet {
         
          try {
             ProsedeurControls pc = new ProsedeurControls();
-            PrintWriter pr = response.getWriter();
+           
 
             ProjectID = request.getParameter("ProjectID");
             ProjectName = request.getParameter("ProjectName");
@@ -103,14 +103,14 @@ public class addProjects extends HttpServlet {
             if (res.next()) {
 
                 request.setAttribute("massage", "It is exsisting course");
-                RequestDispatcher rd = request.getRequestDispatcher("Invalid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiInValid.jsp");
                 rd.forward(request, response);
 
             } else {
                 para1 = "('" + ProjectID + "','" + ProjectName + "','" + Projectreport +"','"+ProjectPPT+"','"+Discription+ "')";
                 pc.callProc("InsertProject", para1);
                 request.setAttribute("massage", "course is added");
-                RequestDispatcher rd = request.getRequestDispatcher("valid.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("tsiValid.jsp");
                 rd.forward(request, response);
             }
             // processRequest(request, response);
