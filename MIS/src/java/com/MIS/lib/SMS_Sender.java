@@ -50,13 +50,13 @@ public class SMS_Sender {
         SendMailTLS sm = new SendMailTLS();
         sm.SendMail("sms@messaging.clickatell.com","", mail);
       //  return "SMS is send success fully. Your massage looks like "+massage;
-        return mail;
+        return massage;
         }
     }
     
   /*  public static void main(String[] args) {
         SMS_Sender sms = new SMS_Sender();
-        String x = sms.sendSMS("94717584227,94775829738,94776046770", "massa", "adm1");
+        String x = sms.sendSMS("94717584227,", "massa", "adm1");
         System.out.println(x);
     }*/
 }

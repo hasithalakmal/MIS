@@ -360,6 +360,46 @@
         <servlet-name>RCI_resetMemberPassword</servlet-name>
         <servlet-class>com.servlet.login.RCI_resetMemberPassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>sms_student</servlet-name>
+        <servlet-class>com.servlet.login.sms_student</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sms_parent</servlet-name>
+        <servlet-class>com.servlet.login.sms_parent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sms_staff</servlet-name>
+        <servlet-class>com.servlet.login.sms_staff</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>email_student</servlet-name>
+        <servlet-class>com.servlet.login.email_student</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>email_parent</servlet-name>
+        <servlet-class>com.servlet.login.email_parent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>email_staff</servlet-name>
+        <servlet-class>com.servlet.login.email_staff</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DBFileDownloadServlet</servlet-name>
+        <servlet-class>com.servlet.login.DBFileDownloadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FileUploadDBServlet</servlet-name>
+        <servlet-class>com.servlet.login.FileUploadDBServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>testuploard</servlet-name>
+        <servlet-class>com.servlet.login.testuploard</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>uploadFile_all</servlet-name>
+        <servlet-class>com.servlet.login.uploadFile_all</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mainAccessControler</servlet-name>
         <url-pattern>/mainAccessControler</url-pattern>
@@ -528,6 +568,10 @@
         <servlet-name>addExam</servlet-name>
         <url-pattern>/addExam</url-pattern>
     </servlet-mapping>
+    <!-- <servlet-mapping>
+        <servlet-name>addExam</servlet-name>
+        <url-pattern>/addExam</url-pattern>
+    </servlet-mapping> -->
     <servlet-mapping>
         <servlet-name>UpdateExam</servlet-name>
         <url-pattern>/UpdateExam</url-pattern>
@@ -719,6 +763,46 @@
     <servlet-mapping>
         <servlet-name>RCI_resetMemberPassword</servlet-name>
         <url-pattern>/RCI_resetMemberPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sms_student</servlet-name>
+        <url-pattern>/sms_student</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sms_parent</servlet-name>
+        <url-pattern>/sms_parent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sms_staff</servlet-name>
+        <url-pattern>/sms_staff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>email_student</servlet-name>
+        <url-pattern>/email_student</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>email_parent</servlet-name>
+        <url-pattern>/email_parent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>email_staff</servlet-name>
+        <url-pattern>/email_staff</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DBFileDownloadServlet</servlet-name>
+        <url-pattern>/DBFileDownloadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FileUploadDBServlet</servlet-name>
+        <url-pattern>/FileUploadDBServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>testuploard</servlet-name>
+        <url-pattern>/testuploard</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>uploadFile_all</servlet-name>
+        <url-pattern>/uploadFile_all</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

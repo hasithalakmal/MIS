@@ -29,5 +29,13 @@ public class ProsedeurControls {
 
     }
 
+    public ResultSet callProc(String procedure) {
+        dbmc = new DataBaseManagement();
+        con = (Connection) dbmc.setConnetction();
+        query = "call managementinformationsystem." + procedure + "();";
+        rs = dbmc.getResult(query, con);
+        return rs;
+
+    }
   
 }
