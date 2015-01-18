@@ -10,10 +10,10 @@
             <ul>
                 <li><a href="AddServiseForPrefect.jsp">Add Service For Prefect</a></li>
                 <li><a href="RemoveServiceForPrefect.jsp">Remove Service From Prefect</a></li>
-                <li><a href="#">Update Service From Prefect</a></li>
+           <!--     <li><a href="#">Update Service From Prefect</a></li>  -->
                 <li><a href="addPrefectBehaviors.jsp">Add Prefect Behaviors</a></li>
                 <li><a href="removePrefectBehaviors.jsp">Remove Prefect Behaviors</a></li>
-                <li><a href="#">Update Prefect Behaviors</a></li>
+             <!--   <li><a href="#">Update Prefect Behaviors</a></li> -->
             </ul>
         </li>
 
@@ -28,8 +28,8 @@
         <li><a href="#">||User Management||</a>
             <ul>
                 <li><a href="RegistationPrf.jsp">Add Prefect</a></li> 
-                <li><a href="#">Remove Prefect</a></li>
-                <li><a href="RegistationTsi.jsp">Add Prefect Incharge</a></li>
+                <li><a href="removeprefect.jsp">Remove Prefect</a></li>
+                <li><a href="RegistationTsi.jsp">Add Prefect In-charge</a></li>
             </ul>
         </li>
         <li><a href="#">||Reports||</a>
@@ -42,25 +42,25 @@
         </li>
         <li><a href="#">||SMS and e-mails||</a>
             <ul>
-                <li><a href="#">Send SMS to Student</a></li>
-                <li><a href="#">Send SMS to Parent</a></li>
-                <li><a href="#">Send SMS to Staff</a></li>
-                <li><a href="#">Send E-mail to Parent</a></li>
-                <li><a href="#">Send E-mail to Student</a></li>
-                <li><a href="#">Send E-mail to Staff</a></li>
+                 <li><a href="sms_pbi_student.jsp">Send SMS to Student</a></li>
+                <li><a href="sms_pbi_parent.jsp">Send SMS to Parent</a></li>
+                <li><a href="sms_pbi_staff.jsp">Send SMS to Staff</a></li>
+                <li><a href="email_pbi_student.jsp">Send E-mail to Student</a></li>
+                <li><a href="email_pbi_parent.jsp">Send E-mail to Parent</a></li>
+                <li><a href="email_pbi_staff.jsp">Send E-mail to Staff</a></li>
 
             </ul>
         </li>
         <li><a href="#">||Resource Management||</a>
             <ul>
-                <li><a href="#">Add File</a></li>
-                <li><a href="#">Add Video</a></li>
-                <li><a href="#">Add Audio</a></li>
-                <li><a href="#">Add Image</a></li>
-                <li><a href="#">Remove File</a></li>
-                <li><a href="#">Remove Video</a></li>
-                <li><a href="#">Remove Audio</a></li>
-                <li><a href="#">Remove Image</a></li>
+                <li><a href="file_uploard_pbi.jsp">Add File</a></li>
+                <li><a href="file_uploard_pbi.jsp">Add Multimedia</a></li>
+                <li><a href="file_remove_pbi.jsp">Remove File</a></li>
+                <li><a href="file_remove_pbi.jsp">Remove Multimedia</a></li>
+                <li><a href="view_files_pbi.jsp">Download File</a></li>
+                <li><a href="view_audio_pbi.jsp">Download Audio</a></li>
+                <li><a href="view_image_pbi.jsp">View Photo</a></li>
+                <li><a href="view_vedio_pbi.jsp">View Video</a></li>
             </ul>
         </li>
 

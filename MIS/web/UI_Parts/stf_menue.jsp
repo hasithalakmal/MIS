@@ -5,46 +5,46 @@
 --%>
 
 
-                <div>
-      
-                    <ul id="navbar">
-                        <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
-                        <li><a href="#">||Profile Management||</a>
-                            <ul>
-                                <li><a href="#">View Personal Details</a></li>                    
-                                <li><a href="#">View Education Details</a></li>
-                                <li><a href="#">Service Details</a></li>
-                                <li><a href="#">Committee Details</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="#">||Reports||</a>
-                            <ul>
-                                <li><a href="#">My Personal Details</a></li>
-                                
-                                <li><a href="#">My Service Details</a></li>
-                                <li><a href="#">My committee Details </a></li>
-                                <li><a href="#">Thuunusaviya Progress Report</a></li>
-                               
+<div>
 
-                            </ul>
-                        </li>
-                        <li><a href="#">||Feedback||</a>
-                            <ul>
-                                <li><a href="#">Send e-mail</a></li>
-                                
-                            </ul>
-                        </li>
-                        <li><a href="#">||Gallery||</a>
-                            <ul>
-                                <li><a href="#"> File</a></li>
-                                <li><a href="#"> Video</a></li>
-                                <li><a href="#"> Audio</a></li>
-                                <li><a href="#"> Image</a></li>
-                                
-                            </ul>
-                        </li>
+    <ul id="navbar">
+        <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
 
-                    </ul>
-                </div>
+        <li><a href="#">||Profile Management||</a>
+            <ul>
+                <li><a href="#">View Personal Details</a></li>                    
+                <li><a href="#">View Education Details</a></li>
+                <li><a href="#">Service Details</a></li>
+                <li><a href="#">Committee Details</a></li>
+
+            </ul>
+        </li>
+        <li><a href="#">||Reports||</a>
+            <ul>
+                <li><a href="#">My Personal Details</a></li>
+
+                <li><a href="#">My Service Details</a></li>
+                <li><a href="#">My committee Details </a></li>
+                <li><a href="#">Thuunusaviya Progress Report</a></li>
+
+
+            </ul>
+        </li>
+        <li><a href="#">||Feedback||</a>
+            <ul>
+                <li><a href="feedbackEmail.jsp" target="_blank">Send e-mail</a></li>
+
+            </ul>
+        </li>
+        <li><a href="#">||Gallery||</a>
+            <ul>
+               <li><a href="view_files_stf.jsp"> File</a></li>
+                <li><a href="view_vedio_stf.jsp"> Video</a></li>
+                <li><a href="view_audio_stf.jsp"> Audio</a></li>
+                <li><a href="view_image_stf.jsp"> Image</a></li>
+
+            </ul>
+        </li>
+
+    </ul>
+</div>

@@ -121,9 +121,9 @@
             #navbar li li a:hover {
                 background-color: #8db3ff; }
             </style>
-    </head>
-    <body>
-     <%
+        </head>
+        <body>
+            <%
 
                 String x1 = (String) session.getAttribute("useID");
                 if (x1 == null) {
@@ -165,10 +165,10 @@
 
 
                 <div id="wrap">
-      <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
+                    <a href="rciHome.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
                     <ul id="navbar">
                         <!-- The strange spacing herein prevents an IE6 whitespace bug. -->
-                         
+
                         <li><a href="#">||User Management||</a>
                             <ul>
                                 <li><a href="RCIaddMember.jsp">Add User</a></li>                    
@@ -218,29 +218,29 @@
 
                 <div id="content_container">
 
-                 
-                      <form action="adminSearchUser" method="post" target="_blank">
-            <h3>Search user</h3>
 
-            <br>
-            <table>
-                <tr>
-                    <td>
-                        Enter user ID
-                    </td>
-                    <td>
-                        <input type="text" name="uid">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="submit"  Value="Search">
-                    </td>
-                </tr>
-            </table>
-       </form>
-            </div>
+                    <form action="adminSearchUser" method="post" target="_blank">
+                        <h3>Search user</h3>
+
+                        <br>
+                        <table>
+                            <tr>
+                                <td>
+                                    Enter user ID
+                                </td>
+                                <td>
+                                    <input type="text" name="uid">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit"  Value="Search">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
             </div>
             <div id="footer">
                 Copyright © SirivajiraghanaDahamPasala.com

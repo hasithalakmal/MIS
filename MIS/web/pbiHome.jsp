@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="UI_Parts/mystyle_Aplication.css">
-   
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
         <script>
@@ -25,13 +25,13 @@
     <body>
         <%
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                    rd.forward(request, response);
-                }
+            String x1 = (String) session.getAttribute("useID");
+            if (x1 == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }
 
-            %>
+        %>
         <div id="container">
             <div id="header">
                 <!-- outer file -->
@@ -48,7 +48,7 @@
 
                 <div id="content_container">
                     <center>
-                    <img src="Images/home1.jpg" width="550" height="370" align="center">
+                        <img src="Images/home1.jpg" width="550" height="370" align="center">
                     </center>
                 </div>
 

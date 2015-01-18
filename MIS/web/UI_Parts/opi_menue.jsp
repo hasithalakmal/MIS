@@ -11,12 +11,10 @@
 
         <li><a href="#">||Involvement Management||</a>
             <ul>
-                <li><a href="#">Add Old Pupil Service</a></li>                    
-                <li><a href="#">Update Old Pupil Service</a></li>
-                <li><a href="#">Remove Old Pupil Service</a></li>
-                <li><a href="#">Add Old Pupil To Service</a></li>
-                <li><a href="#">Update Old Pupil In Service</a></li>
-                <li><a href="#">Remove Old Pupil From Service</a></li>
+                <li><a href="add_op_servise.jsp">Add Old Pupil Service</a></li>                    
+                <li><a href="remove_op_servise.jsp">Remove Old Pupil Service</a></li>
+                <li><a href="assign_Op_service.jsp">Add Old Pupil To Service</a></li>
+                <li><a href="deassign_Op_service.jsp">Remove Old Pupil From Service</a></li>
 
             </ul>
         </li>
@@ -28,16 +26,16 @@
         </li>
         <li><a href="#">||Feedback||</a>
             <ul>
-                <li><a href="#">Send e-mail</a></li>
+                <li><a href="feedbackEmail.jsp" target="_blank">Send Email</a></li>
 
             </ul>
         </li>
         <li><a href="#">||Gallery||</a>
             <ul>
-                <li><a href="#"> File</a></li>
-                <li><a href="#"> Video</a></li>
-                <li><a href="#"> Audio</a></li>
-                <li><a href="#"> Image</a></li>
+                 <li><a href="view_files_opi.jsp"> File</a></li>
+                <li><a href="view_vedio_opi.jsp"> Video</a></li>
+                <li><a href="view_audio_opi.jsp"> Audio</a></li>
+                <li><a href="view_image_opi.jsp"> Image</a></li>
 
             </ul>
         </li>

@@ -400,6 +400,50 @@
         <servlet-name>uploadFile_all</servlet-name>
         <servlet-class>com.servlet.login.uploadFile_all</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>removeFile_all</servlet-name>
+        <servlet-class>com.servlet.login.removeFile_all</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewImageGet</servlet-name>
+        <servlet-class>com.servlet.login.ViewImageGet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewVedioGet</servlet-name>
+        <servlet-class>com.servlet.login.ViewVedioGet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>view_file_list</servlet-name>
+        <servlet-class>com.servlet.login.view_file_list</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>downloardblob</servlet-name>
+        <servlet-class>com.servlet.login.downloardblob</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>remove_prefect</servlet-name>
+        <servlet-class>com.servlet.login.remove_prefect</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Deleete_servise</servlet-name>
+        <servlet-class>com.servlet.login.Deleete_servise</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>add_ob_servis</servlet-name>
+        <servlet-class>com.servlet.login.add_ob_servis</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>remove_ob_servis</servlet-name>
+        <servlet-class>com.servlet.login.remove_ob_servis</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>assign_ob_servis</servlet-name>
+        <servlet-class>com.servlet.login.assign_ob_servis</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deassign_ob_servis</servlet-name>
+        <servlet-class>com.servlet.login.deassign_ob_servis</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>mainAccessControler</servlet-name>
         <url-pattern>/mainAccessControler</url-pattern>
@@ -803,6 +847,50 @@
     <servlet-mapping>
         <servlet-name>uploadFile_all</servlet-name>
         <url-pattern>/uploadFile_all</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>removeFile_all</servlet-name>
+        <url-pattern>/removeFile_all</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewImageGet</servlet-name>
+        <url-pattern>/ViewImageGet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewVedioGet</servlet-name>
+        <url-pattern>/ViewVedioGet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>view_file_list</servlet-name>
+        <url-pattern>/view_file_list</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>downloardblob</servlet-name>
+        <url-pattern>/downloardblob</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>remove_prefect</servlet-name>
+        <url-pattern>/remove_prefect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Deleete_servise</servlet-name>
+        <url-pattern>/Deleete_servise</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>add_ob_servis</servlet-name>
+        <url-pattern>/add_ob_servis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>remove_ob_servis</servlet-name>
+        <url-pattern>/remove_ob_servis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>assign_ob_servis</servlet-name>
+        <url-pattern>/assign_ob_servis</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deassign_ob_servis</servlet-name>
+        <url-pattern>/deassign_ob_servis</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

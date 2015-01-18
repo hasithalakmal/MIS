@@ -5,6 +5,7 @@
  */
 package com.servlet.login;
 
+import com.MIS.lib.PersonIdentifier;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -31,6 +32,7 @@ public class uploadFile_all extends HttpServlet {
     private String dbUser = "root";
     private String dbPass = "massa";
     private HttpSession ses;
+    private String responce;
 
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
@@ -40,9 +42,11 @@ public class uploadFile_all extends HttpServlet {
         String name = fname + "." + extention;
         String access = request.getParameter("access");
         String type = request.getParameter("type");
-        
-       /* ses = request.getSession(true);
-        String owner = (String) ses.getAttribute("useID");*/
+
+        ses = request.getSession(true);
+        String uid = (String) ses.getAttribute("useID");
+        PersonIdentifier pi = new PersonIdentifier();
+        String owner = pi.getUserType(uid);
 
         InputStream inputStream = null; // input stream of the upload file
 
@@ -67,33 +71,89 @@ public class uploadFile_all extends HttpServlet {
             conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
 
             // constructs SQL statement
-            String sql = "INSERT INTO file_management (name, access, type, photo) values (?, ?, ?, ?)";
+            String sql = "INSERT INTO file_management (name, access, type, owner, photo) values (?, ?, ?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, name);
             statement.setString(2, access);
             statement.setString(3, type);
-           // statement.setString(4, owner);           
-            
+            statement.setString(4, owner);
+
             if (inputStream != null) {
                 // fetches input stream of the upload file for the blob column
-                statement.setBlob(4, inputStream);
+                statement.setBlob(5, inputStream);
             }
 
-             
             // sends the statement to the database server
             int row = statement.executeUpdate();
             if (row > 0) {
-                message = "File uploaded and saved into database";
-                request.setAttribute("massage", message);
-                RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
-                rd.forward(request, response);
+
+                responce = "File uploaded and saved into database";
+
+                String ptype = pi.getUserType(uid);
+                if (ptype == "rci") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "tsi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/tsiValid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "adm") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/admValid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "pbi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/pbiValid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "ebi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/ebiValid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "opi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/opiValid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "sti") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/stiValid.jsp");
+                    rd.forward(request, response);
+                }
             }
         } catch (SQLException ex) {
             message = "ERROR: " + ex.getMessage();
-            request.setAttribute("massage", message);
-            RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
-            rd.forward(request, response);
-            //ex.printStackTrace();
+            responce = "File uploaded and saved into database";
+
+                String ptype = pi.getUserType(uid);
+                if (ptype == "rci") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "tsi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/tsiInvalid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "adm") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/admInvalid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "pbi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/pbiInvalid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "ebi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/ebiInvalid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "opi") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/opiInvalid.jsp");
+                    rd.forward(request, response);
+                } else if (ptype == "sti") {
+                    request.setAttribute("massage", responce);
+                    RequestDispatcher rd = request.getRequestDispatcher("/stiInvalid.jsp");
+                    rd.forward(request, response);
+                }
         } finally {
             if (conn != null) {
                 // closes the database connection

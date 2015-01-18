@@ -34,7 +34,7 @@
         <li><a href="#">||User Management||</a>
             <ul>
                 <li><a href="RegistationTss.jsp">Add Thurunusaviya Student</a></li>                    
-                <li><a href="#">Add Thurunusaviya Staff</a></li>
+               
                 <li><a href="RegistationTsi.jsp">Add Thurunusaviya In-charge</a></li>
             </ul>
         </li>
@@ -48,25 +48,25 @@
         </li>
         <li><a href="#">||SMS and E-mails||</a>
             <ul>
-                <li><a href="#">Send SMS to Student</a></li>
-                <li><a href="#">Send SMS to Parent</a></li>
-                <li><a href="#">Send SMS to Staff</a></li>
-                <li><a href="#">Send E-mail to Parent</a></li>
-                <li><a href="#">Send E-mail to Student</a></li>
-                <li><a href="#">Send E-mail to Staff</a></li>
+                <li><a href="sms_tsi_student.jsp">Send SMS to Student</a></li>
+                <li><a href="sms_tsi_parent.jsp">Send SMS to Parent</a></li>
+                <li><a href="sms_tsi_staff.jsp">Send SMS to Staff</a></li>
+                <li><a href="email_tsi_parent.jsp">Send E-mail to Parent</a></li>
+                <li><a href="email_tsi_student.jsp">Send E-mail to Student</a></li>
+                <li><a href="email_tsi_staff.jsp">Send E-mail to Staff</a></li>
 
             </ul>
         </li>
         <li><a href="#">||Resource Management||</a>
             <ul>
-                <li><a href="#">Add File</a></li>
-                <li><a href="#">Add Video</a></li>
-                <li><a href="#">Add Audio</a></li>
-                <li><a href="#">Add Image</a></li>
-                <li><a href="#">Remove File</a></li>
-                <li><a href="#">Remove Video</a></li>
-                <li><a href="#">Remove Audio</a></li>
-                <li><a href="#">Remove Image</a></li>
+                 <li><a href="file_uploard_tsi.jsp">Add File</a></li>
+                <li><a href="file_uploard_tsi.jsp">Add Multimedia</a></li>
+                <li><a href="file_remove_tsi.jsp">Remove File</a></li>
+                <li><a href="file_remove_tsi.jsp">Remove Multimedia</a></li>
+                <li><a href="view_files_tsi.jsp">Download File</a></li>
+                <li><a href="view_audio_tsi.jsp">Download Audio</a></li>
+                <li><a href="view_image_tsi.jsp">View Photo</a></li>
+                <li><a href="view_vedio_tsi.jsp">View Video</a></li>
             </ul>
         </li>
 

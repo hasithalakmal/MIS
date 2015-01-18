@@ -43,12 +43,13 @@
             <ul>
                 <li><a href="file_uploard_rci.jsp">Add File</a></li>
                 <li><a href="file_uploard_rci.jsp">Add Multimedia</a></li>
-                <li><a href="#">Remove File</a></li>
-                <li><a href="#">Remove Multimedia</a></li>
-                <li><a href="#">View File</a></li>
-                <li><a href="#">View Photo</a></li>
-                <li><a href="#">View Video</a></li>
-                <li><a href="#">View Audio</a></li>
+                <li><a href="file_remove_rci.jsp">Remove File</a></li>
+                <li><a href="file_remove_rci.jsp">Remove Multimedia</a></li>
+                <li><a href="view_files_rci.jsp">Download File</a></li>
+                <li><a href="view_audio_rci.jsp">Download Audio</a></li>
+                <li><a href="view_image_rci.jsp">View Photo</a></li>
+                <li><a href="view_vedio_rci.jsp">View Video</a></li>
+
             </ul>
         </li>
 

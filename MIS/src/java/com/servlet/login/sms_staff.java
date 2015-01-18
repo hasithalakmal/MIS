@@ -5,6 +5,7 @@
  */
 package com.servlet.login;
 
+import com.MIS.lib.PersonIdentifier;
 import com.MIS.lib.ProsedeurControls;
 import com.MIS.lib.SMS_Sender;
 import java.io.IOException;
@@ -120,10 +121,38 @@ public class sms_staff extends HttpServlet {
         //PrintWriter pr = response.getWriter();
        //  pr.write(to);
         String responce = sms.sendSMS(to, Message, uid);
-
-        request.setAttribute("massage", responce);
-        RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
-        rd.forward(request, response);
+PersonIdentifier pi = new PersonIdentifier();
+        String ptype = pi.getUserType(uid);
+        if (ptype == "rci") {
+            request.setAttribute("massage", responce);
+            RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+            rd.forward(request, response);
+        }else if(ptype == "tsi"){
+         request.setAttribute("massage", responce);
+            RequestDispatcher rd = request.getRequestDispatcher("/tsiValid.jsp");
+            rd.forward(request, response);
+        }else if(ptype == "adm"){
+         request.setAttribute("massage", responce);
+            RequestDispatcher rd = request.getRequestDispatcher("/admValid.jsp");
+            rd.forward(request, response);
+        }else if(ptype == "pbi"){
+         request.setAttribute("massage", responce);
+            RequestDispatcher rd = request.getRequestDispatcher("/pbiValid.jsp");
+            rd.forward(request, response);
+        }else if(ptype == "ebi"){
+         request.setAttribute("massage", responce);
+            RequestDispatcher rd = request.getRequestDispatcher("/ebiValid.jsp");
+            rd.forward(request, response);
+        }else if(ptype == "opi"){
+         request.setAttribute("massage", responce);
+            RequestDispatcher rd = request.getRequestDispatcher("/opiValid.jsp");
+            rd.forward(request, response);
+        }else if(ptype == "sti"){
+         request.setAttribute("massage", responce);
+            RequestDispatcher rd = request.getRequestDispatcher("/stiValid.jsp");
+            rd.forward(request, response);
+        }
+        
         
     }
 

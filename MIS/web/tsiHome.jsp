@@ -56,12 +56,12 @@
                     </center>
                 </div>
 
+            
             </div>
-
             <div id="footer">
-                Copyright © SiriWajiraghanaDahamPasala.com
+                <!-- outer file -->
             </div>
         </div>
-
     </body>
 </html>
+

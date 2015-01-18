@@ -44,18 +44,7 @@
 
                             </ul>
                         </li>
-                        <li><a href="#">||Resource Management||</a>
-                            <ul>
-                                <li><a href="#">Add File</a></li>
-                                <li><a href="#">Add Video</a></li>
-                                <li><a href="#">Add Audio</a></li>
-                                <li><a href="#">Add Image</a></li>
-                                <li><a href="#">Remove File</a></li>
-                                <li><a href="#">Remove Video</a></li>
-                                <li><a href="#">Remove Audio</a></li>
-                                <li><a href="#">Remove Image</a></li>
-                            </ul>
-                        </li>
+                        
 
                     </ul>
                     
