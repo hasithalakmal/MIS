@@ -22,6 +22,11 @@
                 $("#wrap").load("UI_Parts/rci_menue.jsp");
             });
         </script>
+        <script>
+            function goBack() {
+                window.history.back()
+            }
+        </script>
     </head>
     <body>
         <%
@@ -51,10 +56,13 @@
 
                 <div id="content_container">
                     
-                   
-                      <h3>process is not success </h3>
+                   <center>
+                    <h3 style="color: red">process is not success </h3>
 
-             <p style="color: red"><%=msg%></p>
+                    <p ><%=msg%></p>
+                    <br><br><br><br>
+                    <img src="Images/back_button.png" width="80" height="80" onclick="goBack();">
+                    </center>
                 </div>
 
              </div>

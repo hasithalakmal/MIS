@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +37,7 @@ public class FogotUserID extends HttpServlet {
     private String name;
     public String result = "~~~";
     private String id2;
+    private String dateString1;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -76,92 +80,106 @@ public class FogotUserID extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        usertype = request.getParameter("usertype");
-        userName = request.getParameter("userName");
-        birthday = request.getParameter("birthday");
-
-        ProsedeurControls pc = new ProsedeurControls();
-
-        para = "('" + userName + "','" + birthday + "')";
-
-        if ("stu".equals(usertype)) {
-            try {
-                res = pc.callProc("SelectStudentByName", para);
-                while (res.next()) {
-                   id = res.getString(1);
-                    name = res.getString(3);
-                    result = "  " + id + "    " + name + "~~~~";
+      //  try {
+            usertype = request.getParameter("usertype");
+            userName = request.getParameter("userName");
+         /*   dateString1 = request.getParameter("birthday");
+            
+            
+            Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dateString1);
+            birthday = new SimpleDateFormat("yyyy-MM-dd").format(date);
+            
+            */
+            
+         //   birthday ="1992/06/17";
+            birthday = request.getParameter("birthday");
+            
+            ProsedeurControls pc = new ProsedeurControls();
+            
+            para = "('" + userName + "','" + birthday + "')";
+            
+            if ("stu".equals(usertype)) {
+                try {
+                    res = pc.callProc("SelectStudentByName", para);
+                    while (res.next()) {
+                        id = res.getString(1);
+                        name = res.getString(3);
+                        result = "  " + id + "    " + name + "~~~~";
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        if ("stf".equals(usertype)) {
-            try {
-                res = pc.callProc("SelectStaffByName", para);
-                while (res.next()) {
-                   id = res.getString(1);
-                    name = res.getString(5);
-                    result = "  " + id + "    " + name + "~~~~";
+            if ("stf".equals(usertype)) {
+                try {
+                    res = pc.callProc("SelectStaffByName", para);
+                    while (res.next()) {
+                        id = res.getString(1);
+                        name = res.getString(5);
+                        result = "  " + id + "    " + name + "~~~~";
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        if ("ops".equals(usertype)) {
-            try {
-                res = pc.callProc("SelectOBByName", para);
-                while (res.next()) {
-                   id = res.getString(1);
-                   id2=res.getString(2);
-                    name = res.getString(3);
-                    result = "  " + id +"   "+ "    " + name + "~~~~";
+            if ("ops".equals(usertype)) {
+                try {
+                    res = pc.callProc("SelectOBByName", para);
+                    while (res.next()) {
+                        id = res.getString(1);
+                        id2 = res.getString(2);
+                        name = res.getString(3);
+                        result = "  " + id + "   " + "    " + name + "~~~~";
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        if ("prf".equals(usertype)) {
-            try {
-                res = pc.callProc("SelectPrefectByName", para);
-                while (res.next()) {
-                   id = res.getString(2);
-                   id2=res.getString(1);
-                    name = res.getString(3);
-                    result = "  " + id +"   "+ "    " + name + "~~~~";
+            if ("prf".equals(usertype)) {
+                try {
+                    res = pc.callProc("SelectPrefectByName", para);
+                    while (res.next()) {
+                        id = res.getString(2);
+                        id2 = res.getString(1);
+                        name = res.getString(3);
+                        result = "  " + id + "   " + "    " + name + "~~~~";
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        if ("prn".equals(usertype)) {
-            try {
-                res = pc.callProc("SelectParentByName", para);
-                while (res.next()) {
-                   id = res.getString(3);
-                    name = res.getString(2);
-                    result = "  " + id + "    " + name + "~~~~";
+            if ("prn".equals(usertype)) {
+                try {
+                    res = pc.callProc("SelectParentByName", para);
+                    while (res.next()) {
+                        id = res.getString(3);
+                        name = res.getString(2);
+                        result = "  " + id + "    " + name + "~~~~";
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        if ("tss".equals(usertype)) {
-            try {
-                res = pc.callProc("SelectTSSByName", para);
-                while (res.next()) {
-                   id = res.getString(1);
-                    name = res.getString(2);
-                    result = "  " + id + "    " + name + "~~~~";
+            if ("tss".equals(usertype)) {
+                try {
+                    res = pc.callProc("SelectTSSByName", para);
+                    while (res.next()) {
+                        id = res.getString(1);
+                        name = res.getString(2);
+                        result = "  " + id + "    " + name + "~~~~";
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+            
+            response.setContentType("text/Html");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(result);
+       /* } catch (ParseException ex) {
+            Logger.getLogger(FogotUserID.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
         
-        response.setContentType("text/Html");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(result);
     }
 
     /**

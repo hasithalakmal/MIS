@@ -7,6 +7,8 @@ package com.servlet.login;
 import com.MIS.lib.PasswordEncoding;
 import com.MIS.lib.PersonIdentifier;
 import com.MIS.lib.ProsedeurControls;
+import com.MIS.lib.RandomStringGenerator;
+import com.MIS.lib.SMS_Sender;
 import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,6 +39,9 @@ public class StudentRegistation extends HttpServlet {
     private ResultSet res;
     private String para2;
     private String para;
+    private String tel;
+    private String pname;
+    private String code;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -124,47 +129,57 @@ public class StudentRegistation extends HttpServlet {
             res = pc.callProc("selectGardian", para);
 
             if (res.next()) {
-                para2 = "('" + p1 + "')";
-                res = pc.callProc("selectStudent", para2);
+                tel = res.getString("MPnumber1");
+                pname = res.getString("fullname");
+              //  PrintWriter pr = response.getWriter();
+                //  pr.write(tel);
 
-                if (res.next()) {
-                    massage = "Student is alredy added to the system";
-                    request.setAttribute("massage", massage);
-
-                    RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
-                    rd.forward(request, response);
-
-                } else {
-
-                    String para1 = "('" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "')";
-                    pc.callProc("insertStudentData", para1);
-
-                    PasswordEncoding pe = new PasswordEncoding();
-                    passWord = pe.Encode(p1);
-
-                    para2 = "('" + p1 + "','" + passWord + "')";
-                    pc.callProc("insertPW", para2);
+                SMS_Sender sms = new SMS_Sender();
+                RandomStringGenerator sg = new RandomStringGenerator();
+              
+                massage = "Student Name : " + p3 + " Parent Name : " + pname ;
+                sms.sendSMS(tel, massage, uid);
 
                     para2 = "('" + p1 + "')";
-                    res = pc.callProc("selectStudent", para2);
+                 res = pc.callProc("selectStudent", para2);
 
-                    if (res.next()) {
-                        massage = "Student is added to the system";
-                        request.setAttribute("massage", massage);
+                 if (res.next()) {
+                 massage = "Student is alredy added to the system";
+                 request.setAttribute("massage", massage);
 
-                        RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
-                        rd.forward(request, response);
+                 RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                 rd.forward(request, response);
 
-                    }
-                }
-            } else {
+                 } else {
 
-                massage = "Gardian ID does not exsist.Student is not added to the system.";
-                request.setAttribute("massage", massage);
+                 String para1 = "('" + p1 + "','" + p2 + "','" + p3 + "','" + p4 + "','" + p5 + "','" + p6 + "','" + p7 + "','" + p8 + "','" + p9 + "','" + p10 + "','" + p11 + "','" + p12 + "','" + p13 + "','" + p14 + "','" + p15 + "','" + p16 + "','" + p17 + "','" + p18 + "')";
+                 pc.callProc("insertStudentData", para1);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
-                rd.forward(request, response);
+                 PasswordEncoding pe = new PasswordEncoding();
+                 passWord = pe.Encode(p1);
 
+                 para2 = "('" + p1 + "','" + passWord + "')";
+                 pc.callProc("insertPW", para2);
+
+                 para2 = "('" + p1 + "')";
+                 res = pc.callProc("selectStudent", para2);
+
+                 if (res.next()) {
+                 massage = "Student is added to the system";
+                 request.setAttribute("massage", massage);
+
+                 RequestDispatcher rd = request.getRequestDispatcher("/rciValid.jsp");
+                 rd.forward(request, response);
+
+                 }
+                 }
+                 } else {
+
+                 massage = "Gardian ID does not exsist.Student is not added to the system.";
+                 request.setAttribute("massage", massage);
+
+                 RequestDispatcher rd = request.getRequestDispatcher("/rciInvalid.jsp");
+                 rd.forward(request, response);
             }
 
             // processRequest(request, response);

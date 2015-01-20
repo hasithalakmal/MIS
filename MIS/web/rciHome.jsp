@@ -25,13 +25,13 @@
     <body>
         <%
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                    rd.forward(request, response);
-                }
+            String x1 = (String) session.getAttribute("useID");
+            if (x1 == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }
 
-            %>
+        %>
         <div id="container">
             <div id="header">
                 <!-- outer file -->
@@ -46,15 +46,9 @@
 
 
 
-                <div id="content_container">
+                <div id="content_container" >
                     <center>
-                        
-                        <p>
-                            <img src="Images/prefect.jpg" width="550" height="370" align="center" style="float:left">
-                            <Strong>Welcome to rci home page</strong>
-
-                        </p>
-                        
+                        <img src="Images/prefect.jpg" width="550" height="370" align="center" >
                     </center>
                 </div>
 

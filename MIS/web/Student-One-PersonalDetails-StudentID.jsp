@@ -34,7 +34,7 @@
             DataBaseManagement dbm = new DataBaseManagement();
             conn = dbm.setConnetction();
             
-            File reportFile = new File(application.getRealPath("/reports/Student-One-PersonalDetails-StudentID.jasper"));//your report_name.jasper file
+            File reportFile = new File(application.getRealPath("/reports/new/Student-One-PersonalDetails-StudentID.jasper"));//your report_name.jasper file
             Map parameters = new HashMap();
             parameters.put("studentID",id);
             byte[] bytes = JasperRunManager.runReportToPdf((String)reportFile.getPath(), parameters , conn);

@@ -37,7 +37,7 @@
             DataBaseManagement dbm = new DataBaseManagement();
             conn = dbm.setConnetction();
             
-            File reportFile = new File(application.getRealPath("/reports/Student-One-AllMarks-StuID.jasper"));//your report_name.jasper file
+            File reportFile = new File(application.getRealPath("/reports/new/Student-One-AllMarks-StuID.jasper"));//your report_name.jasper file
             Map parameters = new HashMap();
            // parameters.put("Grade",Grade);
             parameters.put("studentID",StuID);

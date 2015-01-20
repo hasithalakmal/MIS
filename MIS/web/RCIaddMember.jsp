@@ -26,13 +26,13 @@
     <body>
         <%
 
-                String x1 = (String) session.getAttribute("useID");
-                if (x1 == null) {
-                    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-                    rd.forward(request, response);
-                }
+            String x1 = (String) session.getAttribute("useID");
+            if (x1 == null) {
+                RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+                rd.forward(request, response);
+            }
 
-            %>
+        %>
         <div id="container">
             <div id="header">
                 <!-- outer file -->
@@ -49,51 +49,48 @@
 
                 <div id="content_container">
 
-                  
-                        <h2>Add User</h2>
-                        <form action="adminAddUser" method="post" name="AdmControler" >
 
-                            <table>
-                                <tr >
-                                    <td>
-                                        Select User Type
-                                    </td>
-                                    <td>
-                                        <select  name="usertype">
+                    <h3>Add User</h3>
+                    <form action="adminAddUser" method="post" name="AdmControler" >
 
-                                            <option value="rci">Reserch Center In-charge</option>
-                                            <option value="pbi">Prefect Board In-charge</option>
-                                            <option value="tsi">Thurunusaviya In-charge</option>
-                                            <option value="opi">Old Pupil In-charge</option>
-                                            <option value="sti">Staff In-charge</option>
-                                            <option value="ebi">Exam Branch In-charge</option>
-                                            <option value="stu">Student</option>
-                                            <option value="stf">Staff</option>
-                                            <option value="ops">Old Boy</option>
-                                            <option value="prf">Prefect</option>
-                                            <option value="tss">Thurunusaviya student</option>
-
-                                            <option value="prn">Guardian</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-
-                                <center><br>
-                                    <input type="submit" Value="Add User" name="Submit">
-                                </center>
+                        <table>
+                            <tr >
+                                <td>
+                                    Select User Type
                                 </td>
-                                </tr>
+                                <td>
+                                    <select  name="usertype">
+                                        <option value="ebi">Exam Branch In-charge</option>
+                                        <option value="prn">Guardian</option>
+                                        <option value="ops">Old Pupil</option>
+                                        <option value="opi">Old Pupil In-charge</option>
+                                        <option value="prf">Prefect</option>
+                                        <option value="pbi">Prefect Board In-charge</option>
+                                        <option value="rci">Reserch Center In-charge</option>
+                                        <option value="stf">Staff</option>
+                                        <option value="sti">Staff In-charge</option>
+                                        <option value="stu">Student</option>
+                                        <option value="tsi">Thurunusaviya In-charge</option>
+                                        <option value="tss">Thurunusaviya student</option>
 
-                            </table>
 
-                        </form>
-                   
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="submit" Value="Add User" name="Submit">
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </form>
+
                 </div>
 
-          </div>
+            </div>
             <div id="footer">
                 <!-- outer file -->
             </div>

@@ -22,6 +22,11 @@
                 $("#wrap").load("UI_Parts/rci_menue.jsp");
             });
         </script>
+        <script>
+            function goBack() {
+                window.history.back()
+            }
+        </script>
 
     </head>
     <body >
@@ -38,7 +43,7 @@
 
 
         %>
-       <div id="container">
+        <div id="container">
             <div id="header">
                 <!-- outer file -->
             </div>
@@ -51,10 +56,13 @@
                 </div>
                 <div id="content_container">
 
+                    <center>
+                        <h3 style="color: green">process is success </h3>
 
-                    <h3>process   is success </h3>
-
-                    <p style="color: green"><%=msg%></p>
+                        <p ><%=msg%></p>
+                        <br><br><br><br>
+                        <img src="Images/back_button.png" width="80" height="80" onclick="goBack();">
+                    </center>
                 </div>
 
             </div>

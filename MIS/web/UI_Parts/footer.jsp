@@ -5,5 +5,5 @@
 --%>
 
 <div>
-    Copyright © UCSC for Siri Vajiraghana Daham Pasala
+    Copyright © Siri Vajiraghana Daham Pasala
 </div>

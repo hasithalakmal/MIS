@@ -3,176 +3,45 @@
     Created on : Aug 28, 2014, 4:04:28 PM
     Author     : Mr.Mic
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MainLogin</title>
-        
-        <SCRIPT type="text/javascript">
-            window.history.forward();
-            function noBack() {
-                window.history.forward();
-            }
-        </SCRIPT>
-        <style>
-            #container {
-                width: 1320px ;
-                margin-left: auto ;
-                margin-right: auto ;
-                background-color:#254a6e;
+        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="UI_Parts/mystyle_Aplication.css">
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-            }
-            #header {
-                background-color:#254a6e;//dark blue
-                color:white;
-                border-radius: 10px;
-                padding:5px;
+        <script>
+            $(function () {
+                $("#header").load("UI_Parts/commen_header.jsp");
+                $("#nav").load("UI_Parts/nav2.jsp");
+                $("#footer").load("UI_Parts/footer.jsp");
+                //  $("#wrap").load("UI_Parts/rci_menue.jsp");
+            });
+        </script>
+    </head>
+    <body >
 
-            }
-
-            #nav {
-                line-height:30px;
-                margin: 7px; 
-                float:left;
-                background-color:#d4dadc;//ash
-                border-radius: 10px;
-                height:300px;
-                width:200px;
-                float:left;
-                padding:5px;	      
-            }
-
-            #section {
-                width:1050px;
-                margin: 7px; 
-                float:left;
-                border-radius: 10px;
-                height:450px;
-                float:left;
-                padding:10px;
-                background-color:#d4dadc;
-            }
-            #content_container
-            { width: 1000px;
-              margin: 20px 10px 0 0;
-              float: left;}
-            #sidebar {
-
-                margin: 7px; 
-                float:left;
-                background-color:#d4dadc;
-                border-radius: 10px;
-                height:200px;
-                width:200px;
-                float:left;
-                padding:5px; 	      
-
-            }
-            #footer {
-                background-color:black;
-                color:white;
-                clear:both;
-                text-align:center;
-                padding:5px;
-                border-radius: 10px;
-            }
-            //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-            /* These styles are related to popup menu. */
-
-            /* These styles just pretty up the page a bit. */
-            body {
-                font: 62.5%/1.2 Arial, Helvetica, sans-serif;
-                background-color: #eee; }
-            #wrap {
-                font-size: 1.1em;
-                width: 1000px;
-                padding: 0px;
-                margin: 0 0; 
-                background-color: #d4dadc;
-                position: relative; }
-
-            /* These styles create the dropdown menus. */
-            #navbar {
-                margin: 0;
-                padding: 0;
-                height: 1em; }
-            #navbar li {
-                list-style: none;
-                float: left; }
-            #navbar li a {
-                display: block;
-                padding: 3px 8px;
-                background-color: #254a6e;
-                color: #fff;
-                text-decoration: none; }
-            #navbar li ul {
-                display: none; 
-                width: 10em; /* Width to help Opera out */
-                background-color: #69f;
-            }
-            #navbar li:hover ul, #navbar li.hover ul {
-                display: block;
-                position: absolute;
-                margin: 0;
-                padding: 0; 
-                opacity: 0.8}
-            #navbar li:hover li, #navbar li.hover li {
-                float: none; }
-            #navbar li:hover li a, #navbar li.hover li a {
-                background-color: #69f;
-                border-bottom: 1px solid #fff;
-                color: #000; }
-            #navbar li li a:hover {
-                background-color: #8db3ff; }
-            </style>
-
-        </head>
-        <body >
-
-
-
-
-
-
-
-
-
-            <div id="container">
+        <div id="container">
             <div id="header">
-                <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#254a6e" >
-                    <tr>
-                        <td>
-                            <img src="uper1.jpg" width="300">
-                        </td>
-                        <td>
-                            <h1 style="color: #FFF">Welcome To Our Main login</h1>
-                        </td>
-
-                    </tr>
-                </table>
+                <!-- outer file -->
             </div>
-
             <div id="nav">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Thurunusaviya</a></li>
-                    <li><a href="#">Gallery</a></li>
-                </ul>
-
+                <!-- outer file -->
             </div>
-
-            <div id="section">
-
+            <div id="section" >
+                <div id="wrap" >
+                    <!-- outer file -->
+                </div>
 
 
 
                 <div id="content_container">
 
                     <center>
+                        <br>
                         <br>
                         <br>
                         <br>
@@ -189,10 +58,14 @@
                                     <td><input type="password" id="pass" name="userpassword" value="" size="50" required></td>
                                 </tr>
                                 <tr>
+                                    <td><p></p>      </td>
+                                    <td><p></p>     </td>
+                                </tr>
+                                <tr>
                                     <td></td>
                                     <td>
                                 <center>
-                                    <input type="submit" Value="Log In" name="Login">
+                                    <input type="submit" Value="Sign In" name="Login"> 
                                 </center>
                                 </td>
                                 </tr>
@@ -200,28 +73,35 @@
 
                             </table>
                         </form> 
-                        <p>
-                            If you forgot your user ID or Password follow these links.
-                        </p>
+                        
                         <br><br>
-                        <a href="FogetUserID.jsp" target="_blank">Forgot User ID</a>
-                        <br><br>
-                        <a href="FogetPassword.jsp" target="_blank">Forgot password</a>
-                        <br><br>
-
+                        
+                        <table>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <a href="FogetUserID.jsp" target="_blank">Forgot User ID</a>
+                       
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                      <a href="FogetPassword.jsp" target="_blank">Forgot Password</a>
+                       
+                                </td>
+                            </tr>
+                        </table>
+                        
                     </center>
 
                 </div>
 
-            </div>
 
+            </div>
             <div id="footer">
-                Copyright © SirivajiraghanaDahamPasala.com
+                <!-- outer file -->
             </div>
         </div>
-
-
-
     </body>
-
 </html>

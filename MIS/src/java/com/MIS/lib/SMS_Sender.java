@@ -13,9 +13,9 @@ public class SMS_Sender {
     String api_id,user,password;
 
     public SMS_Sender() {
-        api_id ="3520483";
-        user = "kehelmala";
-        password = "HIOSALLDVbJNTR";
+        api_id ="3521554";
+        user = "massa@123";
+        password = "SQRESIYHJgdWEB";
         //ID: 211f88aad21c21e41835dbe0a65403a8
     }
     

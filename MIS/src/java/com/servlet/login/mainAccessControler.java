@@ -195,7 +195,7 @@ public class mainAccessControler extends HttpServlet {
                         RequestDispatcher rd = request.getRequestDispatcher("/stiHome.jsp");
                         rd.forward(request, response);
                     } else {
-                          request.setAttribute("massage", "Your Use Name is not Correct");
+                          request.setAttribute("massage", "Your User Name is Invalid");
                         RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
                         rd.forward(request, response);
                     }
@@ -204,7 +204,7 @@ public class mainAccessControler extends HttpServlet {
                 } else {
                     para2 = "('" + useID + "')";
                     proc.callProc("passwordCounterIncriment", para2);
-                    request.setAttribute("massage", "Your Use Name and password is not Correct");
+                    request.setAttribute("massage", "Your user name and password is Invalid");
                     RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
                     rd.forward(request, response);
                 }
@@ -264,7 +264,7 @@ public class mainAccessControler extends HttpServlet {
                     res = proc.callProc("selectOperationalUser", para);
 
                 } else {
-                    request.setAttribute("massage", "your account is temporaly blocked and go and meet system admin in the dhamma school");
+                    request.setAttribute("massage", "Your account is temporary blocked.Get new password through fogot pssword link on main login or meet research center in-charge");
                     RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
                     rd.forward(request, response);
 
@@ -285,7 +285,7 @@ public class mainAccessControler extends HttpServlet {
 
                 }
 
-                request.setAttribute("massage", "your account is temporaly blocked and go and meet system admin in the dhamma school");
+                request.setAttribute("massage", "Your account is temporary blocked.Get new password through fogot pssword link on main login or meet research center in-charge");
                 RequestDispatcher rd = request.getRequestDispatcher("/Invalid.jsp");
                 rd.forward(request, response);
             }

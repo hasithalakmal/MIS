@@ -18,10 +18,10 @@
 
         <script>
             $(function () {
-                $("#header").load("UI_Parts/rci_header.jsp");
+                $("#header").load("UI_Parts/sti_header.jsp");
                 $("#nav").load("UI_Parts/nav.jsp");
                 $("#footer").load("UI_Parts/footer.jsp");
-                $("#wrap").load("UI_Parts/rci_menue.jsp");
+                $("#wrap").load("UI_Parts/sti_menue.jsp");
             });
         </script>
     </head>
