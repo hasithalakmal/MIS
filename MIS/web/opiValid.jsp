@@ -8,8 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Research Center In-Charge Profile</title>
         <link rel="stylesheet" type="text/css" href="UI_Parts/mystyle_Aplication.css">
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -22,8 +23,10 @@
                 $("#wrap").load("UI_Parts/opi_menue.jsp");
             });
         </script>
+
     </head>
-    <body>
+    <body >
+
         <%
 
             String x1 = (String) session.getAttribute("useID");
@@ -31,10 +34,12 @@
                 RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
                 rd.forward(request, response);
             }
+
             String msg = (String) request.getAttribute("massage");
 
+
         %>
-        <div id="container">
+       <div id="container">
             <div id="header">
                 <!-- outer file -->
             </div>
@@ -45,21 +50,13 @@
                 <div id="wrap" >
                     <!-- outer file -->
                 </div>
-
-
-
-
                 <div id="content_container">
 
 
                     <h3>process   is success </h3>
 
                     <p style="color: green"><%=msg%></p>
-
                 </div>
-
-
-
 
             </div>
             <div id="footer">
@@ -68,4 +65,3 @@
         </div>
     </body>
 </html>
-

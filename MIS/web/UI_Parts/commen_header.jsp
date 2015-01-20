@@ -11,14 +11,14 @@
                 <img src="uper1.jpg" width="300">
             </td>
             <td>
-                
+                <h1 style="color: #FFF">Welcome To Management Information System</h1>
             </td>
             <td>
-                <a href="index.jsp"><img src="Images/home.png" width="75" height="75" align="right"></a>
+               
             </td>
             <td align="right">
 
-                <h3> <a href="logoutPage.jsp" style="color: #FFF">(LogOut)</a></h3> 
+                
             </td>
         </tr>
     </table>

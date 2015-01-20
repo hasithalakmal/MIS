@@ -27,9 +27,9 @@
         </li>
         <li><a href="#">||User Management||</a>
             <ul>
-                <li><a href="RegistationPrf.jsp">Add Prefect</a></li> 
+                <li><a href="PbiRegPrefect.jsp">Add Prefect</a></li> 
                 <li><a href="removeprefect.jsp">Remove Prefect</a></li>
-                <li><a href="RegistationTsi.jsp">Add Prefect In-charge</a></li>
+              <!--  <li><a href="RegistationTsi.jsp">Add Prefect In-charge</a></li> -->
             </ul>
         </li>
         <li><a href="#">||Reports||</a>

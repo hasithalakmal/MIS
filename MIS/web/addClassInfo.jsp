@@ -80,7 +80,7 @@
                 </tr>
                 
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Assay</td>
                     <td>
                         <input type="radio" name='q1' value='best'>best
                         <input type="radio" name='q1' value='good'>good
@@ -89,7 +89,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Brave</td>
                     <td>
                         <input type="radio" name='q2' value='best'>best
                         <input type="radio" name='q2' value='good'>good
@@ -98,7 +98,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Mischievous</td>
                     <td>
                         <input type="radio" name='q3' value='best'>best
                         <input type="radio" name='q3' value='good'>good
@@ -107,7 +107,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Adamant</td>
                     <td>
                         <input type="radio" name='q4' value='best'>best
                         <input type="radio" name='q4' value='good'>good
@@ -116,7 +116,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Unwilling to govern</td>
                     <td>
                         <input type="radio" name='q5' value='best'>best
                         <input type="radio" name='q5' value='good'>good
@@ -125,7 +125,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Misunderstand</td>
                     <td>
                         <input type="radio" name='q6' value='best'>best
                         <input type="radio" name='q6' value='good'>good
@@ -134,7 +134,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Affectivity</td>
                     <td>
                         <input type="radio" name='q7' value='best'>best
                         <input type="radio" name='q7' value='good'>good
@@ -143,7 +143,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Memorable</td>
                     <td>
                         <input type="radio" name='q8' value='best'>best
                         <input type="radio" name='q8' value='good'>good
@@ -152,7 +152,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Abruptness</td>
                     <td>
                         <input type="radio" name='q9' value='best'>best
                         <input type="radio" name='q9' value='good'>good
@@ -161,7 +161,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Competitive</td>
                     <td>
                         <input type="radio" name='q10' value='best'>best
                         <input type="radio" name='q10' value='good'>good
@@ -170,7 +170,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Leadership</td>
                     <td>
                         <input type="radio" name='q11' value='best'>best
                         <input type="radio" name='q11' value='good'>good
@@ -179,7 +179,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Cooperation</td>
                     <td>
                         <input type="radio" name='q12' value='best'>best
                         <input type="radio" name='q12' value='good'>good
@@ -188,7 +188,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Honesty</td>
                     <td>
                         <input type="radio" name='q13' value='best'>best
                         <input type="radio" name='q13' value='good'>good
@@ -197,7 +197,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Attentiveness</td>
                     <td>
                         <input type="radio" name='q14' value='best'>best
                         <input type="radio" name='q14' value='good'>good
@@ -206,7 +206,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Talkativeness</td>
                     <td>
                         <input type="radio" name='q15' value='best'>best
                         <input type="radio" name='q15' value='good'>good
@@ -215,7 +215,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Helpfulness</td>
                     <td>
                         <input type="radio" name='q16' value='best'>best
                         <input type="radio" name='q16' value='good'>good
@@ -224,7 +224,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Presentable</td>
                     <td>
                         <input type="radio" name='q17' value='best'>best
                         <input type="radio" name='q17' value='good'>good
@@ -233,7 +233,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Acceptance</td>
                     <td>
                         <input type="radio" name='q18' value='best'>best
                         <input type="radio" name='q18' value='good'>good
@@ -242,7 +242,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Gradualism</td>
                     <td>
                         <input type="radio" name='q19' value='best'>best
                         <input type="radio" name='q19' value='good'>good
@@ -251,7 +251,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>qqqqqqqqqqqqqqqqqqqqqqqqqqqq</td>
+                    <td>Obedient</td>
                     <td>
                         <input type="radio" name='q20' value='best'>best
                         <input type="radio" name='q20' value='good'>good

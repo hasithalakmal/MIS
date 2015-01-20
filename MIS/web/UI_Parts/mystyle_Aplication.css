@@ -30,15 +30,15 @@ and open the template in the editor.
     float:left;
     background-color:#d4dadc;//ash
     border-radius: 10px;
-    height:300px;
-    width:200px;
+    height:460px;
+    width:265px;
     float:left;
     padding:5px;
     border-radius: 10px;
 }
 
 #section {
-    width:1050px;
+    width:950px;
     margin: 7px; 
     float:left;
     border-radius: 10px;
@@ -81,7 +81,7 @@ body {
 }
 #wrap {
     font-size: 1.1em;
-    width: 1050px;
+    width: 950px;
     padding: 0px;
     margin: 0 0; 
     background-color: #d4dadc;//ash

@@ -43,6 +43,7 @@
             <div id="section" >
                 <div id="wrap" >
                     <!-- outer file -->
+                    <a href="../../../../../C:/Users/hp/AppData/Local/Temp/Rar$DRa0.026/rciInvalid.jsp"></a>
                 </div>
 
                 <div id="content_container">
@@ -56,12 +57,12 @@
                     </center>
                 </div>
 
-            
             </div>
+
             <div id="footer">
-                <!-- outer file -->
+                Copyright © SiriWajiraghanaDahamPasala.com
             </div>
         </div>
+
     </body>
 </html>
-
